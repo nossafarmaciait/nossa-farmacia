@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-180 -180 1360 1360"><rect x="-180" y="-180" width="1360" height="1360" rx="300" fill="#00624A"/><path fill="#fff" fill-opacity=".7" d="M759.2,12.7 M759.2,12.7H260.4l239.5,247.9l0.1-0.1l103.6-99L759.2,12.7"/>
+	<polygon fill="#fff" fill-opacity=".4" points="260.1,12.7 260.1,499.5 260.4,499.8 260.4,499.8 499.7,260.6 	"/>
+	<polygon fill="#fff" points="759.2,12.7 500,260.6 759.2,260.6 	"/>
+	<polygon fill="#fff" fill-opacity=".7" points="12.5,240.5 12.5,739.3 260.1,500 260.1,499.5 	"/>
+	<polygon fill="#fff" points="260.1,500 260.4,499.8 260.4,499.8 260.1,499.5 	"/>
+	<polygon fill="#fff" fill-opacity=".4" points="260.4,499.8 260.1,500.1 260.1,500 12.5,739.3 499.9,739.3 	"/>
+	<path fill="#fff" d="M260.1,500v0.1l0.3-0.3l-0.1-0.1L260.1,500z M260.4,499.8L260.4,499.8L260.4,499.8L260.4,499.8z"/>
+	<path fill="#fff" d="M260.1,500L12.5,739.3L260.1,500z"/>
+	<polygon fill="#fff" points="260.4,499.8 260.1,500 260.4,499.8 	"/>
+	<polygon fill="#fff" points="260.4,499.8 260.4,240.5 12.5,240.5 	"/>
+	<polygon fill="#fff" fill-opacity=".7" points="499.9,739.4 240.6,987.3 739.5,987.3 	"/>
+	<polygon fill="#fff" fill-opacity=".4" points="739.5,499.9 499.9,739.4 739.5,987.3 739.5,987.3 	"/>
+	<polyline fill="#fff" points="499.9,739.4 499.9,739.4 739.5,987.3 499.9,739.4 	"/>
+	<polygon fill="#fff" points="499.9,739.4 240.6,739.4 240.6,987.3 	"/>
+	<polyline fill="#fff" fill-opacity=".7" points="987.5,260.4 739.6,500 987.5,759.3 987.5,260.4 	"/>
+	<path fill="#fff" fill-opacity=".4" d="M987.5,260.4H759.2v0.1h-259L739.6,500L987.5,260.4z M500.1,260.4"/>
+	<path fill="#fff" d="M500.1,260.4L500.1,260.4L500.1,260.4z"/>
+	<polygon fill="#fff" points="500.1,260.4 500.2,260.6 759.2,260.6 759.2,260.4 	"/>
+	<path fill="#fff" d="M987.5,260.4L739.6,500L987.5,260.4z"/>
+	<polygon fill="#fff" points="739.6,500 739.6,759.3 987.5,759.3 	"/></svg>
