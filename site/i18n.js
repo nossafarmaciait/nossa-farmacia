@@ -10,9 +10,17 @@ window.GNF_I18N = {
     en: "Grupo Nossa Farmácia — The largest pharmacy group in Portugal",
     es: "Grupo Nossa Farmácia — El mayor grupo de farmacias de Portugal"
   },
-  "Queremos levar mais saúde a cada vez mais pessoas, para que estas possam viver mais e melhor. Cerca de 400 farmácias que partilham os mesmos valores, ideais e políticas de gestão.": {
-    en: "We want to bring better health to more and more people, so they can live longer and better. Around 400 pharmacies that share the same values, ideals and management policies.",
-    es: "Queremos llevar más salud a cada vez más personas, para que puedan vivir más y mejor. Cerca de 400 farmacias que comparten los mismos valores, ideales y políticas de gestión."
+  "O maior grupo de farmácias em Portugal: cerca de 400 farmácias com os mesmos valores. Conheça os serviços, a proposta de valor e como aderir ao Grupo.": {
+    en: "The largest pharmacy group in Portugal: around 400 pharmacies sharing the same values. Discover our services, our value proposition and how to join the Group.",
+    es: "El mayor grupo de farmacias de Portugal: cerca de 400 farmacias con los mismos valores. Conozca los servicios, la propuesta de valor y cómo unirse al Grupo."
+  },
+  "Balcão de uma farmácia do Grupo Nossa Farmácia, com farmacêuticos a atender clientes.": {
+    en: "Counter of a Grupo Nossa Farmácia pharmacy, with pharmacists serving customers.",
+    es: "Mostrador de una farmacia del Grupo Nossa Farmácia, con farmacéuticos atendiendo a clientes."
+  },
+  "Vídeo institucional do Grupo Nossa Farmácia.": {
+    en: "Grupo Nossa Farmácia corporate video.",
+    es: "Vídeo institucional del Grupo Nossa Farmácia."
   },
   "O maior grupo de farmácias em Portugal: cerca de 400 farmácias que partilham os mesmos valores, ideais e políticas de gestão.": {
     en: "The largest pharmacy group in Portugal: around 400 pharmacies that share the same values, ideals and management policies.",
