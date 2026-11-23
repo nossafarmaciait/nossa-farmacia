@@ -7,9 +7,10 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>
-  // As páginas do site antigo de grupo.nossafarmacia.pt (Portal, Nossas Farmácias, Emprego, …)
-  // passaram para portal.nossafarmacia.pt: um URL antigo segue para o mesmo caminho lá.
-  if (location.hostname === 'grupo.nossafarmacia.pt') {
+  // O site antigo de grupo.nossafarmacia.pt passou para portal.nossafarmacia.pt. Os caminhos dele
+  // começam por maiúscula (/Portal, /NossasFarmacias/, /Emprego/, …): esses seguem para lá.
+  // Os restantes mostram esta página.
+  if (location.hostname === 'grupo.nossafarmacia.pt' && /^\/[A-Z]/.test(location.pathname)) {
     location.replace('https://portal.nossafarmacia.pt' + location.pathname + location.search + location.hash);
   }
 </script>

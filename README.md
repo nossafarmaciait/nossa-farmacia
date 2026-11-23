@@ -22,7 +22,7 @@ O código-fonte está em `site/`. Um build curto (`npm run build`) gera em `dist
 - **Por página:** título e descrição próprios por língua, `canonical`, `hreflang` (pt-PT, en, es e x-default), Open Graph e Twitter com imagem 1200×630 (`media/og-1200x630.jpg`), e `robots` com `max-image-preview:large`.
 - **Dados estruturados (JSON-LD no `<head>`):** `Organization` (nome legal Addo Pharm, S.A., contactos, redes sociais e prémios IAPMEI), `WebSite`, `WebPage` e `VideoObject` do vídeo institucional. Ao mudar contactos, redes sociais ou prémios no rodapé, atualizem também este bloco.
 - **Idiomas:** `/`, `/en/` e `/es/` são páginas estáticas, cada uma no seu URL, e entram no `sitemap.xml`. Os links antigos com `?lang=en` ou `?lang=es` redirecionam para `/en/` e `/es/`.
-- **404 e URLs antigos:** em `grupo.nossafarmacia.pt`, um URL que não exista na landing (ex.: `/Portal`, `/NossasFarmacias/`) segue para o mesmo caminho em `portal.nossafarmacia.pt`.
+- **404 e URLs antigos:** em `grupo.nossafarmacia.pt`, os caminhos do site antigo (começam por maiúscula: `/Portal`, `/NossasFarmacias/`, …) seguem para o mesmo caminho em `portal.nossafarmacia.pt`. Os outros mostram a página 404 (ver Comportamento).
 - **Ícones:** `favicon.ico` (48 px), `favicon.svg`, `apple-touch-icon.png` (180 px) e `site.webmanifest` com ícones 192/512 em `img/icons/`.
 - **Depois de o domínio estar no ar (Google Search Console):**
   1. Adicionar a propriedade do domínio `nossafarmacia.pt` (verificação por registo TXT no DNS) ou o prefixo `https://grupo.nossafarmacia.pt/`.
