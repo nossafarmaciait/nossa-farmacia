@@ -2,10 +2,13 @@
 <html lang="pt-PT">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Página não encontrada — Grupo Nossa Farmácia</title>
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B2720">
+<link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>
   // O site antigo de grupo.nossafarmacia.pt passou para portal.nossafarmacia.pt. Os caminhos dele
   // começam por maiúscula (/Portal, /NossasFarmacias/, /Emprego/, …): esses seguem para lá.
@@ -15,23 +18,148 @@
   }
 </script>
 <style>
-  :root{color-scheme:light;--dark:#0B2720;--emerald:#009B77;--paper:#F4F8F6;--ink:#0E1E1A;--ink-2:#3C4D49}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;background:var(--paper);color:var(--ink);font:400 17px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:24px}
-  main{max-width:520px;text-align:center}
-  img{width:64px;height:64px}
-  h1{font-size:clamp(26px,5vw,34px);line-height:1.15;letter-spacing:-.02em;margin:24px 0 12px}
-  p{color:var(--ink-2);margin:0 0 8px}
-  a{display:inline-block;margin-top:24px;padding:12px 22px;border-radius:999px;background:var(--dark);color:#fff;text-decoration:none;font-weight:600}
-  a:focus-visible{outline:3px solid var(--emerald);outline-offset:3px}
+@font-face{font-family:"Hanken Grotesk";src:url(fonts/hanken-grotesk-var.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(fonts/instrument-serif-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+:root{
+  --deep:#00624A; --mint:#6BBFA3; --dark:#0B2720; --paper-2:#EAF3EE;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --gutter:clamp(20px,5vw,72px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100svh;background:var(--dark);color:#fff;font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,p{margin:0}
+a{color:inherit}
+
+/* palco: vídeo da prateleira com o espaço vazio, sombra do lado do texto */
+.stage{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.stage video,.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.stage video{opacity:0;transition:opacity 1.2s var(--ease)}
+.stage video.on{opacity:1}
+.stage::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(6,26,21,.92) 0%,rgba(6,26,21,.78) 30%,rgba(6,26,21,.2) 62%,rgba(6,26,21,0) 78%),
+  linear-gradient(0deg,rgba(6,26,21,.6) 0%,rgba(6,26,21,0) 35%)}
+
+.top{padding:clamp(20px,3vw,32px) var(--gutter)}
+.top a{display:inline-flex}
+.top img{width:187px;height:auto}
+
+main{min-height:calc(100svh - 96px);display:flex;align-items:center;padding:0 var(--gutter) clamp(48px,8vh,96px)}
+.copy{width:100%;min-width:0;max-width:640px}
+
+/* 4 ✚ 4: a cruz do logótipo faz de zero e roda 90° de cada vez (é simétrica, encaixa sempre) */
+.code{display:flex;align-items:center;gap:.08em;font-size:clamp(84px,13vw,176px);font-weight:600;line-height:.9;letter-spacing:-.05em;color:#DDF2E8}
+.code .mark{width:.78em;height:.78em;margin:0 .04em;flex:none;filter:drop-shadow(0 0 28px rgba(107,191,163,.35))}
+.code .mark g{transform-origin:500px 500px;animation:turn 3.2s var(--ease) infinite}
+@keyframes turn{0%,55%{transform:rotate(0)}85%,100%{transform:rotate(90deg)}}
+
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+h1{margin-top:clamp(24px,3vw,36px);font-size:clamp(36px,4.8vw,62px);line-height:1.02;letter-spacing:-.035em;font-weight:600;text-wrap:balance}
+h1 em{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.08em;letter-spacing:-.02em;color:#DDF2E8}
+.lead{margin-top:20px;font-size:clamp(17px,1.5vw,19px);color:rgba(255,255,255,.84);max-width:34em}
+
+.ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;background:#fff;color:var(--dark);font-weight:600;font-size:16px;text-decoration:none;transition:background-color .2s}
+.btn:hover{background:var(--paper-2)}
+.btn svg{width:18px;height:18px;transition:transform .2s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.more{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.more a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:rgba(255,255,255,.9);font-size:15px;font-weight:500;text-decoration:none;transition:border-color .2s,background-color .2s}
+.more a:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.1)}
+a:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+
+/* entrada */
+.copy>*{animation:rise .9s var(--ease) both;animation-delay:calc(var(--i,0) * .09s + .1s)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+@media (max-width:760px){
+  /* mobile: a prateleira numa faixa no topo, com o espaço vazio à vista, e o texto por baixo */
+  .stage{position:absolute;inset:0 0 auto;height:62svh}
+  .stage video,.stage img{object-position:63% 50%}
+  .stage::after{background:linear-gradient(0deg,var(--dark) 0%,rgba(11,39,32,.6) 30%,rgba(11,39,32,.1) 62%,rgba(11,39,32,.55) 100%)}
+  main{min-height:0;align-items:flex-start;padding-top:calc(48svh - 96px)}
+  .top img{width:156px}
+  .ctas{gap:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .copy>*,.code .mark g{animation:none}
+}
 </style>
 </head>
 <body>
+<div class="stage" aria-hidden="true">
+  <img src="media/404.webp" alt="" width="1280" height="720" fetchpriority="high">
+  <video muted playsinline loop preload="none" tabindex="-1" data-src="media/404"></video>
+</div>
+
+<header class="top">
+  <a href="./" data-home aria-label="Grupo Nossa Farmácia — página inicial"><img src="img/logo/gnf-logo_branco.svg" alt="Grupo Nossa Farmácia" width="187" height="36"></a>
+</header>
+
 <main>
-  <img src="favicon.svg" alt="" width="64" height="64">
-  <h1>Página não encontrada</h1>
-  <p>O endereço que procura não existe ou mudou de sítio.</p>
-  <p lang="en">The page you are looking for does not exist or has moved.</p>
-  <a href="./">Ir para a página inicial</a>
+  <div class="copy">
+    <p class="code" aria-hidden="true" style="--i:0">4<svg class="mark" viewBox="0 0 1000 1000"><g fill="#fff">
+      <path fill-opacity=".7" d="M759.2,12.7H260.4l239.5,247.9l103.7-99.1L759.2,12.7"/>
+      <polygon fill-opacity=".4" points="260.1,12.7 260.1,499.5 260.4,499.8 499.7,260.6"/>
+      <polygon points="759.2,12.7 500,260.6 759.2,260.6"/>
+      <polygon fill-opacity=".7" points="12.5,240.5 12.5,739.3 260.1,500 260.1,499.5"/>
+      <polygon fill-opacity=".4" points="260.4,499.8 260.1,500.1 260.1,500 12.5,739.3 499.9,739.3"/>
+      <polygon points="260.4,499.8 260.4,240.5 12.5,240.5"/>
+      <polygon fill-opacity=".7" points="499.9,739.4 240.6,987.3 739.5,987.3"/>
+      <polygon fill-opacity=".4" points="739.5,499.9 499.9,739.4 739.5,987.3"/>
+      <polygon points="499.9,739.4 240.6,739.4 240.6,987.3"/>
+      <polygon fill-opacity=".7" points="987.5,260.4 739.6,500 987.5,759.3"/>
+      <path fill-opacity=".4" d="M987.5,260.4H759.2v0.1h-259L739.6,500L987.5,260.4z"/>
+      <polygon points="500.1,260.4 500.2,260.6 759.2,260.6 759.2,260.4"/>
+      <polygon points="739.6,500 739.6,759.3 987.5,759.3"/>
+    </g></svg>4</p>
+    <h1 style="--i:1"><span class="sr-only" data-t="eyebrow">Erro 404.</span> <span data-t="h1a">Esta página</span> <em data-t="h1b">não está na prateleira.</em></h1>
+    <p class="lead" style="--i:2" data-t="lead">O endereço que procura não existe ou mudou de sítio. Mas temos muito mais em stock.</p>
+    <div class="ctas" style="--i:3">
+      <a class="btn" href="./" data-home><span data-t="home">Ir para a página inicial</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <ul class="more">
+        <li><a href="./#servicos" data-sec="servicos" data-t="servicos">Serviços</a></li>
+        <li><a href="./#aderir" data-sec="aderir" data-t="aderir">Aderir</a></li>
+        <li><a href="./#contactos" data-sec="contactos" data-t="contactos">Contactos</a></li>
+      </ul>
+    </div>
+  </div>
 </main>
+
+<script>
+(() => {
+  /* língua: pelo caminho (/en/…, /es/…); o resto fica em português */
+  const T = {
+    en: { title: 'Page not found — Grupo Nossa Farmácia', eyebrow: 'Error 404.', h1a: 'This page', h1b: 'is not on the shelf.',
+          lead: 'The address you are looking for does not exist or has moved. But we have plenty more in stock.',
+          home: 'Go to the home page', servicos: 'Services', aderir: 'Join', contactos: 'Contacts', logo: 'Grupo Nossa Farmácia — home page' },
+    es: { title: 'Página no encontrada — Grupo Nossa Farmácia', eyebrow: 'Error 404.', h1a: 'Esta página', h1b: 'no está en la estantería.',
+          lead: 'La dirección que busca no existe o ha cambiado de sitio. Pero tenemos mucho más en stock.',
+          home: 'Ir a la página de inicio', servicos: 'Servicios', aderir: 'Unirse', contactos: 'Contactos', logo: 'Grupo Nossa Farmácia — página de inicio' },
+  };
+  const base = new URL(document.baseURI).pathname;
+  const rest = location.pathname.startsWith(base) ? location.pathname.slice(base.length) : location.pathname.replace(/^\//, '');
+  const lang = (rest.match(/^(en|es)(\/|$)/) || [])[1];
+  if (lang) {
+    const t = T[lang], d = document.documentElement;
+    d.lang = lang; document.title = t.title;
+    document.querySelectorAll('[data-t]').forEach(el => { el.textContent = t[el.dataset.t]; });
+    document.querySelector('.top a').setAttribute('aria-label', t.logo);
+    document.querySelectorAll('[data-home]').forEach(a => { a.href = lang + '/'; });
+    document.querySelectorAll('[data-sec]').forEach(a => { a.href = lang + '/#' + a.dataset.sec; });
+  }
+
+  /* vídeo: só depois do load e sem prefers-reduced-motion; até lá fica o poster */
+  const v = document.querySelector('.stage video');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !v) return;
+  addEventListener('load', () => {
+    v.innerHTML = `<source src="${v.dataset.src}.webm" type="video/webm"><source src="${v.dataset.src}.mp4" type="video/mp4">`;
+    v.addEventListener('playing', () => v.classList.add('on'), { once: true });
+    v.load(); v.play().catch(() => {});
+  });
+})();
+</script>
 </body>
 </html>

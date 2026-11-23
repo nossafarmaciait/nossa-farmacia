@@ -45,7 +45,7 @@ Dentro de `site/`:
 ```text
 index.html        página única (CSS e JS inline), com o texto em português
 i18n.js           traduções EN e ES: o build gera as páginas com elas, e a página EN/ES carrega-o para os textos criados em JS
-404.html          página de erro, com o redirecionamento dos URLs antigos para portal.nossafarmacia.pt
+404.html          página de erro animada (PT/EN/ES pelo caminho), com o redirecionamento dos URLs antigos para portal.nossafarmacia.pt
 favicon.svg, favicon.ico, apple-touch-icon.png, site.webmanifest
 fonts/            Hanken Grotesk (variável) e Instrument Serif itálico, woff2, alojadas localmente
 img/              logótipos GNF (SVG), foto de O Grupo (AVIF/WebP), serviços (WebP 760/1200), eDeliveries e parceiros (WebP)
@@ -53,6 +53,7 @@ img/              logótipos GNF (SVG), foto de O Grupo (AVIF/WebP), serviços (
                   icons/: ícones 192/512 (e versão maskable) do site.webmanifest
 media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:5) e posters (AVIF/WebP)
                   og-1200x630.jpg: imagem de partilha (Open Graph), recortada do poster da hero
+                  404.mp4/.webm/.webp: prateleira em loop da página 404 (1280×720, 12 s) e poster
                   proposta/: 9 clips em loop da Proposta de valor (MP4 H.264, 960×720, ~4 s) e posters (WebP)
                   emprego.mp4/.webp: fundo em loop do cartão Emprego (1280×720) e poster
                   adesao.mp4/.webp: vídeo dos 4 passos de adesão (720×960, ~12 s, keyframe a cada 6 frames) e poster
@@ -89,6 +90,10 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
 - **Prémios (IAPMEI):** a faixa no fim de O Grupo mostra os selos em vigor (PME Líder 2025 e PME Excelência 2025) e os anos de distinção: PME Líder em 2020, 2022, 2023, 2024 e 2025 (em 2021 não houve), com PME Excelência em 2023 e 2025. O rodapé mostra os 7 selos. Os diplomas estão em `../premios/`, em nome da Addo Pharm, S.A., a denominação oficial do Grupo.
   - Os selos foram recortados dos diplomas. Não havia diploma da PME Excelência 2025, por isso esse selo foi feito a partir do de 2023, trocando o "3" por um "5" retirado do selo PME Líder '25 (a mesma fonte). Deve ser substituído pelo selo oficial quando o tiverem.
   - **Cada novo ano:** juntem o ano à lista `aw-years`, troquem os selos da faixa e acrescentem um selo ao `f-awards` do rodapé, no `index.html`, com a dica (`f-tip`) do novo selo, e a mesma frase no `i18n.js`.
+- **Página 404:** "Esta página não está na prateleira." Por trás, uma prateleira da farmácia com um espaço vazio iluminado, em loop. No lugar do zero de "404" está a cruz do logótipo, que roda 90° a cada 3,2 s (é simétrica, por isso encaixa sempre).
+  - A língua sai do caminho: `/en/…` e `/es/…` mostram a página em inglês e espanhol, e os botões levam à página dessa língua. Os textos estão no próprio `404.html`.
+  - O vídeo só carrega depois do `load`. Até lá, e com `prefers-reduced-motion`, fica o poster e a cruz não roda. Em mobile a prateleira fica numa faixa no topo.
+  - Gerado no Higgsfield: imagem com GPT Image 2.6 a partir da imagem de partilha (mesma farmácia e mesma luz) e animação com Seedance 2.5. O loop toca para a frente e para trás, por isso o foco de luz acende e apaga devagar. Originais e frames em `higgsfield/404/`.
 - **Vídeo institucional:** o YouTube (`youtube-nocookie.com`) só é carregado quando o visitante carrega em reproduzir.
 - **Formulário de adesão:** não envia dados para nenhum servidor. Ao submeter, abre o programa de email do utilizador com o pedido preenchido para `grupo@nossafarmacia.pt`. Para trocar por um endpoint próprio, alterem o handler `submit` no fim de `index.html`.
 - **Idiomas (PT, EN, ES):** o seletor fica no menu e navega entre `/`, `/en/` e `/es/`. O português está no `index.html`; o `i18n.js` tem as traduções, com o texto em PT como chave. As páginas EN e ES são geradas pelo build e não se editam à mão.
