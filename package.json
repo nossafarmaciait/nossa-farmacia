@@ -1,0 +1,21 @@
+{
+  "name": "nossa-farmacia-site",
+  "description": "Landing page do Grupo Nossa Farmácia",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:report": "node scripts/build.mjs --report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nossafarmaciait/nossa-farmacia.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/nossafarmaciait/nossa-farmacia/issues"
+  },
+  "homepage": "https://github.com/nossafarmaciait/nossa-farmacia#readme",
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  },
+  "private": true
+}

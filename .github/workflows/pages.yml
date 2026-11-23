@@ -1,11 +1,13 @@
-# Publica a pasta site/ no GitHub Pages a cada push na main.
+# Gera o site (scripts/build.mjs → dist/, com as páginas /en/ e /es/, sitemap e robots)
+# e publica-o no GitHub Pages a cada push na main.
 # Em Settings → Pages, a "Source" tem de estar em "GitHub Actions".
+# Fora do domínio de produção (grupo.nossafarmacia.pt) o build marca as páginas como noindex.
 name: Publicar site no GitHub Pages
 
 on:
   push:
     branches: [main]
-    paths: ['site/**', '.github/workflows/pages.yml']
+    paths: ['site/**', 'scripts/**', 'package.json', 'package-lock.json', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:
@@ -25,9 +27,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+        with:
+          fetch-depth: 0 # data do último commit em site/ para o <lastmod> do sitemap
+      - id: pages
+        uses: actions/configure-pages@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          DEPLOY_URL: ${{ steps.pages.outputs.base_url }}
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
