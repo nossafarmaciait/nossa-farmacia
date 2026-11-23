@@ -97,7 +97,12 @@ function setMeta(doc, lang, t) {
   const $ = s => doc.querySelector(s);
   doc.documentElement.lang = L.html;
   $('link[rel="canonical"]').href = url;
-  $('meta[property="og:url"]').content = url;
+  // Open Graph: fora de produção aponta para o endereço publicado (o domínio de produção ainda serve o site antigo,
+  // e as redes sociais seguem o og:url e descarregam o og:image daí)
+  const shareBase = PRODUCTION ? SITE_URL : DEPLOY_URL;
+  $('meta[property="og:url"]').content = shareBase + L.dir;
+  const ogImg = $('meta[property="og:image"]');
+  if (ogImg) ogImg.content = ogImg.content.replace(SITE_URL, shareBase);
   $('meta[property="og:locale"]').content = L.og;
   const alts = [...doc.querySelectorAll('meta[property="og:locale:alternate"]')];
   Object.entries(LANGS).filter(([k]) => k !== lang).forEach(([, o], i) => { if (alts[i]) alts[i].content = o.og; });
@@ -131,6 +136,7 @@ for (const [lang, L] of Object.entries(LANGS)) {
   if (lang === 'pt') {
     html = source; // a página PT publica-se como está no repositório
     if (robotsMeta) html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="${robotsMeta}">`);
+    if (!PRODUCTION) html = html.replace(/(<meta property="og:(?:url|image)" content=")([^"]*)(">)/g, (m, a, u, b) => a + u.replace(SITE_URL, DEPLOY_URL) + b);
   } else {
     const dom = new JSDOM(source);
     const doc = dom.window.document;

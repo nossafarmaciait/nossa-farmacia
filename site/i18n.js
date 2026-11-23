@@ -14,9 +14,9 @@ window.GNF_I18N = {
     en: "The largest pharmacy group in Portugal: around 400 pharmacies sharing the same values. Discover our services, our value proposition and how to join the Group.",
     es: "El mayor grupo de farmacias de Portugal: cerca de 400 farmacias con los mismos valores. Conozca los servicios, la propuesta de valor y cómo unirse al Grupo."
   },
-  "Balcão de uma farmácia do Grupo Nossa Farmácia, com farmacêuticos a atender clientes.": {
-    en: "Counter of a Grupo Nossa Farmácia pharmacy, with pharmacists serving customers.",
-    es: "Mostrador de una farmacia del Grupo Nossa Farmácia, con farmacéuticos atendiendo a clientes."
+  "Logótipo do Grupo Nossa Farmácia e a frase “Cerca de 400 farmácias, os mesmos valores.” sobre o balcão de uma farmácia do Grupo.": {
+    en: "Grupo Nossa Farmácia logo and the line “Around 400 pharmacies, the same values.” over the counter of a Group pharmacy.",
+    es: "Logotipo del Grupo Nossa Farmácia y la frase “Cerca de 400 farmacias, los mismos valores.” sobre el mostrador de una farmacia del Grupo."
   },
   "Vídeo institucional do Grupo Nossa Farmácia.": {
     en: "Grupo Nossa Farmácia corporate video.",

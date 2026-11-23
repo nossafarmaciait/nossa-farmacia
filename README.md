@@ -8,7 +8,7 @@ O código-fonte está em `site/`. Um build curto (`npm run build`) gera em `dist
 
 - **GitHub Pages (automático):** cada push na `main` que mexa em `site/`, `scripts/` ou `package*.json` corre o workflow `.github/workflows/pages.yml`, que faz o build e publica o `dist/`. Também se pode correr à mão em Actions → "Publicar site no GitHub Pages" → Run workflow.
 - **Outro servidor:** `npm ci && npm run build` (Node 20 ou mais recente) e copiar o conteúdo de `dist/` para a raiz de `grupo.nossafarmacia.pt`. Configurem a página de erro 404 para `404.html`.
-- **Fora do domínio de produção** (ex.: `nossafarmaciait.github.io/nossa-farmacia/`), o build marca todas as páginas como `noindex`, para o Google não indexar a cópia de testes. Para testar localmente: `DEPLOY_URL=http://localhost:8765/ npm run build` e `python3 -m http.server 8765 -d dist`.
+- **Fora do domínio de produção** (ex.: `nossafarmaciait.github.io/nossa-farmacia/`), o build marca todas as páginas como `noindex`, para o Google não indexar a cópia de testes. Nesse caso o `og:url` e o `og:image` passam a apontar para o endereço publicado, para a pré-visualização dos links funcionar enquanto `grupo.nossafarmacia.pt` ainda serve o site antigo. Para testar localmente: `DEPLOY_URL=http://localhost:8765/ npm run build` e `python3 -m http.server 8765 -d dist`.
 - **Para mudar o domínio:** troquem `https://grupo.nossafarmacia.pt/` no `<head>` do `site/index.html` (canonical, hreflang, Open Graph e dados estruturados) e na constante `SITE_URL` de `scripts/build.mjs`.
 
 ### Pôr o domínio no ar no GitHub Pages
@@ -52,7 +52,7 @@ img/              logótipos GNF (SVG), foto de O Grupo (AVIF/WebP), serviços (
                   premios/: selos PME Líder 2020, 2022-2025 e PME Excelência 2023 e 2025 (WebP transparente)
                   icons/: ícones 192/512 (e versão maskable) do site.webmanifest
 media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:5) e posters (AVIF/WebP)
-                  og-1200x630.jpg: imagem de partilha (Open Graph), recortada do poster da hero
+                  og-1200x630.jpg: imagem de partilha (Open Graph): poster da hero com o logótipo e a frase do Grupo. O modelo está em `higgsfield/og/og-imagem.html` (abrir no Chrome a 1200×630 e capturar); se a imagem mudar, troquem também o `og:image:alt` no `index.html` e no `i18n.js`
                   404.mp4/.webm/.webp: prateleira em loop da página 404 (1280×720, 12 s) e poster
                   proposta/: 9 clips em loop da Proposta de valor (MP4 H.264, 960×720, ~4 s) e posters (WebP)
                   emprego.mp4/.webp: fundo em loop do cartão Emprego (1280×720) e poster
