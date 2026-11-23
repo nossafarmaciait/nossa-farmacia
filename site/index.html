@@ -366,6 +366,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 .p-visual > :not(.p-media){z-index:2}
 .p-visual .kw{position:relative;font-family:var(--serif);font-style:italic;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:-.02em;color:#fff}
 .p-visual .kw small{display:block;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:12px;font-weight:600}
+.p-visual .kw small.brand{text-transform:none;font-size:15px;letter-spacing:.02em} /* brand name keeps its own casing */
 .p-visual .fig{font-family:var(--sans);font-style:normal;font-weight:600;letter-spacing:-.05em;font-size:clamp(56px,6.4vw,104px);font-variant-numeric:tabular-nums}
 /* the caption sits at the bottom of the card (eDeliveries keeps title on top, logos below) */
 .p-visual:not(.dl){justify-content:flex-end}
@@ -794,7 +795,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
       </li>
       <li class="svc rv" style="--d:0.18s">
         <figure><img src="img/servicos/academy-760.webp" srcset="img/servicos/academy-760.webp 760w, img/servicos/academy-1200.webp 1200w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 600px" alt="Formadora a apresentar uma sessão a um grupo de profissionais de farmácia de bata branca." width="1200" height="800" loading="lazy" decoding="async"></figure>
-        <div class="svc-body"><span class="idx" aria-hidden="true">04</span><h3>JUMP Academy</h3><p>Academia de Recursos Humanos dedicada ao desenvolvimento de talentos: mentoria, avaliação de potencial e planos integrados de desenvolvimento, com desafios de carreira para os colaboradores.</p></div>
+        <div class="svc-body"><span class="idx" aria-hidden="true">04</span><h3>Academia</h3><p>Academia de Recursos Humanos dedicada ao desenvolvimento de talentos: mentoria, avaliação de potencial e planos integrados de desenvolvimento, com desafios de carreira para os colaboradores.</p></div>
       </li>
       <li class="svc rv" style="--d:0.24s">
         <figure><img src="img/servicos/nutricao-760.webp" srcset="img/servicos/nutricao-760.webp 760w, img/servicos/nutricao-1200.webp 1200w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 600px" alt="Nutricionista em consulta com uma cliente, com fruta e legumes frescos e um plano alimentar no tablet." width="1200" height="800" loading="lazy" decoding="async"></figure>
@@ -821,7 +822,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
       <button class="tab" role="tab" id="t-4" aria-controls="p-4" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg>Portfolio</button>
       <button class="tab" role="tab" id="t-5" aria-controls="p-5" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg>E-Commerce</button>
       <button class="tab" role="tab" id="t-6" aria-controls="p-6" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-bike"/></svg>eDeliveries</button>
-      <button class="tab" role="tab" id="t-7" aria-controls="p-7" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-pill"/></svg>COMPLETUS</button>
+      <button class="tab" role="tab" id="t-7" aria-controls="p-7" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-pill"/></svg>Completus®</button>
       <button class="tab" role="tab" id="t-8" aria-controls="p-8" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-headset"/></svg>Customer Service</button>
     </div>
 
@@ -907,12 +908,12 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 
       <div class="panel" role="tabpanel" id="p-7" aria-labelledby="t-7" tabindex="0" hidden>
         <div class="p-copy">
-          <div class="p-title"><h3>COMPLETUS</h3></div>
+          <div class="p-title"><h3>Completus®</h3></div>
           <p class="p-sub">Produtos com elevada rentabilidade e diferenciação face ao mercado.</p>
           <div class="p-body"><p>Acreditamos que ao criarmos produtos de marca própria, com foco na qualidade, diferenciação e inovação, estamos a conferir prestígio ao aconselhamento farmacêutico, fidelizando e atraindo novos utentes. Naturalmente, marcamos pela diferença!</p></div>
-          <a class="link-arrow p-link" href="https://portal.nossafarmacia.pt/MarcasProprias/" rel="noopener">Conhecer a COMPLETUS <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
+          <a class="link-arrow p-link" href="https://portal.nossafarmacia.pt/MarcasProprias/" rel="noopener">Conhecer a Completus® <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
         </div>
-        <div class="p-visual" aria-hidden="true"><video class="p-media" muted playsinline loop preload="none" data-src="media/proposta/completus.mp4" data-poster="media/proposta/completus.webp"></video><p class="kw"><small>COMPLETUS</small>marca própria</p></div>
+        <div class="p-visual" aria-hidden="true"><video class="p-media" muted playsinline loop preload="none" data-src="media/proposta/completus.mp4" data-poster="media/proposta/completus.webp"></video><p class="kw"><small class="brand">Completus®</small>marca própria</p></div>
       </div>
 
       <div class="panel" role="tabpanel" id="p-8" aria-labelledby="t-8" tabindex="0" hidden>
@@ -1036,7 +1037,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
         <h2>Grupo</h2>
         <ul>
           <li><a href="https://portal.nossafarmacia.pt/NossasFarmacias/" rel="noopener">Nossas Farmácias</a></li>
-          <li><a href="https://portal.nossafarmacia.pt/MarcasProprias/" rel="noopener">COMPLETUS</a></li>
+          <li><a href="https://portal.nossafarmacia.pt/MarcasProprias/" rel="noopener">Completus®</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="https://portal.nossafarmacia.pt/Emprego/" rel="noopener">Emprego</a></li>
         </ul>

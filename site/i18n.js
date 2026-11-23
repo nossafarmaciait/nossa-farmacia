@@ -241,7 +241,8 @@ window.GNF_I18N = {
     en: "We believe that by creating own-brand products focused on quality, differentiation and innovation, we add prestige to pharmaceutical advice, building loyalty and attracting new customers. Naturally, we stand out!",
     es: "Creemos que, al crear productos de marca propia centrados en la calidad, la diferenciación y la innovación, damos prestigio al consejo farmacéutico, fidelizando y atrayendo a nuevos clientes. ¡Naturalmente, marcamos la diferencia!"
   },
-  "Conhecer a COMPLETUS": { en: "Discover COMPLETUS", es: "Conocer COMPLETUS" },
+  "Conhecer a Completus®": { en: "Discover Completus®", es: "Conocer Completus®" },
+  "Academia": { en: "Academy", es: "Academia" },
   "marca própria": { en: "own brand", es: "marca propia" },
   "Suporte através de linha telefónica dedicada às Farmácias e canais de venda online.": {
     en: "Support through a dedicated phone line for pharmacies and online sales channels.",

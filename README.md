@@ -101,7 +101,7 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
   - O título, a descrição e o texto alternativo da imagem de partilha (`og:image:alt`) também se traduzem pelo `i18n.js`.
   - **Para acrescentar um texto:** escrevam-no em PT no `index.html` e acrescentem uma entrada no `i18n.js` com `en` e `es`.
   - Os títulos com uma parte em itálico (`<em class="s">`) são traduzidos por partes: cada lado do `<em>` tem a sua entrada.
-- **Links externos:** Farmácia Online, Portal, Nossas Farmácias, COMPLETUS e Emprego apontam para as páginas atuais de `portal.nossafarmacia.pt` e `www.nossafarmacia.pt`.
+- **Links externos:** Farmácia Online, Portal, Nossas Farmácias, Completus® e Emprego apontam para as páginas atuais de `portal.nossafarmacia.pt` e `www.nossafarmacia.pt`.
 
 ## Testes
 
