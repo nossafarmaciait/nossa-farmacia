@@ -309,7 +309,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 @media (max-width:640px){.awards{grid-template-columns:1fr;gap:24px}.aw-seals img{height:84px}}
 
 /* ============ PROPOSTA (dark, tabs) ============ */
-.proposta{background-color:var(--dark);color:var(--on-dark);overflow:hidden;
+.proposta{background-color:var(--dark);color:var(--on-dark);overflow:clip;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M22 4 40 22 22 40 4 22Z' fill='none' stroke='%236BBFA3' stroke-opacity='.07'/%3E%3C/svg%3E"),radial-gradient(60% 50% at 50% 0%,rgba(0,155,119,.22),transparent 70%)}
 .proposta .eyebrow{color:var(--mint)}
 .proposta .h2{color:#fff}
@@ -320,12 +320,31 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 .tab .icon{width:17px;height:17px}
 .tab:hover{border-color:rgba(255,255,255,.3);color:#fff}
 .tab[aria-selected="true"]{background:#007F62;border-color:#2FB08E;color:#fff}
-.panels{margin-top:clamp(40px,5vw,64px)}
-.panel{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,72px);align-items:center}
+.panels{margin-top:clamp(40px,5vw,64px);display:grid}
+.panel{grid-area:1/1;display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,72px);align-items:center}
 .panel[hidden]{display:none}
-.panel.show .p-copy,.panel.show .p-visual{animation:pin .6s var(--ease) both}
-.panel.show .p-visual{animation-delay:.06s}
-@keyframes pin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* scroll-driven mode (JS adds .scrolly when tabs + tallest panel fit the viewport):
+   the stage pins below the nav and each slice of scroll advances one tab */
+.proposta.scrolly .p-stage{position:sticky;top:var(--pin-top,88px)}
+.proposta.scrolly .tabs{margin-top:0}
+.proposta.scrolly .p-track{margin-top:clamp(36px,4vw,56px)} /* keep the heading → tabs gap outside the pinned stage */
+.proposta.scrolly .panels{margin-top:clamp(28px,3.5vw,48px)}
+.proposta.scrolly .panel[hidden]{display:grid;visibility:hidden}
+.proposta.scrolly .panel{align-self:start}
+/* .tall: the tallest panel doesn't fit (phones) — the panel area clips vertically and JS scrolls the panel inside it */
+.proposta.scrolly.tall .panels{position:relative;overflow-x:visible;overflow-y:clip}
+.proposta.scrolly.tall .panels::after{content:"";position:absolute;inset:auto 0 0;height:40px;z-index:3;pointer-events:none;background:linear-gradient(180deg,transparent,var(--dark))}
+.p-progress{display:none}
+.proposta.scrolly .p-progress{display:block;width:min(240px,50%);height:2px;margin:18px auto 0;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden}
+.p-progress span{display:block;height:100%;background:var(--mint);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+/* horizontal slide between panels; --dir is 1 going forward, -1 going back */
+.panels .panel.out{display:grid;visibility:visible;pointer-events:none}
+.panel.in .p-copy,.panel.in .p-visual{animation:p-in .75s var(--ease) both}
+.panel.in .p-visual{animation-delay:.07s}
+.panel.out .p-copy,.panel.out .p-visual{animation:p-out .5s var(--ease) both}
+.panel.out .p-visual{animation-delay:.04s}
+@keyframes p-in{from{opacity:0;transform:translateX(calc(var(--dir,1)*16%))}to{opacity:1;transform:none}}
+@keyframes p-out{from{opacity:1;transform:none}to{opacity:0;transform:translateX(calc(var(--dir,1)*-16%))}}
 .p-title{display:flex;align-items:center;gap:16px}
 .p-title h3{font-size:clamp(26px,2.6vw,34px);letter-spacing:-.025em;font-weight:600;line-height:1.1}
 .p-sub{color:var(--mint);font-size:clamp(17px,1.5vw,19px);margin-top:20px;font-weight:500;max-width:48ch}
@@ -793,6 +812,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
       <h2 class="h2 rv" id="proposta-title" style="--d:.05s">O que a sua farmácia <em class="s">ganha com o Grupo.</em></h2>
     </div>
 
+    <div class="p-track"><div class="p-stage">
     <div class="tabs rv" role="tablist" aria-label="Proposta de valor" style="--d:.1s">
       <button class="tab" role="tab" id="t-1" aria-controls="p-1" aria-selected="true"><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg>Rentabilidade</button>
       <button class="tab" role="tab" id="t-2" aria-controls="p-2" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>Consultoria Farmácias</button>
@@ -805,8 +825,10 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
       <button class="tab" role="tab" id="t-8" aria-controls="p-8" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-headset"/></svg>Customer Service</button>
     </div>
 
+    <div class="p-progress" aria-hidden="true"><span></span></div>
+
     <div class="panels">
-      <div class="panel show" role="tabpanel" id="p-1" aria-labelledby="t-1" tabindex="0">
+      <div class="panel" role="tabpanel" id="p-1" aria-labelledby="t-1" tabindex="0">
         <div class="p-copy">
           <div class="p-title"><h3>Rentabilidade</h3></div>
           <p class="p-sub">Rentabilidade acima do mercado.</p>
@@ -901,6 +923,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
         <div class="p-visual" aria-hidden="true"><video class="p-media" muted playsinline loop preload="none" data-src="media/proposta/customerservice.mp4" data-poster="media/proposta/customerservice.webp"></video><p class="kw"><small>Customer Service</small>linha dedicada</p></div>
       </div>
     </div>
+    </div></div><!-- /.p-stage /.p-track -->
   </div>
 </section>
 
@@ -1240,8 +1263,22 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 
   /* ---------- Tabs ---------- */
   const tabs = $$('[role="tab"]');
+  const panelOf = t => $('#' + t.getAttribute('aria-controls'));
+  let cur = Math.max(0, tabs.findIndex(t => t.getAttribute('aria-selected') === 'true'));
   const select = (tab, focus) => {
-    tabs.forEach(t => { const on = t === tab; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; const p = $('#' + t.getAttribute('aria-controls')); p.hidden = !on; p.classList.toggle('show', on); });
+    const i = tabs.indexOf(tab);
+    if (i === cur) { if (focus) tab.focus({ preventScroll: true }); return; }
+    const prev = panelOf(tabs[cur]), next = panelOf(tab), dir = i > cur ? 1 : -1;
+    cur = i;
+    tabs.forEach(t => { const on = t === tab; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; panelOf(t).hidden = !on; });
+    // horizontal slide: the old panel leaves to one side while the new one comes in from the other
+    if (!reduce) {
+      [prev, next].forEach(p => { clearTimeout(p._t); p.classList.remove('in', 'out'); p.style.setProperty('--dir', dir); });
+      void next.offsetWidth; // restart the keyframes if this panel was mid-animation
+      prev.classList.add('out'); next.classList.add('in');
+      prev._t = setTimeout(() => prev.classList.remove('out'), 650);
+      next._t = setTimeout(() => next.classList.remove('in'), 900);
+    }
     syncMedia();
     const fig = $('#' + tab.getAttribute('aria-controls') + ' .fig[data-count]'); if (fig) count(fig);
     if (focus) tab.focus({ preventScroll: true });
@@ -1261,13 +1298,78 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
     window.addEventListener('pointerup', () => { if (!down) return; down = false; bar.classList.remove('dragging'); });
     bar.addEventListener('click', e => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
   }
+  /* scroll-driven tabs: the tab bar + panels pin under the nav and each slice of scroll advances one tab.
+     A panel taller than the room left on screen (phones) first scrolls its own content up, then hands over.
+     Slice i starts at anchors[i]; it spends extras[i] px reading the panel, then `step` px before the next. */
+  const pSec = $('.proposta'), track = $('.p-track'), stage = $('.p-stage'), panelsBox = $('.panels'), pBar = $('.p-progress span');
+  const pPanels = tabs.map(panelOf), N = tabs.length;
+  let scrolly = false, step = 0, pinTop = 0, target = null, unlockT = 0, pRaf = 0;
+  let anchors = [], extras = [], shifts = [];
+  // 100svh probe: stable on mobile while the URL bar shows/hides, so the layout doesn't jump mid-scroll
+  const vhProbe = document.createElement('div');
+  vhProbe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100svh;visibility:hidden;pointer-events:none';
+  document.body.append(vhProbe);
+  const pOffset = () => pinTop - track.getBoundingClientRect().top; // px scrolled since the stage pinned
+  const pSync = () => {
+    pRaf = 0;
+    if (!scrolly) return;
+    const off = pOffset(), end = anchors[N - 1] + extras[N - 1];
+    if (pBar) pBar.style.setProperty('--p', Math.max(0, Math.min(1, off / end)).toFixed(4));
+    pPanels.forEach((p, i) => {
+      const y = shifts[i] - Math.max(0, Math.min(extras[i], off - anchors[i]));
+      p.style.transform = y ? `translateY(${y.toFixed(1)}px)` : '';
+    });
+    if (target !== null) { if (Math.abs(scrollY - target) > 2) return; target = null; } // a tab click is scrolling us there
+    let i = 0; while (i < N - 1 && off >= anchors[i] + extras[i] + step / 2) i++;
+    if (i !== cur) select(tabs[i]);
+  };
+  const unlock = () => { target = null; clearTimeout(unlockT); pSync(); };
+  const pLayout = () => {
+    // never clear the track height here: shrinking the page, even for a moment, can clamp scrollY
+    pSec.classList.add('scrolly'); panelsBox.style.height = '';
+    pPanels.forEach(p => { p.style.transform = ''; });
+    const vh = vhProbe.offsetHeight || innerHeight, navH = $('#nav').offsetHeight;
+    const hs = pPanels.map(p => p.offsetHeight), maxH = Math.max(...hs);
+    const room = vh - navH - 24 - (stage.offsetHeight - panelsBox.offsetHeight); // panel height that fits under tabs
+    const V = Math.min(maxH, room);
+    scrolly = V >= 240;
+    if (!scrolly) { pSec.classList.remove('scrolly', 'tall'); track.style.height = ''; pPanels.forEach(p => { p.style.transform = ''; }); return; }
+    const tall = maxH > V;
+    pSec.classList.toggle('tall', tall);
+    panelsBox.style.height = V + 'px';
+    const h = stage.offsetHeight;
+    pinTop = navH + (tall ? 12 : Math.max(12, (vh - navH - h) / 2));
+    step = Math.max(320, vh * .55);
+    extras = hs.map(x => x > V ? x - V + 40 : 0); // +40: clear the bottom fade
+    shifts = hs.map(x => tall ? 0 : (V - x) / 2); // when all fit, centre each panel in the stage
+    anchors = []; let a = 0; extras.forEach((e, i) => { anchors[i] = a; a += e + step; });
+    pSec.style.setProperty('--pin-top', pinTop + 'px');
+    track.style.height = h + anchors[N - 1] + extras[N - 1] + step / 2 + 'px';
+    pSync();
+  };
+  const goTo = (t, focus) => {
+    select(t, focus);
+    if (!scrolly) return;
+    target = Math.round(scrollY - pOffset() + anchors[tabs.indexOf(t)]);
+    scrollTo({ top: target, behavior: reduce ? 'auto' : 'smooth' });
+    clearTimeout(unlockT); unlockT = setTimeout(unlock, 1500);
+  };
+  if (pSec && track && stage) {
+    let lRaf = 0;
+    const relayout = () => { if (!lRaf) lRaf = requestAnimationFrame(() => { lRaf = 0; pLayout(); }); };
+    const ro = new ResizeObserver(relayout);
+    ro.observe(stage); pPanels.forEach(p => ro.observe(p)); // panel heights change with width, fonts, language
+    addEventListener('resize', relayout);
+    addEventListener('scroll', () => { if (!pRaf) pRaf = requestAnimationFrame(pSync); }, { passive: true });
+    addEventListener('scrollend', () => { if (target !== null) unlock(); });
+  }
   tabs.forEach((t, i) => {
-    t.addEventListener('click', () => select(t));
+    t.addEventListener('click', () => goTo(t));
     t.addEventListener('keydown', e => {
       const k = e.key; let n = null;
       if (k === 'ArrowRight') n = tabs[(i + 1) % tabs.length]; else if (k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
       else if (k === 'Home') n = tabs[0]; else if (k === 'End') n = tabs[tabs.length - 1];
-      if (n) { e.preventDefault(); select(n, true); }
+      if (n) { e.preventDefault(); goTo(n, true); }
     });
   });
 
