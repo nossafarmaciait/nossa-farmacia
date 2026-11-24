@@ -20,11 +20,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  # Dois jobs, como no modelo oficial do GitHub Pages: com o envio e a publicação no mesmo job, o
+  # deploy-pages procurava o artefacto logo a seguir ao envio e às vezes ainda não o encontrava
+  # ("No artifacts named github-pages were found").
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,5 +42,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
