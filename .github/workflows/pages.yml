@@ -39,6 +39,11 @@ jobs:
       - run: npm run build
         env:
           DEPLOY_URL: ${{ steps.pages.outputs.base_url }}
+          # Google Maps da página farmacias/ (Settings → Secrets and variables → Actions).
+          # A chave fica visível no site publicado (é assim no Google Maps): o que a protege são as restrições
+          # de websites e de API na consola da Google. Está nos secrets só para não ficar no código.
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_MAP_ID: ${{ vars.GOOGLE_MAP_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

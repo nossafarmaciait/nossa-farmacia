@@ -11,6 +11,10 @@
  * Uso:  npm run build                 (produção: SITE_URL)
  *       DEPLOY_URL=https://… npm run build   (o endereço onde vai ser publicado, se for outro)
  *       npm run build:report          (lista também os textos sem tradução)
+ *
+ * Google Maps (página farmacias/): a chave e o Map ID vêm das variáveis GOOGLE_API_KEY e GOOGLE_MAP_ID,
+ * lidas do .env na raiz (local, fora do git) ou do ambiente (no GitHub: secret GOOGLE_API_KEY e variável
+ * GOOGLE_MAP_ID). O build escreve-as no HTML publicado (dist/); no código-fonte ficam vazias.
  */
 import { JSDOM } from 'jsdom';
 import { execSync } from 'node:child_process';
@@ -26,6 +30,7 @@ const PRODUCTION = DEPLOY_URL === SITE_URL;
 const REPORT = process.argv.includes('--report');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+try { process.loadEnvFile(path.join(ROOT, '.env')); } catch {} // .env opcional (não sobrepõe o que já vem do ambiente)
 const SRC = path.join(ROOT, 'site');
 const OUT = path.join(ROOT, 'dist');
 
@@ -137,10 +142,11 @@ await fs.rm(OUT, { recursive: true, force: true });
 await fs.cp(SRC, OUT, { recursive: true, filter: s => !s.endsWith('.DS_Store') });
 
 /* páginas: a principal (''), as dos serviços (site/servicos/<nome>/index.html → 'servicos/<nome>/'),
-   o emprego e a Completus (a página da secção, emprego/ e completus/, e uma pasta por vaga ou produto) */
+   o emprego e a Completus (a página da secção, emprego/ e completus/, e uma pasta por vaga ou produto)
+   e o mapa das farmácias (farmacias/) */
 const exists = p => fs.access(path.join(SRC, p)).then(() => true, () => false);
 const PAGES = [''];
-for (const dir of ['servicos', 'emprego', 'completus']) {
+for (const dir of ['servicos', 'emprego', 'completus', 'farmacias']) {
   if (await exists(`${dir}/index.html`)) PAGES.push(`${dir}/`);
   for (const d of await fs.readdir(path.join(SRC, dir), { withFileTypes: true }).catch(() => [])) {
     if (d.isDirectory() && await exists(`${dir}/${d.name}/index.html`)) PAGES.push(`${dir}/${d.name}/`);
@@ -148,6 +154,13 @@ for (const dir of ['servicos', 'emprego', 'completus']) {
 }
 
 const robotsMeta = PRODUCTION ? null : 'noindex, nofollow';
+
+/* Google Maps: a chave e o Map ID entram só no HTML publicado */
+const attr = v => (v || '').trim().replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+const GOOGLE = { key: attr(process.env.GOOGLE_API_KEY), mapId: attr(process.env.GOOGLE_MAP_ID) };
+const comGoogle = html => html
+  .replace('data-google-key=""', `data-google-key="${GOOGLE.key}"`)
+  .replace('data-google-map-id=""', `data-google-map-id="${GOOGLE.mapId}"`);
 const missingAll = new Map(Object.keys(LANGS).filter(l => l !== 'pt').map(l => [l, new Set()]));
 
 for (const page of PAGES) {
@@ -170,7 +183,7 @@ for (const page of PAGES) {
       html = dom.serialize();
     }
     await fs.mkdir(path.join(OUT, L.dir, page), { recursive: true });
-    await fs.writeFile(path.join(OUT, L.dir, page, 'index.html'), html);
+    await fs.writeFile(path.join(OUT, L.dir, page, 'index.html'), comGoogle(html));
   }
 }
 
@@ -198,6 +211,8 @@ await fs.writeFile(path.join(OUT, 'robots.txt'), PRODUCTION
 /* resumo */
 console.log(`Build em dist/ para ${DEPLOY_URL}${PRODUCTION ? ' (produção, indexável)' : ' (não é produção: noindex)'}`);
 console.log(`  ${PAGES.length} página(s) × ${Object.keys(LANGS).length} línguas: ${PAGES.map(p => '/' + p).join(', ')}`);
+if (!GOOGLE.key) console.log('  AVISO: sem GOOGLE_API_KEY (no .env ou no ambiente): a página farmacias/ mostra a lista sem o mapa');
+else if (!GOOGLE.mapId) console.log('  AVISO: sem GOOGLE_MAP_ID: o mapa usa o DEMO_MAP_ID da Google (só para testes, sem o estilo do site)');
 for (const [lang, missing] of missingAll) {
   console.log(`  ${lang}: ${missing.size} texto(s) sem tradução${missing.size && !REPORT ? ' (npm run build:report para os ver)' : ''}`);
   if (REPORT) for (const k of missing) console.log(`    - ${k}`);

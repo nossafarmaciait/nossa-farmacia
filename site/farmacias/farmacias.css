@@ -1,0 +1,134 @@
+/* Página das farmácias (farmacias/): o mapa, a lista da zona do mapa e os detalhes da farmácia escolhida.
+   A base, o menu, a língua e o rodapé vêm de servicos/servico.css; o mapa é o Google Maps. */
+
+/* ============ TOPO ============ */
+.f-hero{padding-bottom:clamp(48px,6vw,88px)}
+.f-hero .s-hero-in{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+.f-hero-stat{justify-self:end;display:flex;flex-direction:column;gap:6px;padding:clamp(28px,3vw,40px);min-width:min(100%,320px);border-radius:var(--r-lg);border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05)}
+.f-hero-stat small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mint)}
+.f-hero-stat b{font-size:clamp(72px,9vw,120px);line-height:.95;letter-spacing:-.05em;font-weight:600;color:#fff}
+.f-hero-stat span{max-width:22ch;color:var(--on-dark-2)}
+@media (max-width:900px){.f-hero-stat{display:none}}
+
+/* ============ MAPA ============ */
+.f-sec{padding-top:clamp(56px,7vw,96px)}
+.f-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.f-head .lead{margin-top:0;max-width:40ch}
+.f-demo{display:flex;gap:12px;align-items:flex-start;margin-top:clamp(28px,3vw,40px);padding:14px 18px;border-radius:14px;background:#FFF6DD;border:1px solid #F0DB9C;color:#5C4A12;font-size:15px;line-height:1.5}
+.f-demo .icon{width:20px;height:20px;margin-top:1px;color:#8A6A00}
+
+/* barra de pesquisa */
+.f-bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:clamp(24px,3vw,32px)}
+.f-search{position:relative;flex:1 1 320px;display:flex;align-items:center}
+.f-search .icon{position:absolute;left:18px;width:20px;height:20px;color:var(--ink-3);pointer-events:none}
+.f-search input{width:100%;min-height:52px;padding:0 18px 0 50px;border-radius:999px;border:1px solid rgba(14,30,26,.18);background:#fff;font-size:16px;transition:border-color .2s,box-shadow .2s}
+.f-search input::placeholder{color:var(--ink-3)}
+.f-search input:hover{border-color:rgba(14,30,26,.32)}
+.f-search input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 3px rgba(0,155,119,.22)}
+.f-geo{min-height:52px}
+.f-geo .icon{width:18px;height:18px}
+.f-geo:hover .icon{transform:none}
+.f-geo[aria-busy="true"]{opacity:.7;cursor:progress}
+.f-regions{display:flex;gap:4px;padding:4px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.f-regions button{min-height:42px;padding:0 16px;border:0;border-radius:999px;background:transparent;font-size:14.5px;font-weight:600;color:var(--ink-2);cursor:pointer;transition:background-color .2s,color .2s}
+.f-regions button:hover{background:var(--paper-2);color:var(--ink)}
+.f-status{min-height:1.6em;margin-top:14px;font-size:15px;color:var(--ink-2)}
+
+/* mapa, lista e detalhes */
+.f-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,360px);grid-template-areas:"mapa lista" "det det";gap:var(--s4);margin-top:12px}
+.f-map-box{grid-area:mapa;position:relative;height:clamp(440px,68vh,680px);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:#E7EEEA;box-shadow:var(--shadow)}
+.f-map{position:absolute;inset:0;font:inherit;background:#E7EEEA}
+.f-map-msg{position:absolute;left:50%;top:50%;z-index:500;translate:-50% -50%;padding:12px 18px;border-radius:999px;background:#fff;box-shadow:var(--shadow);font-size:15px;font-weight:600;color:var(--ink-2);text-align:center;max-width:calc(100% - 32px)}
+
+.f-list{grid-area:lista;display:flex;flex-direction:column;min-height:0;height:clamp(440px,68vh,680px);border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);overflow:hidden}
+.f-list h3{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:20px 22px 14px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-2);border-bottom:1px solid var(--line)}
+.f-list-n{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--deep)}
+.f-items{list-style:none;margin:0;padding:6px;overflow-y:auto;flex:1;overscroll-behavior:contain}
+.f-items button{display:flex;flex-direction:column;gap:2px;width:100%;padding:12px 14px;border:0;border-radius:14px;background:transparent;text-align:left;cursor:pointer;transition:background-color .15s}
+.f-items button:hover{background:var(--paper)}
+.f-items button[aria-current="true"]{background:var(--paper-2);box-shadow:inset 3px 0 0 var(--emerald)}
+.f-items b{font-size:15.5px;font-weight:600;line-height:1.3;color:var(--ink)}
+.f-items span{font-size:14px;color:var(--ink-3)}
+.f-items .f-km{font-variant-numeric:tabular-nums;color:var(--deep);font-weight:600}
+.f-list-note{padding:12px 22px 16px;font-size:14px;color:var(--ink-3);border-top:1px solid var(--line)}
+.f-list-note:empty{display:none}
+
+/* detalhes da farmácia escolhida: abre por baixo do mapa */
+.f-det{grid-area:det;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);outline:none;scroll-margin-top:96px}
+.f-det:focus-visible{box-shadow:0 0 0 3px var(--emerald)}
+.f-det-empty{display:flex;align-items:center;gap:14px;padding:22px 26px;color:var(--ink-3)}
+.f-det-empty .icon{width:22px;height:22px;color:var(--deep)}
+.f-det.on .f-det-empty{display:none}
+.f-det-card{padding:clamp(24px,3vw,40px)}
+.f-det.on .f-det-card{animation:f-in .35s var(--ease)}
+@keyframes f-in{from{opacity:0;transform:translateY(8px)}}
+.f-det-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.f-det-nome{margin-top:10px;font-size:clamp(28px,3vw,40px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
+.f-det-close{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--ink-2);transition:background-color .2s,color .2s}
+.f-det-close:hover{background:var(--paper-2);color:var(--ink)}
+.f-det-close .icon{width:18px;height:18px}
+.f-det-dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:0 clamp(24px,3vw,40px);margin:clamp(24px,3vw,32px) 0 0}
+.f-det-dl>div{padding:18px 0;border-top:1px solid var(--line);min-width:0}
+.f-det-dl dt{display:flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-2)}
+.f-det-dl dt .icon{width:16px;height:16px;color:var(--deep);stroke-width:2}
+.f-det-dl dd{margin:8px 0 0;font-size:17px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere}
+.f-det-dl dd span{display:block}
+.f-det-dl dd a{color:var(--deep);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(0,98,74,.3)}
+.f-det-dl dd a:hover{border-color:var(--deep)}
+/* horário: ocupa a largura toda; estado de agora por cima, um dia por linha, hoje em destaque */
+.f-det-dl>.f-det-hor{grid-column:1/-1}
+.f-hor-estado{display:flex;align-items:center;gap:10px;margin:2px 0 12px;font-size:16px;font-weight:600;color:var(--ink-2)}
+.f-hor-estado::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#A9B6B1}
+.f-hor-estado.on{color:var(--deep)}
+.f-hor-estado.on::before{background:var(--emerald);box-shadow:0 0 0 4px rgba(0,155,119,.18)}
+.f-hor{list-style:none;margin:0 -12px;padding:0;max-width:760px}
+.f-hor li{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:2px 16px;align-items:baseline;padding:9px 12px;font-size:16px}
+.f-hor li+li{border-top:1px solid var(--line)}
+.f-hor li.hoje,.f-hor li.hoje+li{border-top-color:transparent}
+.f-hor li.hoje{background:var(--paper-2);border-radius:10px}
+.f-det-dl .f-hor span{display:inline}
+.f-hor-d{color:var(--ink-2)}
+.f-hor .hoje .f-hor-d{color:var(--ink);font-weight:600}
+.f-hor-d small{margin-left:8px;padding:2px 8px;border-radius:999px;background:var(--deep);color:#fff;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;vertical-align:2px}
+.f-det-dl .f-hor .f-hor-h{display:flex;flex-wrap:wrap;gap:2px 0;font-variant-numeric:tabular-nums}
+.f-hor-h>span+span::before{content:"·";margin:0 10px;color:var(--ink-3)}
+.f-hor .hoje .f-hor-h{font-weight:600}
+.f-hor .f-hor-off{color:var(--ink-3);font-weight:400}
+@media (max-width:600px){ /* o dia à esquerda e os períodos em coluna à direita (numa linha só partiam a meio) */
+  .f-hor li{grid-template-columns:minmax(0,8em) minmax(0,1fr);gap:0 12px;font-size:15.5px}
+  .f-det-dl .f-hor .f-hor-h{flex-direction:column}
+  .f-hor-h>span+span::before{content:none}
+  .f-hor .f-hor-off{font-size:14px}
+  .f-hor-d small{display:table;margin:4px 0 0}
+}
+.f-det-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:clamp(20px,2.4vw,28px)}
+.f-det-actions .btn-more{min-height:50px;padding:0 22px}
+
+/* marcadores e grupos de farmácias (AdvancedMarkerElement do Google: o conteúdo é nosso, ancorado em baixo ao centro) */
+.f-pin{width:30px;height:40px;filter:drop-shadow(0 3px 4px rgba(11,39,32,.35));transition:transform .15s var(--ease);transform-origin:50% 100%}
+.f-pin svg{width:100%;height:100%;overflow:visible}
+.f-pin .p-body{fill:var(--deep)}
+.f-pin:hover,:focus-visible>.f-pin{transform:scale(1.12)}
+:focus-visible>.f-pin .p-body{stroke:#fff;stroke-width:2.5}
+.f-pin.on{transform:scale(1.25)}
+.f-pin.on .p-body{fill:var(--emerald);stroke:#fff;stroke-width:2.5}
+.f-cl{display:grid;place-items:center;border-radius:50%;background:rgba(0,98,74,.2);cursor:pointer;translate:0 50%} /* centrado no ponto, não por cima */
+.f-cl span{display:grid;place-items:center;width:calc(100% - 10px);height:calc(100% - 10px);border-radius:50%;background:var(--deep);color:#fff;font:600 14px/1 var(--sans);font-variant-numeric:tabular-nums;box-shadow:0 4px 12px -4px rgba(11,39,32,.5)}
+.f-cl:hover span{background:#00503C}
+:focus-visible>.f-cl{outline:3px solid var(--emerald);outline-offset:2px}
+.f-me{width:18px;height:18px;translate:0 50%;border-radius:50%;background:#2B7FFF;border:3px solid #fff;box-shadow:0 0 0 6px rgba(43,127,255,.22),0 2px 6px rgba(0,0,0,.3)}
+.f-map.off{display:none} /* sem mapa (sem chave ou chave recusada): fica o aviso no lugar dele */
+
+@media (max-width:900px){
+  .f-layout{grid-template-columns:1fr;grid-template-areas:"mapa" "det" "lista"}
+  .f-map-box{height:clamp(360px,62vh,520px)}
+  .f-list{height:auto;max-height:520px}
+}
+@media (max-width:600px){
+  .f-bar{gap:10px}
+  .f-geo{flex:1 1 auto}
+  .f-regions{flex:1 1 100%;justify-content:space-between}
+  .f-regions button{flex:1;padding:0 8px}
+  .f-det-empty{padding:18px 20px}
+}
+@media (prefers-reduced-motion:reduce){.f-det.on .f-det-card{animation:none}.f-pin{transition:none}}

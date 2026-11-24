@@ -4,7 +4,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:report": "node scripts/build.mjs --report",
-    "completus": "node scripts/completus/gerar.mjs"
+    "completus": "node scripts/completus/gerar.mjs",
+    "farmacias:exemplo": "node scripts/farmacias/gerar-exemplo.mjs"
   },
   "repository": {
     "type": "git",
