@@ -9,11 +9,11 @@ Para cada produto de scripts/completus/angulos.json escreve em site/img/completu
                                    à mesma altura, para não "saltar" de tamanho ao rodar
 
 A embalagem é encontrada pela cor (o fundo do estúdio é cinzento); quando o recorte passa da imagem,
-o fundo é prolongado. Escreve também site/img/completus/gama-1000.webp e gama-2000.webp: as 12 embalagens
-sem fundo (o "recorte" de cada produto) numa composição em três filas, para o topo da página da gama. Uso: python3 scripts/completus/imagens.py   (precisa do Pillow: pip install pillow)
+o fundo é prolongado. Escreve também site/img/completus/gama-1000.webp e gama-2000.webp, o topo da página da
+gama, a partir da fotografia de família da gama (assets/familia.png, as 12 embalagens sem fundo). Uso: python3 scripts/completus/imagens.py   (precisa do Pillow: pip install pillow)
 """
 import json, os, unicodedata
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageFilter
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ASSETS = os.path.join(RAIZ, 'assets')
@@ -66,37 +66,18 @@ for slug, c in CFG.items():
                 .save(f'{out}/angulo-{i}.webp', 'WEBP', quality=80, method=6)
     print(f'{slug}: capa + {len(c["angulos"]) if len(c["angulos"]) > 1 else 0} ângulos')
 
-# ---------- composição da gama (topo de completus/) ----------
-# altura relativa de cada embalagem e o lugar de cada uma: (escala da fila, linha de base, [(produto, centro x)])
-ALTURA = {'imunidade': 1, 'microbiota': 1, 'magnesio': 1, 'colesterol': 1, 'vitamina-d': .95, 'propolis': 1.12, 'vitamina-c': 1.22,
-          'cerebro': .86, 'articulacoes': .6, 'sono': .52, 'conforto-urinario': .56, 'transito-intestinal': .5}
-FILAS = [(.82, .52, [('imunidade', .12), ('microbiota', .31), ('vitamina-c', .50), ('colesterol', .69), ('magnesio', .88)]),
-         (.92, .76, [('cerebro', .20), ('vitamina-d', .40), ('propolis', .60), ('articulacoes', .81)]),
-         (1.0, .985, [('sono', .26), ('conforto-urinario', .51), ('transito-intestinal', .76)])]
 def recorte(slug):
     c = CFG[slug]; r = c['recorte']
     im = Image.open(os.path.join(RAIZ, r) if '/' in r else caminho(c['pasta'], r)).convert('RGBA')
     im.putalpha(im.getchannel('A').point(lambda v: 0 if v < 40 else v))  # limpa o halo quase invisível à volta do recorte
     return im.crop(im.getchannel('A').getbbox())
-W, H, U = 2400, 1560, 640
-gama = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-for esc, base, itens in FILAS:
-    for slug, cx in itens:
-        im = recorte(slug); h = int(ALTURA[slug] * U * esc); w = int(im.width * h / im.height)
-        im = im.resize((w, h), Image.LANCZOS); x, y = int(cx * W - w / 2), int(base * H - h)
-        # sombra projetada (a silhueta desfocada, um pouco abaixo) e sombra de contacto na base
-        sil = Image.new('RGBA', (w, h), (0, 0, 0, 255)); sil.putalpha(im.getchannel('A').point(lambda v: int(v * .32)))
-        som = Image.new('RGBA', (w + 200, h + 200), (0, 0, 0, 0)); som.paste(sil, (100, 118), sil)
-        gama.alpha_composite(som.filter(ImageFilter.GaussianBlur(34)), (x - 100, y - 100))
-        ct = Image.new('L', (int(w * 1.1), 60), 0); ImageDraw.Draw(ct).ellipse((0, 0, ct.width, ct.height), fill=150)
-        cs = Image.new('RGBA', ct.size, (0, 0, 0, 255)); cs.putalpha(ct.filter(ImageFilter.GaussianBlur(14)))
-        gama.alpha_composite(cs, (int(x - w * .05), int(y + h - 36)))
-        gama.alpha_composite(im, (x, y))
 for slug in CFG:  # a embalagem sem fundo de cada produto, para a página dele
     r = recorte(slug); r.thumbnail((720, 720), Image.LANCZOS)
     r.save(os.path.join(SAIDA, slug, 'recorte.webp'), 'WEBP', quality=86, method=6)
-gama = gama.crop(gama.getchannel('A').getbbox())
+# ---------- topo da gama: a fotografia de família, cortada à volta das embalagens ----------
+gama = Image.open(os.path.join(ASSETS, 'familia.png')).convert('RGBA')
+gama = gama.crop(gama.getchannel('A').point(lambda v: 255 if v > 8 else 0).getbbox())
 for s in (2000, 1000):
     g = gama.resize((s, round(gama.height * s / gama.width)), Image.LANCZOS)
     g.save(os.path.join(SAIDA, f'gama-{s}.webp'), 'WEBP', quality=84, method=6)
-print(f'gama: {gama.width}x{gama.height} → gama-2000.webp e gama-1000.webp ({round(gama.height * 2000 / gama.width)} px de altura a 2000)')
+print(f'gama: {gama.width}x{gama.height} → gama-2000.webp e gama-1000.webp ({round(gama.height * 1000 / gama.width)} px de altura a 1000)')

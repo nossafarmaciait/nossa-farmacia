@@ -193,7 +193,7 @@ const cartao = (R, href, p, i) => `      <li class="cp rv" style="--d:${(i % 4) 
         <a class="btn btn-ghost-dark" href="${LOJA}" rel="noopener">${pt('comprar')} <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
       </div>
     </div>
-    <figure class="gama-shot"><img src="${R}img/completus/gama-1000.webp" srcset="${R}img/completus/gama-1000.webp 1000w, ${R}img/completus/gama-2000.webp 2000w" sizes="(max-width:900px) 94vw, 780px" width="1000" height="622" alt="${pt('altGama')}" fetchpriority="high" decoding="async"></figure>
+    <figure class="gama-shot"><img src="${R}img/completus/gama-1000.webp" srcset="${R}img/completus/gama-1000.webp 1000w, ${R}img/completus/gama-2000.webp 2000w" sizes="(max-width:900px) 94vw, 780px" width="1000" height="438" alt="${pt('altGama')}" fetchpriority="high" decoding="async"></figure>
   </div>
 </section>
 
