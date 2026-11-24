@@ -201,11 +201,19 @@
 
       <div>
         <h3 class="c-h3 rv">Perfis que procuramos</h3>
-        <ul class="chips rv" style="--d:.05s">
+        <p class="chips-label rv" id="perfis-farmacias">Nas farmácias</p>
+        <ul class="chips rv" style="--d:.05s" aria-labelledby="perfis-farmacias">
           <li>Farmacêuticos</li>
           <li>Técnicos de farmácia</li>
           <li>Técnicos auxiliares de farmácia</li>
-          <li>Serviços centrais</li>
+        </ul>
+        <p class="chips-label rv" id="perfis-grupo">Nos serviços centrais do Grupo</p>
+        <ul class="chips rv" style="--d:.05s" aria-labelledby="perfis-grupo">
+          <li>Logística</li>
+          <li>Comercial</li>
+          <li>Marketing</li>
+          <li>Tecnologias de informação (IT)</li>
+          <li>Financeiro</li>
         </ul>
       </div>
 
@@ -242,11 +250,19 @@
             <div class="field"><label for="f-area">Área de interesse <b aria-hidden="true">*</b></label>
               <select id="f-area" name="area" required aria-describedby="e-area">
                 <option value="">Escolha…</option>
-                <option value="Farmacêutico(a)">Farmacêutico(a)</option>
-                <option value="Técnico(a) de farmácia">Técnico(a) de farmácia</option>
-                <option value="Técnico(a) auxiliar de farmácia">Técnico(a) auxiliar de farmácia</option>
-                <option value="Serviços centrais">Serviços centrais</option>
-                <option value="Outra">Outra</option>
+                <optgroup label="Nas farmácias">
+                  <option value="Farmacêutico(a)">Farmacêutico(a)</option>
+                  <option value="Técnico(a) de farmácia">Técnico(a) de farmácia</option>
+                  <option value="Técnico(a) auxiliar de farmácia">Técnico(a) auxiliar de farmácia</option>
+                </optgroup>
+                <optgroup label="Nos serviços centrais do Grupo">
+                  <option value="Logística">Logística</option>
+                  <option value="Comercial">Comercial</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Tecnologias de informação (IT)">Tecnologias de informação (IT)</option>
+                  <option value="Financeiro">Financeiro</option>
+                </optgroup>
+                <option value="Outra">Outra área</option>
               </select><span class="err" id="e-area"></span></div>
             <div class="field full"><label for="f-linkedin">LinkedIn (opcional)</label><input id="f-linkedin" name="linkedin" inputmode="url" autocomplete="url" placeholder="linkedin.com/in/…"></div>
             <div class="field full"><label for="f-msg">Apresentação (opcional)</label><textarea id="f-msg" name="mensagem" placeholder="Conte-nos um pouco sobre si, a sua experiência e o que procura."></textarea></div>

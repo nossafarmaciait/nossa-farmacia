@@ -60,9 +60,9 @@ function translate(doc, lang, missing) {
     const out = t(k);
     if (out !== k) n.nodeValue = src.match(/^\s*/)[0] + out + src.match(/\s*$/)[0];
   }
-  const sel = '[alt],[aria-label],[placeholder],[title],meta[name="description"],meta[property="og:title"],meta[property="og:description"],meta[property="og:image:alt"]';
+  const sel = 'optgroup[label],[alt],[aria-label],[placeholder],[title],meta[name="description"],meta[property="og:title"],meta[property="og:description"],meta[property="og:image:alt"]';
   for (const el of doc.querySelectorAll(sel)) {
-    for (const a of ['alt', 'aria-label', 'placeholder', 'title', 'content']) {
+    for (const a of ['alt', 'aria-label', 'placeholder', 'title', 'content', 'label']) {
       if (el.hasAttribute(a) && el.getAttribute(a)) el.setAttribute(a, t(el.getAttribute(a)));
     }
   }
