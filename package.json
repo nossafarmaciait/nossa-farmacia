@@ -3,7 +3,8 @@
   "description": "Landing page do Grupo Nossa Farmácia",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "build:report": "node scripts/build.mjs --report"
+    "build:report": "node scripts/build.mjs --report",
+    "completus": "node scripts/completus/gerar.mjs"
   },
   "repository": {
     "type": "git",

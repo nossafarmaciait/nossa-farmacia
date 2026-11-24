@@ -1,0 +1,345 @@
+{
+  "_leia-me": "Produtos da página Completus (site/completus/). Depois de alterar, correr: npm run completus. Cada texto tem pt, en e es; o gerador escreve as páginas PT e as traduções no i18n.js. Fonte: grupo.nossafarmacia.pt/MarcasProprias (serviço GetAllMarcasPropriasPublico), exceto Articulações (Farmácia Online). Imagens: assets/3D_<produto>/ (ver scripts/completus/imagens.py).",
+  "produtos": [
+    {
+      "slug": "articulacoes",
+      "nome": "Completus Articulações",
+      "cnp": "7579656",
+      "fonte": "Farmácia Online",
+      "comprar": "https://www.nossafarmacia.pt/completus-articulacoes-20-saq-/p",
+      "imagens": { "angulos": 5, "loop": true, "inicio": 0 },
+      "embalagem": { "pt": "20 saquetas", "en": "20 sachets", "es": "20 sobres" },
+      "resumo": { "pt": "Conforto, mobilidade e proteção da cartilagem.", "en": "Comfort, mobility and cartilage protection.", "es": "Confort, movilidad y protección del cartílago." },
+      "descricao": [
+        { "pt": "Suplemento alimentar desenvolvido para apoiar a saúde das articulações, contribuindo para maior conforto, mobilidade e qualidade de vida no dia a dia. A fórmula ajuda a reduzir o desconforto, melhora a mobilidade e a flexibilidade e apoia a regeneração e a proteção da cartilagem.",
+          "en": "A food supplement developed to support joint health, contributing to greater comfort, mobility and quality of life every day. The formula helps reduce discomfort, improves mobility and flexibility, and supports cartilage regeneration and protection.",
+          "es": "Complemento alimenticio desarrollado para apoyar la salud de las articulaciones, contribuyendo a un mayor confort, movilidad y calidad de vida en el día a día. La fórmula ayuda a reducir las molestias, mejora la movilidad y la flexibilidad y apoya la regeneración y la protección del cartílago." },
+        { "pt": "Com glucosamina, condroitina, MSM e colagénio, que dão suporte estrutural às articulações, e ácido hialurónico, que contribui para uma melhor lubrificação articular. A vitamina C reforça a formação de colagénio. Uma saqueta por dia, com sabor a ananás.",
+          "en": "With glucosamine, chondroitin, MSM and collagen, which give the joints structural support, and hyaluronic acid, which contributes to better joint lubrication. Vitamin C supports collagen formation. One sachet a day, pineapple flavour.",
+          "es": "Con glucosamina, condroitina, MSM y colágeno, que dan soporte estructural a las articulaciones, y ácido hialurónico, que contribuye a una mejor lubricación articular. La vitamina C refuerza la formación de colágeno. Un sobre al día, con sabor a piña." }
+      ],
+      "composicao": { "pt": "Sulfato de glucosamina 1500 mg; sulfato de condroitina 1200 mg; metilsulfonilmetano (MSM) 1000 mg; colagénio hidrolisado 150 mg; vitamina C 80 mg (100% VRN); ácido hialurónico 20 mg; vitamina D3 20 µg (400% VRN). Contém edulcorantes: sucralose e glicosídeos de esteviol.",
+        "en": "Glucosamine sulphate 1500 mg; chondroitin sulphate 1200 mg; methylsulfonylmethane (MSM) 1000 mg; hydrolysed collagen 150 mg; vitamin C 80 mg (100% NRV); hyaluronic acid 20 mg; vitamin D3 20 µg (400% NRV). Contains sweeteners: sucralose and steviol glycosides.",
+        "es": "Sulfato de glucosamina 1500 mg; sulfato de condroitina 1200 mg; metilsulfonilmetano (MSM) 1000 mg; colágeno hidrolizado 150 mg; vitamina C 80 mg (100% VRN); ácido hialurónico 20 mg; vitamina D3 20 µg (400% VRN). Contiene edulcorantes: sucralosa y glucósidos de esteviol." },
+      "modo": [
+        { "pt": "Uma saqueta por dia, diluída num copo de água.", "en": "One sachet a day, dissolved in a glass of water.", "es": "Un sobre al día, diluido en un vaso de agua." }
+      ],
+      "precaucoes": []
+    },
+    {
+      "slug": "cerebro",
+      "nome": "Completus Cérebro",
+      "cnp": "6740159",
+      "comprar": "https://www.nossafarmacia.pt/completus-cerebro-amp-beb-20x15ml/p",
+      "imagens": { "angulos": 5, "loop": true, "inicio": 0 },
+      "embalagem": { "pt": "20 ampolas", "en": "20 vials", "es": "20 ampollas" },
+      "resumo": { "pt": "Desempenho mental, memória e concentração.", "en": "Mental performance, memory and concentration.", "es": "Rendimiento mental, memoria y concentración." },
+      "descricao": [
+        { "pt": "Formulado com ginkgo biloba, guaraná, bacopa, ginseng e arginina. Melhora o desempenho mental, a memória e a concentração.",
+          "en": "Formulated with ginkgo biloba, guarana, bacopa, ginseng and arginine. Improves mental performance, memory and concentration.",
+          "es": "Formulado con ginkgo biloba, guaraná, bacopa, ginseng y arginina. Mejora el rendimiento mental, la memoria y la concentración." }
+      ],
+      "composicao": { "pt": "Água purificada; agente de volume: xarope de sorbitol; Ginkgo biloba (folhas); Paullinia cupana, guaraná (sementes); L-arginina-L-aspartato; extrato seco de Bacopa monnieri, bacopa; extrato seco concentrado de Panax ginseng, ginseng (folhas); regulador de acidez: ácido cítrico; aromas; vitamina C (ácido L-ascórbico); conservantes: sorbato de potássio, benzoato de sódio; niacina (nicotinamida); ácido pantoténico (D-pantotenato de cálcio); edulcorante: sucralose; corante: caramelo sulfítico de amónia; vitamina B12 (cianocobalamina); vitamina B2 (riboflavina-5’-fosfato de sódio); vitamina B6 (cloridrato de piridoxina); vitamina B1 (cloridrato de tiamina); ácido fólico (ácido pteroilmonoglutâmico); biotina (D-biotina).",
+        "en": "Purified water; bulking agent: sorbitol syrup; Ginkgo biloba (leaves); Paullinia cupana, guarana (seeds); L-arginine-L-aspartate; dry extract of Bacopa monnieri, bacopa; concentrated dry extract of Panax ginseng, ginseng (leaves); acidity regulator: citric acid; flavourings; vitamin C (L-ascorbic acid); preservatives: potassium sorbate, sodium benzoate; niacin (nicotinamide); pantothenic acid (calcium D-pantothenate); sweetener: sucralose; colour: ammonia sulphite caramel; vitamin B12 (cyanocobalamin); vitamin B2 (riboflavin-5’-phosphate sodium); vitamin B6 (pyridoxine hydrochloride); vitamin B1 (thiamine hydrochloride); folic acid (pteroylmonoglutamic acid); biotin (D-biotin).",
+        "es": "Agua purificada; agente de carga: jarabe de sorbitol; Ginkgo biloba (hojas); Paullinia cupana, guaraná (semillas); L-arginina-L-aspartato; extracto seco de Bacopa monnieri, bacopa; extracto seco concentrado de Panax ginseng, ginseng (hojas); corrector de acidez: ácido cítrico; aromas; vitamina C (ácido L-ascórbico); conservantes: sorbato potásico, benzoato sódico; niacina (nicotinamida); ácido pantoténico (D-pantotenato cálcico); edulcorante: sucralosa; colorante: caramelo de sulfito amónico; vitamina B12 (cianocobalamina); vitamina B2 (riboflavina-5’-fosfato sódico); vitamina B6 (clorhidrato de piridoxina); vitamina B1 (clorhidrato de tiamina); ácido fólico (ácido pteroilmonoglutámico); biotina (D-biotina)." },
+      "modo": [
+        { "pt": "Adultos: uma ampola por dia.", "en": "Adults: one vial a day.", "es": "Adultos: una ampolla al día." },
+        { "pt": "Diluir o conteúdo em 200 ml de água ou sumo. Agitar antes de tomar.", "en": "Dilute the contents in 200 ml of water or juice. Shake before taking.", "es": "Diluir el contenido en 200 ml de agua o zumo. Agitar antes de tomar." }
+      ],
+      "precaucoes": [
+        { "pt": "O consumo excessivo pode ter efeitos laxativos.", "en": "Excessive consumption may have laxative effects.", "es": "Un consumo excesivo puede tener efectos laxantes." },
+        { "pt": "Contém edulcorantes.", "en": "Contains sweeteners.", "es": "Contiene edulcorantes." },
+        { "pt": "Consultar um médico em caso de toma de medicamentos anticoagulantes, antiagregantes plaquetários, anti-inflamatórios não esteroides e antidiabéticos.", "en": "Consult a doctor if you are taking anticoagulants, antiplatelet agents, non-steroidal anti-inflammatory drugs or antidiabetic medicines.", "es": "Consultar a un médico en caso de tomar medicamentos anticoagulantes, antiagregantes plaquetarios, antiinflamatorios no esteroideos y antidiabéticos." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "Não deve ser utilizado no caso de hipersensibilidade, alergia e quando estejam descritas interações de outro produto com qualquer um dos constituintes da formulação.", "en": "Do not use in case of hypersensitivity or allergy, or where interactions of another product with any of the ingredients have been described.", "es": "No utilizar en caso de hipersensibilidad o alergia, ni cuando se hayan descrito interacciones de otro producto con cualquiera de los componentes de la fórmula." },
+        { "pt": "Não recomendado a crianças e adolescentes com idade inferior a 18 anos.", "en": "Not recommended for children and adolescents under 18.", "es": "No recomendado para niños y adolescentes menores de 18 años." },
+        { "pt": "Não recomendado no caso de úlcera gástrica ou duodenal, hipertiroidismo ou doença cardiovascular, como hipertensão e arritmia.", "en": "Not recommended in case of gastric or duodenal ulcer, hyperthyroidism or cardiovascular disease such as hypertension and arrhythmia.", "es": "No recomendado en caso de úlcera gástrica o duodenal, hipertiroidismo o enfermedad cardiovascular, como hipertensión y arritmia." },
+        { "pt": "Não recomendada a toma antes de dormir. Contém cafeína.", "en": "Not recommended before bedtime. Contains caffeine.", "es": "No se recomienda tomarlo antes de dormir. Contiene cafeína." }
+      ]
+    },
+    {
+      "slug": "colesterol",
+      "nome": "Completus Colesterol",
+      "cnp": "7107243",
+      "comprar": "https://www.nossafarmacia.pt/completus-colesterol-caps-60/p",
+      "imagens": { "angulos": 2, "loop": false, "inicio": 1 },
+      "embalagem": { "pt": "60 cápsulas", "en": "60 capsules", "es": "60 cápsulas" },
+      "resumo": { "pt": "Controlo dos níveis de colesterol.", "en": "Helps control cholesterol levels.", "es": "Control de los niveles de colesterol." },
+      "descricao": [
+        { "pt": "Controla os níveis de colesterol. Formulado com monacolina K (2,9 mg), extraída da levedura do arroz vermelho, enriquecido com extrato seco de alho, coenzima Q10 e policosanol.",
+          "en": "Helps control cholesterol levels. Formulated with monacolin K (2.9 mg), extracted from red yeast rice, enriched with dry garlic extract, coenzyme Q10 and policosanol.",
+          "es": "Controla los niveles de colesterol. Formulado con monacolina K (2,9 mg), extraída de la levadura de arroz rojo, enriquecido con extracto seco de ajo, coenzima Q10 y policosanol." }
+      ],
+      "composicao": { "pt": "Extrato seco de alho (Allium sativum L.), bolbo (3% alicina); hidroxipropilmetilcelulose (cápsula); extrato de levedura de arroz vermelho (Monascus purpureus L.) (3% monacolina K); agente de volume: celulose microcristalina; coenzima Q10 (ubiquinona); antiaglomerante: sais de ácidos gordos de magnésio; extrato seco de cana-de-açúcar (Saccharum officinarum) (10% octacosanol, 98% policosanol); antiaglomerante: dióxido de silício; carragenina e cloreto de potássio (cápsula).",
+        "en": "Dry garlic extract (Allium sativum L.), bulb (3% allicin); hydroxypropyl methylcellulose (capsule); red yeast rice extract (Monascus purpureus L.) (3% monacolin K); bulking agent: microcrystalline cellulose; coenzyme Q10 (ubiquinone); anti-caking agent: magnesium salts of fatty acids; dry sugar cane extract (Saccharum officinarum) (10% octacosanol, 98% policosanol); anti-caking agent: silicon dioxide; carrageenan and potassium chloride (capsule).",
+        "es": "Extracto seco de ajo (Allium sativum L.), bulbo (3% alicina); hidroxipropilmetilcelulosa (cápsula); extracto de levadura de arroz rojo (Monascus purpureus L.) (3% monacolina K); agente de carga: celulosa microcristalina; coenzima Q10 (ubiquinona); antiaglomerante: sales magnésicas de ácidos grasos; extracto seco de caña de azúcar (Saccharum officinarum) (10% octacosanol, 98% policosanol); antiaglomerante: dióxido de silicio; carragenano y cloruro potásico (cápsula)." },
+      "modo": [
+        { "pt": "Adultos: uma cápsula por dia.", "en": "Adults: one capsule a day.", "es": "Adultos: una cápsula al día." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder a toma de uma cápsula por dia, de forma a não ultrapassar o limite máximo permitido de 3 mg.", "en": "Do not take more than one capsule a day, so as not to exceed the maximum permitted limit of 3 mg.", "es": "No tomar más de una cápsula al día, para no superar el límite máximo permitido de 3 mg." },
+        { "pt": "Não deve ser consumido por mulheres grávidas ou lactantes, crianças com menos de 18 anos e adultos com mais de 70 anos.", "en": "Not to be taken by pregnant or breastfeeding women, children under 18 or adults over 70.", "es": "No debe ser consumido por mujeres embarazadas o lactantes, niños menores de 18 años ni adultos mayores de 70 años." },
+        { "pt": "Não deve ser consumido se estiver a tomar medicamentos para reduzir o colesterol.", "en": "Do not take if you are on cholesterol-lowering medication.", "es": "No debe consumirse si está tomando medicamentos para reducir el colesterol." },
+        { "pt": "Não deve ser consumido se já consumir outros produtos que contenham arroz vermelho fermentado.", "en": "Do not take if you already use other products containing fermented red rice.", "es": "No debe consumirse si ya toma otros productos que contengan arroz rojo fermentado." }
+      ]
+    },
+    {
+      "slug": "conforto-urinario",
+      "nome": "Completus Conforto Urinário",
+      "cnp": "7123554",
+      "comprar": "https://www.nossafarmacia.pt/completus-conforto-urinario-gran-susp-oral-stick-7x4g/p",
+      "imagens": { "angulos": 4, "loop": true, "inicio": 0 },
+      "embalagem": { "pt": "7 sticks", "en": "7 sticks", "es": "7 sticks" },
+      "resumo": { "pt": "Alívio dos primeiros sintomas de desconforto urinário.", "en": "Relief from the first signs of urinary discomfort.", "es": "Alivio de los primeros síntomas de molestias urinarias." },
+      "descricao": [
+        { "pt": "Formulado com arando-vermelho (500 mg), alcaçuz (200 mg), uva-ursina, hibisco, vitamina C e fruto-oligossacarídeos (FOS).",
+          "en": "Formulated with cranberry (500 mg), liquorice (200 mg), bearberry, hibiscus, vitamin C and fructo-oligosaccharides (FOS).",
+          "es": "Formulado con arándano rojo (500 mg), regaliz (200 mg), gayuba, hibisco, vitamina C y fructooligosacáridos (FOS)." },
+        { "pt": "Ação eficaz nos primeiros sintomas de desconforto urinário, com alívio da sintomatologia associada, e manutenção da saúde do sistema urinário.",
+          "en": "Effective action on the first symptoms of urinary discomfort, relieving the associated symptoms, and helps maintain a healthy urinary system.",
+          "es": "Acción eficaz en los primeros síntomas de molestias urinarias, con alivio de la sintomatología asociada, y mantenimiento de la salud del sistema urinario." }
+      ],
+      "composicao": { "pt": "Edulcorante: sorbitol; maltodextrina de milho; extrato seco de Vaccinium macrocarpon, arando-vermelho (fruto); Glycyrrhiza glabra, alcaçuz (raiz e rizoma); aroma; FOS (fruto-oligossacarídeos); extrato seco de Arctostaphylos uva-ursi (folha); estabilizador: polivinilpirrolidona; concentrado de beterraba; antiaglomerante: dióxido de silício; vitamina C (ácido L-ascórbico); extrato seco de Hibiscus sabdariffa, hibisco (flores); edulcorante: glicosídeos de esteviol provenientes da estévia.",
+        "en": "Sweetener: sorbitol; maize maltodextrin; dry extract of Vaccinium macrocarpon, cranberry (fruit); Glycyrrhiza glabra, liquorice (root and rhizome); flavouring; FOS (fructo-oligosaccharides); dry extract of Arctostaphylos uva-ursi (leaf); stabiliser: polyvinylpyrrolidone; beetroot concentrate; anti-caking agent: silicon dioxide; vitamin C (L-ascorbic acid); dry extract of Hibiscus sabdariffa, hibiscus (flowers); sweetener: steviol glycosides from stevia.",
+        "es": "Edulcorante: sorbitol; maltodextrina de maíz; extracto seco de Vaccinium macrocarpon, arándano rojo (fruto); Glycyrrhiza glabra, regaliz (raíz y rizoma); aroma; FOS (fructooligosacáridos); extracto seco de Arctostaphylos uva-ursi (hoja); estabilizante: polivinilpirrolidona; concentrado de remolacha; antiaglomerante: dióxido de silicio; vitamina C (ácido L-ascórbico); extracto seco de Hibiscus sabdariffa, hibisco (flores); edulcorante: glucósidos de esteviol procedentes de la estevia." },
+      "modo": [
+        { "pt": "Adultos: o conteúdo de um stick por dia, dissolvido em 200 ml de água.", "en": "Adults: the contents of one stick a day, dissolved in 200 ml of water.", "es": "Adultos: el contenido de un stick al día, disuelto en 200 ml de agua." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "Contém edulcorantes.", "en": "Contains sweeteners.", "es": "Contiene edulcorantes." },
+        { "pt": "O consumo excessivo pode ter efeitos laxativos.", "en": "Excessive consumption may have laxative effects.", "es": "Un consumo excesivo puede tener efectos laxantes." },
+        { "pt": "Não utilizar mais de 6 semanas sem indicação médica.", "en": "Do not use for more than 6 weeks without medical advice.", "es": "No utilizar durante más de 6 semanas sin indicación médica." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "Não recomendado em pessoas que sofram de hipertensão, hipocalemia, doença renal, cardiovascular ou hepática.", "en": "Not recommended for people with hypertension, hypokalaemia, or kidney, cardiovascular or liver disease.", "es": "No recomendado en personas con hipertensión, hipopotasemia o enfermedad renal, cardiovascular o hepática." },
+        { "pt": "Deve informar o seu profissional de saúde em caso de associação deste produto a anticoagulantes ou antiagregantes plaquetários.", "en": "Tell your healthcare professional if you take this product with anticoagulants or antiplatelet agents.", "es": "Informe a su profesional sanitario si asocia este producto a anticoagulantes o antiagregantes plaquetarios." }
+      ]
+    },
+    {
+      "slug": "imunidade",
+      "nome": "Completus Imunidade Equinácea",
+      "cnp": "7073668",
+      "comprar": "https://www.nossafarmacia.pt/completus-imunidade-caps-equinacea-30/p",
+      "imagens": { "angulos": 5, "loop": true, "inicio": 0 },
+      "embalagem": { "pt": "30 cápsulas", "en": "30 capsules", "es": "30 cápsulas" },
+      "resumo": { "pt": "Reforço do sistema imunitário.", "en": "Immune system support.", "es": "Refuerzo del sistema inmunitario." },
+      "descricao": [
+        { "pt": "Indicado na recuperação de gripes e constipações, com redução dos sintomas de estados gripais, propriedades antibacterianas e antifúngicas, redução do cansaço e da fadiga, melhoria da força muscular, manutenção da saúde óssea e reforço do sistema imunitário.",
+          "en": "Indicated for recovery from flu and colds, reducing flu-like symptoms, with antibacterial and antifungal properties, reduced tiredness and fatigue, improved muscle strength, maintenance of bone health and immune system support.",
+          "es": "Indicado en la recuperación de gripes y resfriados, con reducción de los síntomas de los estados gripales, propiedades antibacterianas y antifúngicas, reducción del cansancio y la fatiga, mejora de la fuerza muscular, mantenimiento de la salud ósea y refuerzo del sistema inmunitario." }
+      ],
+      "composicao": { "pt": "Equinácea (Echinacea purpurea), raiz; agente de volume: celulose microcristalina; agente de revestimento: gelatina bovina (cápsula); zinco (óxido de zinco); corante: carbonato de cálcio (cápsula); antiaglomerante: sais de magnésio de ácidos gordos; estabilizador: dióxido de silício; vitamina B6 (cloridrato de piridoxina); vitamina D3 (colecalciferol).",
+        "en": "Echinacea (Echinacea purpurea), root; bulking agent: microcrystalline cellulose; coating agent: bovine gelatine (capsule); zinc (zinc oxide); colour: calcium carbonate (capsule); anti-caking agent: magnesium salts of fatty acids; stabiliser: silicon dioxide; vitamin B6 (pyridoxine hydrochloride); vitamin D3 (cholecalciferol).",
+        "es": "Equinácea (Echinacea purpurea), raíz; agente de carga: celulosa microcristalina; agente de recubrimiento: gelatina bovina (cápsula); zinc (óxido de zinc); colorante: carbonato cálcico (cápsula); antiaglomerante: sales magnésicas de ácidos grasos; estabilizante: dióxido de silicio; vitamina B6 (clorhidrato de piridoxina); vitamina D3 (colecalciferol)." },
+      "modo": [
+        { "pt": "Uma cápsula por dia.", "en": "One capsule a day.", "es": "Una cápsula al día." }
+      ],
+      "precaucoes": [
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "Não indicado para crianças.", "en": "Not suitable for children.", "es": "No indicado para niños." },
+        { "pt": "Descontinuar o uso em caso de hipersensibilidade ou alergia a qualquer um dos constituintes.", "en": "Stop use in case of hypersensitivity or allergy to any of the ingredients.", "es": "Interrumpir el uso en caso de hipersensibilidad o alergia a cualquiera de los componentes." },
+        { "pt": "Recomendada precaução em caso de doença atópica.", "en": "Use with caution in case of atopic disease.", "es": "Se recomienda precaución en caso de enfermedad atópica." },
+        { "pt": "Não tomar por tempo superior a 8 semanas.", "en": "Do not take for more than 8 weeks.", "es": "No tomar durante más de 8 semanas." }
+      ]
+    },
+    {
+      "slug": "magnesio",
+      "nome": "Completus Magnésio",
+      "cnp": "7074971",
+      "comprar": "https://www.nossafarmacia.pt/completus-magnesio-comp-30/p",
+      "imagens": { "angulos": 0 },
+      "embalagem": { "pt": "30 comprimidos", "en": "30 tablets", "es": "30 comprimidos" },
+      "resumo": { "pt": "Bem-estar muscular, energia e menos fadiga.", "en": "Muscle well-being, energy and less fatigue.", "es": "Bienestar muscular, energía y menos fatiga." },
+      "descricao": [
+        { "pt": "Bem-estar muscular, energia e diminuição da fadiga e do cansaço. Formulado com magnésio (350 mg), vitamina B6 (1,4 mg) e vitamina C (40 mg).",
+          "en": "Muscle well-being, energy and reduced tiredness and fatigue. Formulated with magnesium (350 mg), vitamin B6 (1.4 mg) and vitamin C (40 mg).",
+          "es": "Bienestar muscular, energía y disminución de la fatiga y el cansancio. Formulado con magnesio (350 mg), vitamina B6 (1,4 mg) y vitamina C (40 mg)." }
+      ],
+      "composicao": { "pt": "Citrato de magnésio; óxido de magnésio; agentes de volume: celulose microcristalina, fosfatos de cálcio; agentes de revestimento: polidextrose, carbonato de cálcio, hidroxipropilmetilcelulose, talco, triglicéridos de cadeia média; ácido ascórbico (vitamina C); antiaglomerante: sais de magnésio de ácidos gordos; cloridrato de piridoxina (vitamina B6).",
+        "en": "Magnesium citrate; magnesium oxide; bulking agents: microcrystalline cellulose, calcium phosphates; coating agents: polydextrose, calcium carbonate, hydroxypropyl methylcellulose, talc, medium-chain triglycerides; ascorbic acid (vitamin C); anti-caking agent: magnesium salts of fatty acids; pyridoxine hydrochloride (vitamin B6).",
+        "es": "Citrato de magnesio; óxido de magnesio; agentes de carga: celulosa microcristalina, fosfatos cálcicos; agentes de recubrimiento: polidextrosa, carbonato cálcico, hidroxipropilmetilcelulosa, talco, triglicéridos de cadena media; ácido ascórbico (vitamina C); antiaglomerante: sales magnésicas de ácidos grasos; clorhidrato de piridoxina (vitamina B6)." },
+      "modo": [
+        { "pt": "Adultos e adolescentes com mais de 16 anos: um comprimido por dia.", "en": "Adults and adolescents over 16: one tablet a day.", "es": "Adultos y adolescentes mayores de 16 años: un comprimido al día." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "Não deve ser utilizado no caso de hipersensibilidade, alergia e quando estejam descritas interações de outro produto com qualquer um dos constituintes da formulação.", "en": "Do not use in case of hypersensitivity or allergy, or where interactions of another product with any of the ingredients have been described.", "es": "No utilizar en caso de hipersensibilidad o alergia, ni cuando se hayan descrito interacciones de otro producto con cualquiera de los componentes de la fórmula." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "A toma de antibióticos (tetraciclinas e quinolonas) deve ser o mais afastada possível da toma de suplementos de magnésio.", "en": "Antibiotics (tetracyclines and quinolones) should be taken as far apart as possible from magnesium supplements.", "es": "La toma de antibióticos (tetraciclinas y quinolonas) debe separarse lo máximo posible de la de suplementos de magnesio." },
+        { "pt": "Pode provocar diarreia.", "en": "May cause diarrhoea.", "es": "Puede provocar diarrea." },
+        { "pt": "Não deve ser tomado por transplantados recentes.", "en": "Not to be taken by recent transplant recipients.", "es": "No debe tomarse por personas trasplantadas recientemente." }
+      ]
+    },
+    {
+      "slug": "microbiota",
+      "nome": "Completus Microbiota",
+      "cnp": "7100404",
+      "comprar": "https://www.nossafarmacia.pt/completus-acidophilus-plus-caps-probioticos-30/p",
+      "imagens": { "angulos": 5, "loop": true, "inicio": 0 },
+      "embalagem": { "pt": "30 cápsulas", "en": "30 capsules", "es": "30 cápsulas" },
+      "resumo": { "pt": "Para uma microbiota intestinal saudável.", "en": "For a healthy gut microbiota.", "es": "Para una microbiota intestinal saludable." },
+      "descricao": [
+        { "pt": "Formulado com 7 estirpes de probióticos e betaglucano, contribui para uma microbiota intestinal saudável.",
+          "en": "Formulated with 7 probiotic strains and beta-glucan, it contributes to a healthy gut microbiota.",
+          "es": "Formulado con 7 cepas de probióticos y betaglucano, contribuye a una microbiota intestinal saludable." },
+        { "pt": "Reforço do sistema imunitário, prevenção de doenças e bem-estar geral. 280 milhões de UFC por estirpe e por cápsula.",
+          "en": "Immune system support, disease prevention and general well-being. 280 million CFU per strain per capsule.",
+          "es": "Refuerzo del sistema inmunitario, prevención de enfermedades y bienestar general. 280 millones de UFC por cepa y por cápsula." }
+      ],
+      "composicao": { "pt": "Bifidobacterium lactis, Bifidobacterium bifidum, Bifidobacterium longum, Lactobacillus acidophilus, Lactobacillus casei, Lactobacillus rhamnosus e Streptococcus thermophilus (2,8 × 10⁸ UFC cada); betaglucano; agente de volume: maltodextrina; antiaglomerante: estearato de magnésio vegetal.",
+        "en": "Bifidobacterium lactis, Bifidobacterium bifidum, Bifidobacterium longum, Lactobacillus acidophilus, Lactobacillus casei, Lactobacillus rhamnosus and Streptococcus thermophilus (2.8 × 10⁸ CFU each); beta-glucan; bulking agent: maltodextrin; anti-caking agent: vegetable magnesium stearate.",
+        "es": "Bifidobacterium lactis, Bifidobacterium bifidum, Bifidobacterium longum, Lactobacillus acidophilus, Lactobacillus casei, Lactobacillus rhamnosus y Streptococcus thermophilus (2,8 × 10⁸ UFC cada una); betaglucano; agente de carga: maltodextrina; antiaglomerante: estearato de magnesio vegetal." },
+      "modo": [
+        { "pt": "Adultos: uma cápsula por dia, antes do almoço.", "en": "Adults: one capsule a day, before lunch.", "es": "Adultos: una cápsula al día, antes de la comida." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "Não recomendado no caso de hipersensibilidade e alergia a qualquer um dos constituintes da formulação.", "en": "Not recommended in case of hypersensitivity or allergy to any of the ingredients.", "es": "No recomendado en caso de hipersensibilidad o alergia a cualquiera de los componentes de la fórmula." }
+      ]
+    },
+    {
+      "slug": "propolis",
+      "nome": "Completus Própolis Spray",
+      "cnp": "7063305",
+      "comprar": "https://www.nossafarmacia.pt/completus-propolis-spray-garganta-50ml/p",
+      "imagens": { "angulos": 3, "loop": false, "inicio": 1 },
+      "embalagem": { "pt": "Spray de 50 ml", "en": "50 ml spray", "es": "Spray de 50 ml" },
+      "resumo": { "pt": "Alívio da garganta irritada, seca e inflamada.", "en": "Relief for an irritated, dry and inflamed throat.", "es": "Alivio de la garganta irritada, seca e inflamada." },
+      "descricao": [
+        { "pt": "Formulado com própolis, mel e tomilho. Indicado para o alívio dos sintomas associados à garganta irritada, seca e inflamada, com efeito calmante.",
+          "en": "Formulated with propolis, honey and thyme. Indicated to relieve the symptoms of an irritated, dry and inflamed throat, with a soothing effect.",
+          "es": "Formulado con propóleo, miel y tomillo. Indicado para el alivio de los síntomas asociados a la garganta irritada, seca e inflamada, con efecto calmante." },
+        { "pt": "Ajuda o sistema imunitário a combater infeções do trato respiratório.",
+          "en": "Helps the immune system fight respiratory tract infections.",
+          "es": "Ayuda al sistema inmunitario a combatir las infecciones de las vías respiratorias." }
+      ],
+      "composicao": { "pt": "Extrato hidrofílico de própolis (resina) 25%; extrato hidrofílico de Thymus vulgaris, tomilho (partes aéreas) 25%; mel de flores 25%; agente de volume: sorbitol; regulador de acidez: ácido cítrico; conservantes: sorbato de potássio, benzoato de sódio; aroma.",
+        "en": "Hydrophilic propolis extract (resin) 25%; hydrophilic extract of Thymus vulgaris, thyme (aerial parts) 25%; flower honey 25%; bulking agent: sorbitol; acidity regulator: citric acid; preservatives: potassium sorbate, sodium benzoate; flavouring.",
+        "es": "Extracto hidrófilo de propóleo (resina) 25%; extracto hidrófilo de Thymus vulgaris, tomillo (partes aéreas) 25%; miel de flores 25%; agente de carga: sorbitol; corrector de acidez: ácido cítrico; conservantes: sorbato potásico, benzoato sódico; aroma." },
+      "modo": [
+        { "pt": "Adultos: vaporizar diretamente na garganta duas vezes, de 4 em 4 horas.", "en": "Adults: spray directly into the throat twice, every 4 hours.", "es": "Adultos: pulverizar directamente en la garganta dos veces, cada 4 horas." },
+        { "pt": "Crianças com mais de 6 anos: vaporizar uma vez, de 8 em 8 horas.", "en": "Children over 6: spray once, every 8 hours.", "es": "Niños mayores de 6 años: pulverizar una vez, cada 8 horas." },
+        { "pt": "Crianças com mais de 4 anos: vaporizar uma vez por dia.", "en": "Children over 4: spray once a day.", "es": "Niños mayores de 4 años: pulverizar una vez al día." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "O consumo excessivo pode ter efeitos laxativos.", "en": "Excessive consumption may have laxative effects.", "es": "Un consumo excesivo puede tener efectos laxantes." },
+        { "pt": "Recomendada precaução em doentes asmáticos ou atópicos.", "en": "Use with caution in asthmatic or atopic patients.", "es": "Se recomienda precaución en pacientes asmáticos o atópicos." },
+        { "pt": "Não recomendado em caso de alergia ao pólen ou a abelhas.", "en": "Not recommended in case of allergy to pollen or bees.", "es": "No recomendado en caso de alergia al polen o a las abejas." },
+        { "pt": "Não deve ser utilizado no caso de hipersensibilidade, alergia e quando estejam descritas interações de outro produto com qualquer um dos constituintes da formulação.", "en": "Do not use in case of hypersensitivity or allergy, or where interactions of another product with any of the ingredients have been described.", "es": "No utilizar en caso de hipersensibilidad o alergia, ni cuando se hayan descrito interacciones de otro producto con cualquiera de los componentes de la fórmula." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." }
+      ]
+    },
+    {
+      "slug": "sono",
+      "nome": "Completus Sono",
+      "cnp": "6677237",
+      "comprar": "https://www.nossafarmacia.pt/completus-sono-comp-30/p",
+      "imagens": { "angulos": 0 },
+      "embalagem": { "pt": "30 comprimidos", "en": "30 tablets", "es": "30 comprimidos" },
+      "resumo": { "pt": "Ajuda a adormecer mais depressa.", "en": "Helps you fall asleep faster.", "es": "Ayuda a conciliar el sueño más rápido." },
+      "descricao": [
+        { "pt": "Formulado com melatonina (1,9 mg), valeriana, camomila e passiflora. Indicado para insónias e dificuldade em adormecer.",
+          "en": "Formulated with melatonin (1.9 mg), valerian, chamomile and passionflower. Indicated for insomnia and difficulty falling asleep.",
+          "es": "Formulado con melatonina (1,9 mg), valeriana, manzanilla y pasiflora. Indicado para el insomnio y la dificultad para conciliar el sueño." },
+        { "pt": "A melatonina, a hormona do sono, reduz o tempo necessário para adormecer. A fórmula é enriquecida com um complexo de plantas que contribuem para um sono relaxante.",
+          "en": "Melatonin, the sleep hormone, reduces the time it takes to fall asleep. The formula is enriched with a plant complex that contributes to restful sleep.",
+          "es": "La melatonina, la hormona del sueño, reduce el tiempo necesario para conciliar el sueño. La fórmula está enriquecida con un complejo de plantas que contribuyen a un sueño relajante." }
+      ],
+      "composicao": { "pt": "Antiaglomerante: celulose microcristalina; extrato seco concentrado de Passiflora incarnata, passiflora (partes aéreas); estabilizador: amido de milho; antiaglomerante: polivinilpolipirrolidona; extrato seco concentrado de Valeriana officinalis, valeriana (raiz); extrato seco concentrado de Matricaria chamomilla, camomila (flor); antiaglomerantes: talco, sais de magnésio de ácidos gordos; melatonina; antiaglomerante: dióxido de silício.",
+        "en": "Anti-caking agent: microcrystalline cellulose; concentrated dry extract of Passiflora incarnata, passionflower (aerial parts); stabiliser: maize starch; anti-caking agent: polyvinylpolypyrrolidone; concentrated dry extract of Valeriana officinalis, valerian (root); concentrated dry extract of Matricaria chamomilla, chamomile (flower); anti-caking agents: talc, magnesium salts of fatty acids; melatonin; anti-caking agent: silicon dioxide.",
+        "es": "Antiaglomerante: celulosa microcristalina; extracto seco concentrado de Passiflora incarnata, pasiflora (partes aéreas); estabilizante: almidón de maíz; antiaglomerante: polivinilpolipirrolidona; extracto seco concentrado de Valeriana officinalis, valeriana (raíz); extracto seco concentrado de Matricaria chamomilla, manzanilla (flor); antiaglomerantes: talco, sales magnésicas de ácidos grasos; melatonina; antiaglomerante: dióxido de silicio." },
+      "modo": [
+        { "pt": "Adultos: um comprimido 30 minutos antes de dormir.", "en": "Adults: one tablet 30 minutes before bedtime.", "es": "Adultos: un comprimido 30 minutos antes de dormir." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "Não deve ser utilizado no caso de hipersensibilidade, alergia e quando estejam descritas interações de outro produto com qualquer um dos constituintes da formulação.", "en": "Do not use in case of hypersensitivity or allergy, or where interactions of another product with any of the ingredients have been described.", "es": "No utilizar en caso de hipersensibilidad o alergia, ni cuando se hayan descrito interacciones de otro producto con cualquiera de los componentes de la fórmula." }
+      ]
+    },
+    {
+      "slug": "transito-intestinal",
+      "nome": "Completus Trânsito Intestinal",
+      "cnp": "6634618",
+      "comprar": "https://www.nossafarmacia.pt/completus-transito-intestinal-comp-20/p",
+      "imagens": { "angulos": 0 },
+      "embalagem": { "pt": "20 comprimidos", "en": "20 tablets", "es": "20 comprimidos" },
+      "resumo": { "pt": "Regularização do trânsito intestinal.", "en": "Helps regulate bowel movements.", "es": "Regulación del tránsito intestinal." },
+      "descricao": [
+        { "pt": "Indicado para situações de obstipação e para a regularização do trânsito intestinal. Formulado com sene, cáscara-sagrada, aveia, funcho e ruibarbo.",
+          "en": "Indicated for constipation and to help regulate bowel movements. Formulated with senna, cascara sagrada, oat, fennel and rhubarb.",
+          "es": "Indicado para situaciones de estreñimiento y para la regulación del tránsito intestinal. Formulado con sen, cáscara sagrada, avena, hinojo y ruibarbo." }
+      ],
+      "composicao": { "pt": "Antiaglomerantes: fosfato tricálcico, celulose microcristalina; Rhamnus purshiana, cáscara-sagrada (casca); extrato seco de Cassia angustifolia, sene (folhas); Foeniculum vulgare, funcho* (fruto); gelificante: polivinilpirrolidona; Avena sativa, aveia (partes aéreas); Rheum palmatum, ruibarbo (raiz); antiaglomerantes: carboximetilcelulose de sódio reticulada, talco, sais de magnésio de ácidos gordos, dióxido de silício. *Pode conter vestígios de glúten.",
+        "en": "Anti-caking agents: tricalcium phosphate, microcrystalline cellulose; Rhamnus purshiana, cascara sagrada (bark); dry extract of Cassia angustifolia, senna (leaves); Foeniculum vulgare, fennel* (fruit); gelling agent: polyvinylpyrrolidone; Avena sativa, oat (aerial parts); Rheum palmatum, rhubarb (root); anti-caking agents: cross-linked sodium carboxymethylcellulose, talc, magnesium salts of fatty acids, silicon dioxide. *May contain traces of gluten.",
+        "es": "Antiaglomerantes: fosfato tricálcico, celulosa microcristalina; Rhamnus purshiana, cáscara sagrada (corteza); extracto seco de Cassia angustifolia, sen (hojas); Foeniculum vulgare, hinojo* (fruto); gelificante: polivinilpirrolidona; Avena sativa, avena (partes aéreas); Rheum palmatum, ruibarbo (raíz); antiaglomerantes: carboximetilcelulosa sódica reticulada, talco, sales magnésicas de ácidos grasos, dióxido de silicio. *Puede contener trazas de gluten." },
+      "modo": [
+        { "pt": "Adultos e adolescentes com mais de 12 anos: um comprimido por dia, ao deitar.", "en": "Adults and adolescents over 12: one tablet a day, at bedtime.", "es": "Adultos y adolescentes mayores de 12 años: un comprimido al día, al acostarse." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "Não utilizar em caso de gravidez e aleitamento nem em crianças com menos de 12 anos.", "en": "Do not use during pregnancy and breastfeeding or in children under 12.", "es": "No utilizar en caso de embarazo y lactancia ni en niños menores de 12 años." },
+        { "pt": "Não deve ser utilizado no caso de hipersensibilidade, alergia e quando estejam descritas interações de outro produto com qualquer um dos constituintes da formulação.", "en": "Do not use in case of hypersensitivity or allergy, or where interactions of another product with any of the ingredients have been described.", "es": "No utilizar en caso de hipersensibilidad o alergia, ni cuando se hayan descrito interacciones de otro producto con cualquiera de los componentes de la fórmula." },
+        { "pt": "Não utilizar em situações de obstrução intestinal, dor abdominal de origem desconhecida ou doença inflamatória intestinal (doença de Crohn, síndrome do intestino irritável, entre outras).", "en": "Do not use in case of intestinal obstruction, abdominal pain of unknown origin or inflammatory bowel disease (Crohn’s disease, irritable bowel syndrome, among others).", "es": "No utilizar en caso de obstrucción intestinal, dolor abdominal de origen desconocido o enfermedad inflamatoria intestinal (enfermedad de Crohn, síndrome del intestino irritable, entre otras)." },
+        { "pt": "Em caso de diarreia ou dores abdominais, interromper a toma e consultar o médico ou o farmacêutico.", "en": "In case of diarrhoea or abdominal pain, stop taking it and consult your doctor or pharmacist.", "es": "En caso de diarrea o dolor abdominal, interrumpir la toma y consultar al médico o al farmacéutico." },
+        { "pt": "Não utilizar por um período prolongado sem consultar um profissional de saúde.", "en": "Do not use for a prolonged period without consulting a healthcare professional.", "es": "No utilizar durante un período prolongado sin consultar a un profesional sanitario." }
+      ]
+    },
+    {
+      "slug": "vitamina-c",
+      "nome": "Completus Vitamina C 1000 mg",
+      "cnp": "7077784",
+      "comprar": "https://www.nossafarmacia.pt/completus-vitamina-c-comp-eferv-20/p",
+      "imagens": { "angulos": 0 },
+      "embalagem": { "pt": "20 comprimidos efervescentes", "en": "20 effervescent tablets", "es": "20 comprimidos efervescentes" },
+      "resumo": { "pt": "Reforço do sistema imunitário e menos cansaço.", "en": "Immune support and less tiredness.", "es": "Refuerzo del sistema inmunitario y menos cansancio." },
+      "descricao": [
+        { "pt": "Reforço do sistema imunitário e diminuição da fadiga e do cansaço. Formulado com 1000 mg de vitamina C, com sabor a laranja.",
+          "en": "Immune system support and reduced tiredness and fatigue. Formulated with 1000 mg of vitamin C, orange flavour.",
+          "es": "Refuerzo del sistema inmunitario y disminución de la fatiga y el cansancio. Formulado con 1000 mg de vitamina C, con sabor a naranja." }
+      ],
+      "composicao": { "pt": "Regulador de acidez: ácido cítrico; vitamina C (ácido L-ascórbico); regulador de acidez: carbonato de sódio; agentes de endurecimento: sorbitol, polietilenoglicol; aroma de laranja; edulcorantes: aspartame, sacarina; corante: E 110.",
+        "en": "Acidity regulator: citric acid; vitamin C (L-ascorbic acid); acidity regulator: sodium carbonate; firming agents: sorbitol, polyethylene glycol; orange flavouring; sweeteners: aspartame, saccharin; colour: E 110.",
+        "es": "Corrector de acidez: ácido cítrico; vitamina C (ácido L-ascórbico); corrector de acidez: carbonato sódico; agentes endurecedores: sorbitol, polietilenglicol; aroma de naranja; edulcorantes: aspartamo, sacarina; colorante: E 110." },
+      "modo": [
+        { "pt": "Adultos e adolescentes com mais de 12 anos: um comprimido por dia, dissolvido num copo de água.", "en": "Adults and adolescents over 12: one tablet a day, dissolved in a glass of water.", "es": "Adultos y adolescentes mayores de 12 años: un comprimido al día, disuelto en un vaso de agua." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "O consumo excessivo pode ter efeitos laxativos.", "en": "Excessive consumption may have laxative effects.", "es": "Un consumo excesivo puede tener efectos laxantes." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "Não deve ser utilizado no caso de hipersensibilidade, alergia e quando estejam descritas interações de outro produto com qualquer um dos constituintes da formulação.", "en": "Do not use in case of hypersensitivity or allergy, or where interactions of another product with any of the ingredients have been described.", "es": "No utilizar en caso de hipersensibilidad o alergia, ni cuando se hayan descrito interacciones de otro producto con cualquiera de los componentes de la fórmula." },
+        { "pt": "Contém uma fonte de fenilalanina e edulcorantes.", "en": "Contains a source of phenylalanine and sweeteners.", "es": "Contiene una fuente de fenilalanina y edulcorantes." }
+      ]
+    },
+    {
+      "slug": "vitamina-d",
+      "nome": "Completus Vitamina D 4000 UI",
+      "cnp": "7100362",
+      "comprar": "https://www.nossafarmacia.pt/completus-vitamina-d-comp-60/p",
+      "imagens": { "angulos": 5, "loop": true, "inicio": 0 },
+      "embalagem": { "pt": "60 comprimidos", "en": "60 tablets", "es": "60 comprimidos" },
+      "resumo": { "pt": "Sistema imunitário, ossos e dentes.", "en": "Immune system, bones and teeth.", "es": "Sistema inmunitario, huesos y dientes." },
+      "descricao": [
+        { "pt": "Alto teor em vitamina D para o reforço do sistema imunitário e a manutenção de ossos e dentes normais.",
+          "en": "High vitamin D content to support the immune system and maintain normal bones and teeth.",
+          "es": "Alto contenido en vitamina D para el refuerzo del sistema inmunitario y el mantenimiento de huesos y dientes normales." }
+      ],
+      "composicao": { "pt": "Agente de volume: celulose microcristalina; antiaglomerante: estearato de magnésio vegetal; estabilizador: dióxido de silício; vitamina D3 (colecalciferol).",
+        "en": "Bulking agent: microcrystalline cellulose; anti-caking agent: vegetable magnesium stearate; stabiliser: silicon dioxide; vitamin D3 (cholecalciferol).",
+        "es": "Agente de carga: celulosa microcristalina; antiaglomerante: estearato de magnesio vegetal; estabilizante: dióxido de silicio; vitamina D3 (colecalciferol)." },
+      "modo": [
+        { "pt": "Adultos e crianças com mais de 11 anos: um comprimido por dia, antes do almoço.", "en": "Adults and children over 11: one tablet a day, before lunch.", "es": "Adultos y niños mayores de 11 años: un comprimido al día, antes de la comida." }
+      ],
+      "precaucoes": [
+        { "pt": "Não exceder as dosagens recomendadas.", "en": "Do not exceed the recommended dose.", "es": "No superar la dosis recomendada." },
+        { "pt": "Em caso de gravidez e aleitamento, a toma deve ser feita sob indicação médica.", "en": "During pregnancy and breastfeeding, take only under medical advice.", "es": "En caso de embarazo y lactancia, tomar solo bajo indicación médica." },
+        { "pt": "Não recomendado no caso de hipersensibilidade e alergia a qualquer um dos constituintes da formulação.", "en": "Not recommended in case of hypersensitivity or allergy to any of the ingredients.", "es": "No recomendado en caso de hipersensibilidad o alergia a cualquiera de los componentes de la fórmula." },
+        { "pt": "Pode ocorrer fraqueza, dores de cabeça, musculares e ósseas, perda de apetite e perturbações gastrointestinais.", "en": "Weakness, headache, muscle and bone pain, loss of appetite and gastrointestinal disturbances may occur.", "es": "Pueden aparecer debilidad, dolor de cabeza, muscular y óseo, pérdida de apetito y trastornos gastrointestinales." },
+        { "pt": "Não recomendado em crianças com menos de 11 anos.", "en": "Not recommended for children under 11.", "es": "No recomendado en niños menores de 11 años." }
+      ]
+    }
+  ]
+}

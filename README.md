@@ -21,8 +21,8 @@ O código-fonte está em `site/`. Um build curto (`npm run build`) gera em `dist
 
 - **Por página:** título e descrição próprios por língua, `canonical`, `hreflang` (pt-PT, en, es e x-default), Open Graph e Twitter com imagem 1200×630 (`media/og-1200x630.jpg`), e `robots` com `max-image-preview:large`.
 - **Dados estruturados (JSON-LD no `<head>`):** `Organization` (nome legal Addo Pharm, S.A., contactos, redes sociais e prémios IAPMEI), `WebSite`, `WebPage` e `VideoObject` do vídeo institucional. Ao mudar contactos, redes sociais ou prémios no rodapé, atualizem também este bloco.
-- **Idiomas:** `/`, `/en/` e `/es/` são páginas estáticas, cada uma no seu URL, e entram no `sitemap.xml`; o mesmo para cada página de serviço (`/servicos/<nome>/`, `/en/servicos/<nome>/`, `/es/servicos/<nome>/`) e de emprego (`/emprego/`, `/emprego/<vaga>/`). Os links antigos com `?lang=en` ou `?lang=es` redirecionam para `/en/` e `/es/`.
-- **404 e URLs antigos:** em `grupo.nossafarmacia.pt`, os caminhos do site antigo (começam por maiúscula: `/Portal`, `/NossasFarmacias/`, …) seguem para o mesmo caminho em `portal.nossafarmacia.pt`. Os outros mostram a página 404 (ver Comportamento).
+- **Idiomas:** `/`, `/en/` e `/es/` são páginas estáticas, cada uma no seu URL, e entram no `sitemap.xml`; o mesmo para cada página de serviço (`/servicos/<nome>/`, `/en/servicos/<nome>/`, `/es/servicos/<nome>/`), de emprego (`/emprego/`, `/emprego/<vaga>/`) e da Completus (`/completus/`, `/completus/<produto>/`). Os links antigos com `?lang=en` ou `?lang=es` redirecionam para `/en/` e `/es/`.
+- **404 e URLs antigos:** em `grupo.nossafarmacia.pt`, os caminhos do site antigo (começam por maiúscula: `/Portal`, `/NossasFarmacias/`, …) seguem para o mesmo caminho em `portal.nossafarmacia.pt`, exceto a antiga Completus: `/MarcasProprias/` vai para `/completus/` e `/MarcasProprias/<CNP>` para a página do produto. Os outros mostram a página 404 (ver Comportamento).
 - **Ícones:** `favicon.ico` (48 px), `favicon.svg`, `apple-touch-icon.png` (180 px) e `site.webmanifest` com ícones 192/512 em `img/icons/`.
 - **Depois de o domínio estar no ar (Google Search Console):**
   1. Adicionar a propriedade do domínio `nossafarmacia.pt` (verificação por registo TXT no DNS) ou o prefixo `https://grupo.nossafarmacia.pt/`.
@@ -36,8 +36,10 @@ O código-fonte está em `site/`. Um build curto (`npm run build`) gera em `dist
 ```text
 site/             código-fonte do site (o que é publicado, mais as páginas EN/ES geradas)
 scripts/build.mjs gera dist/: páginas EN/ES traduzidas a partir do i18n.js, sitemap.xml, robots.txt e noindex fora de produção
+scripts/completus/ dados dos produtos Completus (produtos.json), gerador das páginas (gerar.mjs) e das imagens (imagens.py)
 dist/             resultado do build (não vai para o git)
 higgsfield/       originais e scripts de produção dos vídeos e imagens (só local, não vai para o git)
+assets/           renders originais das embalagens Completus, uma pasta 3D_<produto>/ por produto (só local, não vai para o git)
 ```
 
 Dentro de `site/`:
@@ -48,6 +50,8 @@ servicos/         uma página por serviço (consultoria, analytics, marketing, a
                   com servico.css e servico.js partilhados
 emprego/          lista de vagas (index.html) e uma pasta por vaga (candidatura-espontanea/, …), com emprego.css e
                   emprego.js; usa também o servico.css e o servico.js
+completus/        a gama Completus® (index.html) e uma página por produto (<produto>/index.html), geradas por
+                  scripts/completus/gerar.mjs, com completus.css e completus.js; usa também o servico.css e o servico.js
 i18n.js           traduções EN e ES: o build gera as páginas com elas, e a página EN/ES carrega-o para os textos criados em JS
 404.html          página de erro animada (PT/EN/ES pelo caminho), com o redirecionamento dos URLs antigos para portal.nossafarmacia.pt
 favicon.svg, favicon.ico, apple-touch-icon.png, site.webmanifest
@@ -100,6 +104,13 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
   - **Envio:** o site não tem servidor, por isso o destino das candidaturas configura-se no atributo `data-endpoint` do `<form id="cv-form">`: o URL que recebe um POST `multipart/form-data`, com o CV no campo `cv` e a vaga no campo `vaga` (serve um serviço de formulários como Formspree ou Basin, um endpoint do Odoo ou uma API própria; deve responder 2xx e aceitar pedidos de `grupo.nossafarmacia.pt` (CORS)). Com o endpoint vazio, que é o estado atual, o botão abre o email do candidato com os dados preenchidos para o endereço em `data-email` (`grupo@nossafarmacia.pt`), e o candidato anexa o CV à mão: os browsers não deixam anexar ficheiros a um `mailto`.
   - O texto do consentimento e da nota sobre os dados deve ser validado por quem trata da proteção de dados do Grupo.
   - **Publicar uma vaga:** copiar `emprego/candidatura-espontanea/` para `emprego/<nome-da-vaga>/`, mudar o texto, o `value` do campo escondido `vaga`, o `<title>`, a descrição, o canonical, o hreflang e os dados estruturados (para o Google Jobs, acrescentar um `JobPosting`, que não se usa na candidatura espontânea), e acrescentar um cartão `<li class="vaga">` em `emprego/index.html`, antes da candidatura espontânea. A nota "não temos vagas" desaparece sozinha, o build encontra a pasta nova, e os textos novos vão para o `i18n.js`.
+- **Completus®:** a página `completus/` mostra a gama (12 produtos) e cada produto tem a sua página, com a descrição, o modo de utilização, a composição, as precauções, o CNP e o link para comprar na Farmácia Online.
+  - **Dados:** em `scripts/completus/produtos.json`, em PT, EN e ES. Vieram de `grupo.nossafarmacia.pt/MarcasProprias` (o serviço `GetAllMarcasPropriasPublico` do site antigo), com as gralhas evidentes corrigidas. O Microbiota é o antigo Acidophilus Plus (a embalagem nova tem a mesma fórmula: 7 estirpes e betaglucanos) e usa os dados e o CNP dele. O Articulações não existia no site antigo: os dados vieram da Farmácia Online. Detox Burn e Detox Depur ficaram de fora por não terem imagem nova. Algumas embalagens são de fórmulas novas (o Colesterol diz "Nova fórmula"): os textos devem ser confirmados com os rótulos atuais.
+  - **Para mudar um produto:** editar `produtos.json` e correr `npm run completus`, que reescreve as páginas em `site/completus/` e as traduções no bloco "Completus" do `i18n.js`. As páginas geradas não se editam à mão. O menu e o rodapé vêm de `site/emprego/index.html`.
+  - **Imagens:** `python3 scripts/completus/imagens.py` (precisa do Pillow) lê os renders de `assets/3D_<produto>/` e escreve em `site/img/completus/<produto>/` a capa (quadrada, 640 e 1200 px) e as vistas para rodar (1200 px), todas com a embalagem à mesma altura. Em `scripts/completus/angulos.json` escolhe-se a imagem da capa (a frente da embalagem: `Frente_Pack*` quando existe) e as vistas, pela ordem em que a embalagem roda.
+  - **Topo da gama:** as 12 embalagens sem fundo numa composição em três filas (`img/completus/gama-1000.webp` e `gama-2000.webp`), também feita pelo `imagens.py` (o lugar de cada embalagem está em `FILAS`). O mesmo recorte de cada produto aparece também na sua página, ao lado da ficha "Sobre o produto" (`recorte.webp`). Os recortes do Magnésio, do Sono e da Vitamina C são os PNG transparentes dos assets; os outros 9 foram recortados no Higgsfield (Image Background Remover, 1 crédito cada) e estão em `higgsfield/completus/recortes/` (só local). Um produto novo precisa de um recorte e de um lugar em `FILAS`.
+  - **Rodar a embalagem:** nos produtos com várias vistas, arrasta-se a imagem com o rato ou com o dedo (ou usam-se as setas do teclado e os botões) para ver a embalagem de outros ângulos. Não roda sozinha. As outras vistas só descarregam quando a pessoa chega à imagem. O Própolis e o Colesterol não têm vista do verso e rodam só entre os lados; Magnésio, Sono, Trânsito Intestinal e Vitamina C têm uma só vista. Todas as imagens se podem ampliar.
+  - Não é um modelo 3D: são os renders reais da embalagem, para o texto se ler sempre bem. Um modelo 3D gerado no Higgsfield foi testado e posto de parte porque inventava o texto da embalagem. Uma caixa 3D verdadeira precisa da arte plana das faces de cada embalagem.
 - **Imagens geradas com IA:** as fotos dos Serviços, o fundo do Emprego, os clips da Proposta e o vídeo da adesão foram gerados no Higgsfield. Os originais e os prompts estão em `higgsfield/servicos/`, `higgsfield/proposta/` e `higgsfield/adesao/`. As pessoas são geradas e servem só de ambiente; não devem ser apresentadas como colaboradores ou clientes reais.
 - **Prémios (IAPMEI):** a faixa no fim de O Grupo mostra os selos em vigor (PME Líder 2025 e PME Excelência 2025) e os anos de distinção: PME Líder em 2020, 2022, 2023, 2024 e 2025 (em 2021 não houve), com PME Excelência em 2023 e 2025. O rodapé mostra os 7 selos. Os diplomas estão em `../premios/`, em nome da Addo Pharm, S.A., a denominação oficial do Grupo.
   - Os selos foram recortados dos diplomas. Não havia diploma da PME Excelência 2025, por isso esse selo foi feito a partir do de 2023, trocando o "3" por um "5" retirado do selo PME Líder '25 (a mesma fonte). Deve ser substituído pelo selo oficial quando o tiverem.
@@ -115,7 +126,7 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
   - O título, a descrição e o texto alternativo da imagem de partilha (`og:image:alt`) também se traduzem pelo `i18n.js`.
   - **Para acrescentar um texto:** escrevam-no em PT no `index.html` e acrescentem uma entrada no `i18n.js` com `en` e `es`.
   - Os títulos com uma parte em itálico (`<em class="s">`) são traduzidos por partes: cada lado do `<em>` tem a sua entrada.
-- **Links externos:** Farmácia Online, Portal, Nossas Farmácias e Completus® apontam para as páginas atuais de `portal.nossafarmacia.pt` e `www.nossafarmacia.pt`.
+- **Links externos:** Farmácia Online, Portal e Nossas Farmácias apontam para as páginas atuais de `portal.nossafarmacia.pt` e `www.nossafarmacia.pt`.
 
 ## Testes
 

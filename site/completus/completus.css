@@ -1,0 +1,90 @@
+/* Páginas Completus (completus/ e completus/<produto>/). A base, o menu, a língua, o rodapé e o
+   cartão de chamada (.cta-card) vêm de servicos/servico.css, que estas páginas carregam antes. */
+
+/* ============ TOPO DA GAMA: as 12 embalagens sem fundo (img/completus/gama-*.webp, de scripts/completus/imagens.py) ============ */
+.g-hero .s-hero-in{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.gama-shot{margin:0 calc(-1 * clamp(0px,3vw,40px)) 0 0}
+.gama-shot img{width:100%;height:auto}
+@media (max-width:900px){.g-hero .s-hero-in{grid-template-columns:1fr}.gama-shot{margin:8px 0 0}}
+
+/* ============ GAMA ============ */
+.g-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.g-head .lead{margin-top:0;max-width:44ch}
+.cp-list{list-style:none;margin:clamp(40px,5vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}
+.cp a{position:relative;display:flex;flex-direction:column;height:100%;border-radius:var(--r-md);background:#fff;border:1px solid var(--line);overflow:hidden;color:inherit;text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s}
+.cp a:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.cp a:focus-visible{outline:3px solid var(--emerald);outline-offset:3px}
+.cp figure{position:relative;margin:0;aspect-ratio:1/1;overflow:hidden;background:#d6d6d6}
+.cp figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.cp a:hover figure img{transform:scale(1.04)}
+.cp-body{display:flex;flex-direction:column;gap:8px;flex:1;padding:clamp(18px,2vw,24px)}
+.cp h3{font-size:20px;line-height:1.2;letter-spacing:-.02em;font-weight:600}
+.cp h3 small{display:block;margin-bottom:4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.cp p{font-size:15.5px;color:var(--ink-2);line-height:1.5}
+.cp-meta{font-size:13.5px;color:var(--ink-3)}
+.cp .more{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:15px;color:var(--deep)}
+.cp .more .icon{width:16px;height:16px;transition:transform .2s var(--ease)}
+.cp a:hover .more .icon{transform:translateX(3px)}
+@media (max-width:1100px){.cp-list{grid-template-columns:repeat(3,minmax(0,1fr))}.cp-4 .cp:nth-child(4){display:none}}
+@media (max-width:820px){.cp-list{grid-template-columns:repeat(2,minmax(0,1fr))}.cp-4 .cp:nth-child(4){display:block}}
+@media (max-width:420px){.cp-list{grid-template-columns:1fr}}
+
+/* ============ PRODUTO ============ */
+.p-hero .s-hero-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.p-hero h1 em.s{display:block;color:#DDF2E8;font-size:1.06em}
+.p-facts{display:flex;flex-wrap:wrap;gap:8px;margin:clamp(22px,3vw,30px) 0 0;padding:0;list-style:none}
+.p-facts li{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);font-size:14.5px;color:rgba(242,247,244,.92)}
+.p-facts li:last-child{font-variant-numeric:tabular-nums}
+
+/* rodar a embalagem: cada vista é uma imagem; arrastar (rato ou dedo), as setas e os botões mudam de vista */
+.pv{position:relative;margin:0;width:100%;max-width:600px;justify-self:end;aspect-ratio:1/1;border-radius:var(--r-lg);overflow:hidden;background:#d4d4d4;box-shadow:0 30px 80px -30px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08)}
+.pv-stage{position:absolute;inset:0;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.pv[data-frames]:not([data-frames="1"]) .pv-stage{cursor:grab}
+.pv-stage.dragging{cursor:grabbing}
+.pv-stage:focus-visible{outline:3px solid var(--mint);outline-offset:-3px;border-radius:var(--r-lg)}
+.pv-f{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .12s linear;pointer-events:none;-webkit-user-drag:none}
+.pv-f.on{opacity:1}
+.pv-zoom{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;border:0;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.92);color:var(--ink);cursor:zoom-in;box-shadow:0 6px 18px -8px rgba(0,0,0,.4);transition:background-color .2s}
+.pv-zoom:hover{background:#fff}
+.pv-zoom .icon{width:20px;height:20px}
+.pv-ui{position:absolute;left:50%;bottom:16px;z-index:2;translate:-50% 0;display:flex;align-items:center;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);box-shadow:0 8px 24px -10px rgba(0,0,0,.45);white-space:nowrap}
+.pv-ui button{width:40px;height:40px;border:0;border-radius:50%;display:grid;place-items:center;background:transparent;color:var(--deep);cursor:pointer;transition:background-color .2s}
+.pv-ui button:hover{background:var(--paper-2)}
+.pv-ui button:disabled{color:#9AA8A4;cursor:default;background:transparent}
+.pv-ui button .icon{width:20px;height:20px;stroke-width:2}
+.pv-hint{display:inline-flex;align-items:center;gap:8px;padding:0 6px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.pv-hint .icon{width:16px;height:16px;color:var(--deep);stroke-width:2}
+@media (max-width:900px){.p-hero .s-hero-in{grid-template-columns:1fr}.pv{justify-self:center;order:-1}}
+@media (max-width:600px){.pv-ui{bottom:10px;padding:2px}.pv-ui button{width:36px;height:36px}.pv-hint{font-size:13px;padding:0 2px}.pv-zoom{top:10px;right:10px;width:40px;height:40px}}
+
+.pv-dialog{width:min(92vw,92vh,1000px);max-width:none;padding:0;border:0;border-radius:var(--r-lg);overflow:hidden;background:#d4d4d4;box-shadow:0 40px 100px -30px rgba(0,0,0,.7)}
+.pv-dialog::backdrop{background:rgba(6,26,21,.82)}
+.pv-dialog img{display:block;width:100%;height:auto}
+.pv-close{position:absolute;top:14px;right:14px;width:44px;height:44px;border:0;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.92);color:var(--ink);cursor:pointer}
+.pv-close .icon{width:20px;height:20px}
+
+/* sobre o produto: ficha em linhas (rótulo à esquerda, conteúdo à direita), sem cartões */
+.p-info-in{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,80px);align-items:start}
+.p-side{position:sticky;top:110px}
+.p-pack{display:block;margin-top:clamp(32px,4vw,56px);width:auto;max-width:min(100%,340px);max-height:min(52vh,440px);filter:drop-shadow(0 26px 30px rgba(11,39,32,.22)) drop-shadow(0 4px 6px rgba(11,39,32,.12))}
+.p-desc p{font-size:clamp(18px,1.5vw,21px);line-height:1.6;color:var(--ink);max-width:60ch}
+.p-desc p+p{margin-top:16px;color:var(--ink-2)}
+.p-spec{margin:clamp(40px,5vw,64px) 0 0}
+.p-row{display:grid;grid-template-columns:minmax(150px,200px) minmax(0,1fr);gap:16px clamp(24px,3vw,48px);padding-block:clamp(24px,3vw,34px);border-top:1px solid var(--line)}
+.p-row:last-child{border-bottom:1px solid var(--line)}
+.p-row dt{display:flex;flex-direction:column;gap:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-2);padding-top:4px}
+.p-row dt span{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--deep)}
+.p-row dd{margin:0;min-width:0}
+.p-modo p{font-size:clamp(20px,1.8vw,24px);line-height:1.4;letter-spacing:-.015em;font-weight:500;color:var(--ink)}
+.p-modo p+p{margin-top:10px}
+.p-ingr{list-style:none;margin:0;padding:0;columns:2 200px;column-gap:clamp(24px,3vw,40px)}
+.p-ingr li{break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.45;color:var(--ink-2)}
+.p-ingr-nota{margin-top:14px;font-size:14px;color:var(--ink-3)}
+.p-prec{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.p-prec li{position:relative;padding-left:20px;font-size:16px;line-height:1.55;color:var(--ink-2)}
+.p-prec li::before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;background:var(--emerald);transform:rotate(45deg)}
+.p-note{margin-top:var(--s5);font-size:14px;color:var(--ink-3);max-width:70ch}
+@media (max-width:900px){.p-info-in{grid-template-columns:1fr}.p-side{position:static}.p-pack{display:none}}
+@media (max-width:600px){.p-row{grid-template-columns:1fr}.p-row dt{flex-direction:row;align-items:baseline;gap:10px}}
+.p-more{background:#fff;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){.pv-f{transition:none}}

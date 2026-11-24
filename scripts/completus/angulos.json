@@ -1,0 +1,117 @@
+{
+ "_leia-me": "Imagens da Completus a partir de assets/3D_<produto>/. capa: imagem do cartão (a frente da embalagem; Frente_Pack* quando existe). angulos: as vistas pela ordem em que a embalagem roda (frente, frente+lateral direita, lateral+verso, verso+lateral, lateral+frente); vazio = só a capa. Correr: python3 scripts/completus/imagens.py recorte: a embalagem sem fundo (PNG transparente) para a composição da gama no topo da página: o nome de um ficheiro da pasta, ou um caminho a partir da raiz do repositório (os recortes feitos no Higgsfield, com o Image Background Remover, estão em higgsfield/completus/recortes/).",
+ "articulacoes": {
+  "pasta": "3D_Articulações",
+  "capa": "Frente_Pack Articulacoes.png",
+  "angulos": [
+   "Frente_Pack Articulacoes.png",
+   "Frente_Lateral2_Articulacoes.png",
+   "Lateral2_Verso_Articulacoes.png",
+   "Verso_Lateral1_Articulacoes.png",
+   "Lateral1_Frente_Articulacoes.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/articulacoes.png"
+ },
+ "cerebro": {
+  "pasta": "3D_Cérebro",
+  "capa": "260706_Frente_CEREBRO.png",
+  "angulos": [
+   "260706_Frente_CEREBRO.png",
+   "260706_Frente_lateral2_CEREBRO.png",
+   "260706_Verso_CEREBRO.png",
+   "260706_Verso_Lateral_CEREBRO.png",
+   "260706_Frente_lateral_CEREBRO.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/cerebro.png"
+ },
+ "colesterol": {
+  "pasta": "3D_Colesterol",
+  "capa": "260929_AF_COLESTEROL_COMPLETUS_Visto frente.png",
+  "angulos": [
+   "260918_AF_COLESTEROL_COMPLETUS.png",
+   "260929_AF_COLESTEROL_COMPLETUS_Visto frente.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/colesterol.png"
+ },
+ "conforto-urinario": {
+  "pasta": "3D_Conforto_Urinário",
+  "capa": "Frente_Pack_Conforto Urinario.png",
+  "angulos": [
+   "Frente_Pack_Conforto Urinario.png",
+   "Frente_Lateral2_Pack_Conforto Urinario.png",
+   "Verso_Lateral2_Pack_Conforto Urinario.png",
+   "Verso_Lateral1_Pack_Conforto Urinario.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/conforto-urinario.png"
+ },
+ "imunidade": {
+  "pasta": "3D_Imunidade",
+  "capa": "Pack Frente_Imunidade.png",
+  "angulos": [
+   "Pack Frente_Imunidade.png",
+   "Frente_Lateral2_Imunidade.png",
+   "Lateral2_Verso.png",
+   "Verso_Lateral1.png",
+   "Lateral1_Frente_Imunidade.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/imunidade.png"
+ },
+ "magnesio": {
+  "pasta": "3D_Magnésio",
+  "capa": "MAGNESIO_COMPLETUS.jpg",
+  "angulos": [],
+  "recorte": "Magnesio_sem_fundo_sem_sombra.png"
+ },
+ "microbiota": {
+  "pasta": "3D_Microbiota",
+  "capa": "Frente_Pack_Microbiota.png",
+  "angulos": [
+   "Frente_Pack_Microbiota.png",
+   "Frente_Lateral2_Microbiota.png",
+   "Lateral2_Verso_Microbiota.png",
+   "Verso_Lateral1_Microbiota.png",
+   "Lateral1_Frente_Microbiota.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/microbiota.png"
+ },
+ "propolis": {
+  "pasta": "3D_Própolis",
+  "capa": "Frente_Pack_PROPOLIS.png",
+  "angulos": [
+   "Frente_lateral1_Propolis.png",
+   "Frente_Pack_PROPOLIS.png",
+   "Frente_Lateral 2.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/propolis.png"
+ },
+ "sono": {
+  "pasta": "3D_Sono",
+  "capa": "SONO_COMPLETUS.jpg",
+  "angulos": [],
+  "recorte": "Sono_sem_fundo_sem_sombra.png"
+ },
+ "transito-intestinal": {
+  "pasta": "3D_Trânsito_Intestinal",
+  "capa": "261104_3D_TRANSITO_INTESTINAL_COMPLETUS.png",
+  "angulos": [],
+  "recorte": "higgsfield/completus/recortes/transito-intestinal.png"
+ },
+ "vitamina-c": {
+  "pasta": "3D_Vitamina_C",
+  "capa": "VITAMINA C_COMPLETUS.jpg",
+  "angulos": [],
+  "recorte": "Vitamina C_sem_fundo_sem_sombra.png"
+ },
+ "vitamina-d": {
+  "pasta": "3D_Vitamina_D",
+  "capa": "Pack_Completus_Vit D.png",
+  "angulos": [
+   "Pack_Completus_Vit D.png",
+   "Frente_Lateral 1.png",
+   "Verso_Lateral 1.png",
+   "Verso_Lateral 2.png",
+   "Frente_Lateral 2.png"
+  ],
+  "recorte": "higgsfield/completus/recortes/vitamina-d.png"
+ }
+}

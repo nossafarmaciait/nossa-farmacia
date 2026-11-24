@@ -12,8 +12,14 @@
 <script>
   // O site antigo de grupo.nossafarmacia.pt passou para portal.nossafarmacia.pt. Os caminhos dele
   // começam por maiúscula (/Portal, /NossasFarmacias/, /Emprego/, …): esses seguem para lá.
-  // Os restantes mostram esta página.
-  if (location.hostname === 'grupo.nossafarmacia.pt' && /^\/[A-Z]/.test(location.pathname)) {
+  // Os restantes mostram esta página. Exceção: a antiga Completus (/MarcasProprias/ e /MarcasProprias/<CNP>)
+  // passou para /completus/ neste site.
+  const mp = location.pathname.match(/^\/MarcasProprias(?:\/(\d+))?/i);
+  const CNP = { 7579656: 'articulacoes', 6740159: 'cerebro', 7107243: 'colesterol', 7123554: 'conforto-urinario', 7073668: 'imunidade', 7074971: 'magnesio',
+    7100404: 'microbiota', 7063305: 'propolis', 6677237: 'sono', 6634618: 'transito-intestinal', 7077784: 'vitamina-c', 7100362: 'vitamina-d' };
+  if (location.hostname === 'grupo.nossafarmacia.pt' && mp) {
+    location.replace('/completus/' + (CNP[mp[1]] ? CNP[mp[1]] + '/' : ''));
+  } else if (location.hostname === 'grupo.nossafarmacia.pt' && /^\/[A-Z]/.test(location.pathname)) {
     location.replace('https://portal.nossafarmacia.pt' + location.pathname + location.search + location.hash);
   }
 </script>
