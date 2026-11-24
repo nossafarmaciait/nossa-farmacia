@@ -4,3 +4,7 @@ higgsfield/
 node_modules/
 dist/
 assets/
+
+# variáveis locais (chave do Google Maps, …): nunca vão para o git
+.env
+.env.*
