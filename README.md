@@ -21,7 +21,7 @@ O código-fonte está em `site/`. Um build curto (`npm run build`) gera em `dist
 
 - **Por página:** título e descrição próprios por língua, `canonical`, `hreflang` (pt-PT, en, es e x-default), Open Graph e Twitter com imagem 1200×630 (`media/og-1200x630.jpg`), e `robots` com `max-image-preview:large`.
 - **Dados estruturados (JSON-LD no `<head>`):** `Organization` (nome legal Addo Pharm, S.A., contactos, redes sociais e prémios IAPMEI), `WebSite`, `WebPage` e `VideoObject` do vídeo institucional. Ao mudar contactos, redes sociais ou prémios no rodapé, atualizem também este bloco.
-- **Idiomas:** `/`, `/en/` e `/es/` são páginas estáticas, cada uma no seu URL, e entram no `sitemap.xml`. Os links antigos com `?lang=en` ou `?lang=es` redirecionam para `/en/` e `/es/`.
+- **Idiomas:** `/`, `/en/` e `/es/` são páginas estáticas, cada uma no seu URL, e entram no `sitemap.xml`; o mesmo para cada página de serviço (`/servicos/<nome>/`, `/en/servicos/<nome>/`, `/es/servicos/<nome>/`). Os links antigos com `?lang=en` ou `?lang=es` redirecionam para `/en/` e `/es/`.
 - **404 e URLs antigos:** em `grupo.nossafarmacia.pt`, os caminhos do site antigo (começam por maiúscula: `/Portal`, `/NossasFarmacias/`, …) seguem para o mesmo caminho em `portal.nossafarmacia.pt`. Os outros mostram a página 404 (ver Comportamento).
 - **Ícones:** `favicon.ico` (48 px), `favicon.svg`, `apple-touch-icon.png` (180 px) e `site.webmanifest` com ícones 192/512 em `img/icons/`.
 - **Depois de o domínio estar no ar (Google Search Console):**
@@ -43,7 +43,9 @@ higgsfield/       originais e scripts de produção dos vídeos e imagens (só l
 Dentro de `site/`:
 
 ```text
-index.html        página única (CSS e JS inline), com o texto em português
+index.html        página principal (CSS e JS inline), com o texto em português
+servicos/         uma página por serviço (consultoria, analytics, marketing, academia, nutricao), em <nome>/index.html,
+                  com servico.css e servico.js partilhados
 i18n.js           traduções EN e ES: o build gera as páginas com elas, e a página EN/ES carrega-o para os textos criados em JS
 404.html          página de erro animada (PT/EN/ES pelo caminho), com o redirecionamento dos URLs antigos para portal.nossafarmacia.pt
 favicon.svg, favicon.ico, apple-touch-icon.png, site.webmanifest
@@ -86,6 +88,11 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
 - **Vídeo dos passos de adesão:** avança e recua com o scroll pela timeline, com uma cena por passo. Fica fixo ao lado dos passos em desktop e, em mobile, numa faixa baixa no topo. Cada cena coincide com o passo destacado. Só carrega quando a secção se aproxima. Com `prefers-reduced-motion` mostra só o poster.
   - Os originais (4 imagens e 4 clips) estão em `higgsfield/adesao/`. Se o vídeo for substituído, deve manter um keyframe a cada 6 frames (`-g 6`) para recuar sem solavancos.
 - **Fundo do cartão Emprego:** só é carregado e reproduzido quando o cartão está no ecrã. Com `prefers-reduced-motion` mostra só o poster.
+- **Páginas dos serviços:** o botão "Saiba mais" de cada cartão dos Serviços abre `servicos/<nome>/`, com o texto do serviço (vindo da antiga página "Nossos Serviços"), o que inclui, um convite para aderir e os outros serviços.
+  - O texto PT edita-se em `site/servicos/<nome>/index.html` e a tradução no `i18n.js`, como na página principal. O build encontra sozinho as pastas novas dentro de `servicos/`.
+  - O menu, o rodapé, os ícones e o CSS base foram copiados do `index.html`: se mudarem lá, é preciso atualizar também as páginas de serviço e o `servicos/servico.css`.
+  - Os links entre páginas do site levam `data-local`: o build não os altera, e assim ficam na mesma língua. Os caminhos de imagens, CSS e JS partem sempre da raiz do site (`../../img/…`, `../../servicos/servico.css`).
+  - O antigo vídeo da Academia (youtu.be/FTXSur6-Tx8) não foi incluído porque tem a marca JUMP.
 - **Imagens geradas com IA:** as fotos dos Serviços, o fundo do Emprego, os clips da Proposta e o vídeo da adesão foram gerados no Higgsfield. Os originais e os prompts estão em `higgsfield/servicos/`, `higgsfield/proposta/` e `higgsfield/adesao/`. As pessoas são geradas e servem só de ambiente; não devem ser apresentadas como colaboradores ou clientes reais.
 - **Prémios (IAPMEI):** a faixa no fim de O Grupo mostra os selos em vigor (PME Líder 2025 e PME Excelência 2025) e os anos de distinção: PME Líder em 2020, 2022, 2023, 2024 e 2025 (em 2021 não houve), com PME Excelência em 2023 e 2025. O rodapé mostra os 7 selos. Os diplomas estão em `../premios/`, em nome da Addo Pharm, S.A., a denominação oficial do Grupo.
   - Os selos foram recortados dos diplomas. Não havia diploma da PME Excelência 2025, por isso esse selo foi feito a partir do de 2023, trocando o "3" por um "5" retirado do selo PME Líder '25 (a mesma fonte). Deve ser substituído pelo selo oficial quando o tiverem.

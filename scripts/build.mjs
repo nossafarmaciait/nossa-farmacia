@@ -77,14 +77,17 @@ function rebase(doc, prefix) {
   for (const a of ['src', 'href', 'data-src', 'data-poster', 'poster']) {
     for (const el of doc.querySelectorAll(`[${a}]`)) {
       if (el.tagName === 'A' && a === 'href' && el.getAttribute('href').startsWith('#')) continue;
+      if (a === 'href' && el.hasAttribute('data-local')) continue; // link para outra página do site, na mesma língua
       el.setAttribute(a, up(el.getAttribute(a), prefix));
     }
   }
-  for (const el of doc.querySelectorAll('[srcset]')) {
-    el.setAttribute('srcset', el.getAttribute('srcset').split(',').map(part => {
-      const [u, ...rest] = part.trim().split(/\s+/);
-      return [up(u, prefix), ...rest].join(' ');
-    }).join(', '));
+  for (const a of ['srcset', 'imagesrcset']) {
+    for (const el of doc.querySelectorAll(`[${a}]`)) {
+      el.setAttribute(a, el.getAttribute(a).split(',').map(part => {
+        const [u, ...rest] = part.trim().split(/\s+/);
+        return [up(u, prefix), ...rest].join(' ');
+      }).join(', '));
+    }
   }
   for (const st of doc.querySelectorAll('style')) {
     st.textContent = st.textContent.replace(/url\((['"]?)([^'")]+)\1\)/g, (m, q, u) => (isRelative(u) && !u.startsWith('data:') ? `url(${q}${prefix}${u}${q})` : m));
@@ -92,15 +95,15 @@ function rebase(doc, prefix) {
 }
 
 /* ---------- metadados por língua ---------- */
-function setMeta(doc, lang, t) {
-  const L = LANGS[lang], url = SITE_URL + L.dir;
+function setMeta(doc, lang, t, page = '') {
+  const L = LANGS[lang], url = SITE_URL + L.dir + page;
   const $ = s => doc.querySelector(s);
   doc.documentElement.lang = L.html;
   $('link[rel="canonical"]').href = url;
   // Open Graph: fora de produção aponta para o endereço publicado (o domínio de produção ainda serve o site antigo,
   // e as redes sociais seguem o og:url e descarregam o og:image daí)
   const shareBase = PRODUCTION ? SITE_URL : DEPLOY_URL;
-  $('meta[property="og:url"]').content = shareBase + L.dir;
+  $('meta[property="og:url"]').content = shareBase + L.dir + page;
   const ogImg = $('meta[property="og:image"]');
   if (ogImg) ogImg.content = ogImg.content.replace(SITE_URL, shareBase);
   $('meta[property="og:locale"]').content = L.og;
@@ -116,8 +119,14 @@ function setMeta(doc, lang, t) {
         '@id': url + '#pagina', url, name: doc.title, inLanguage: L.html,
         description: $('meta[name="description"]').content,
       });
-    } else if (node.description && t) {
-      node.description = t(node.description);
+    } else if (node['@type'] === 'BreadcrumbList') {
+      for (const it of node.itemListElement) {
+        if (t) it.name = t(it.name);
+        it.item = it.item.replace(SITE_URL, SITE_URL + L.dir);
+      }
+    } else {
+      if (node.description && t) node.description = t(node.description);
+      if (node['@type'] === 'Service' && t) node.name = t(node.name);
     }
   }
   ld.textContent = '\n' + JSON.stringify(data, null, 2) + '\n';
@@ -127,31 +136,37 @@ function setMeta(doc, lang, t) {
 await fs.rm(OUT, { recursive: true, force: true });
 await fs.cp(SRC, OUT, { recursive: true, filter: s => !s.endsWith('.DS_Store') });
 
-const source = await fs.readFile(path.join(SRC, 'index.html'), 'utf8');
-const robotsMeta = PRODUCTION ? null : 'noindex, nofollow';
-const missingAll = new Map();
+/* páginas: a principal ('') e as dos serviços (site/servicos/<nome>/index.html → 'servicos/<nome>/') */
+const PAGES = [''];
+for (const d of await fs.readdir(path.join(SRC, 'servicos'), { withFileTypes: true }).catch(() => [])) {
+  if (d.isDirectory() && await fs.access(path.join(SRC, 'servicos', d.name, 'index.html')).then(() => true, () => false)) PAGES.push(`servicos/${d.name}/`);
+}
 
-for (const [lang, L] of Object.entries(LANGS)) {
-  let html;
-  if (lang === 'pt') {
-    html = source; // a página PT publica-se como está no repositório
-    if (robotsMeta) html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="${robotsMeta}">`);
-    if (!PRODUCTION) html = html.replace(/(<meta property="og:(?:url|image)" content=")([^"]*)(">)/g, (m, a, u, b) => a + u.replace(SITE_URL, DEPLOY_URL) + b);
-  } else {
-    const dom = new JSDOM(source);
-    const doc = dom.window.document;
-    const missing = new Set();
-    const t = translate(doc, lang, missing);
-    rebase(doc, '../');
-    doc.documentElement.dataset.lang = lang;
-    doc.documentElement.dataset.root = '../';
-    setMeta(doc, lang, t);
-    if (robotsMeta) doc.querySelector('meta[name="robots"]').content = robotsMeta;
-    html = dom.serialize();
-    missingAll.set(lang, missing);
+const robotsMeta = PRODUCTION ? null : 'noindex, nofollow';
+const missingAll = new Map(Object.keys(LANGS).filter(l => l !== 'pt').map(l => [l, new Set()]));
+
+for (const page of PAGES) {
+  const source = await fs.readFile(path.join(SRC, page, 'index.html'), 'utf8');
+  for (const [lang, L] of Object.entries(LANGS)) {
+    let html;
+    if (lang === 'pt') {
+      html = source; // a página PT publica-se como está no repositório
+      if (robotsMeta) html = html.replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="${robotsMeta}">`);
+      if (!PRODUCTION) html = html.replace(/(<meta property="og:(?:url|image)" content=")([^"]*)(">)/g, (m, a, u, b) => a + u.replace(SITE_URL, DEPLOY_URL) + b);
+    } else {
+      const dom = new JSDOM(source);
+      const doc = dom.window.document;
+      const t = translate(doc, lang, missingAll.get(lang));
+      rebase(doc, '../'); // a página EN/ES fica um nível abaixo da PT
+      doc.documentElement.dataset.lang = lang;
+      doc.documentElement.dataset.root = '../' + (doc.documentElement.dataset.root || '');
+      setMeta(doc, lang, t, page);
+      if (robotsMeta) doc.querySelector('meta[name="robots"]').content = robotsMeta;
+      html = dom.serialize();
+    }
+    await fs.mkdir(path.join(OUT, L.dir, page), { recursive: true });
+    await fs.writeFile(path.join(OUT, L.dir, page, 'index.html'), html);
   }
-  await fs.mkdir(path.join(OUT, L.dir), { recursive: true });
-  await fs.writeFile(path.join(OUT, L.dir, 'index.html'), html);
 }
 
 /* 404: links e ícone relativos à raiz onde o site está publicado */
@@ -162,9 +177,11 @@ await fs.writeFile(p404, (await fs.readFile(p404, 'utf8')).replace('<head>', `<h
 /* sitemap.xml */
 let lastmod = new Date().toISOString().slice(0, 10);
 try { lastmod = execSync('git log -1 --format=%cs -- site', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim() || lastmod; } catch {}
-const alternates = Object.values(LANGS).map(o => `    <xhtml:link rel="alternate" hreflang="${o.html}" href="${SITE_URL + o.dir}"/>`).join('\n')
-  + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}"/>`;
-const urls = Object.values(LANGS).map(o => `  <url>\n    <loc>${SITE_URL + o.dir}</loc>\n    <lastmod>${lastmod}</lastmod>\n${alternates}\n  </url>`).join('\n');
+const urls = PAGES.map(page => {
+  const alternates = Object.values(LANGS).map(o => `    <xhtml:link rel="alternate" hreflang="${o.html}" href="${SITE_URL + o.dir + page}"/>`).join('\n')
+    + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL + page}"/>`;
+  return Object.values(LANGS).map(o => `  <url>\n    <loc>${SITE_URL + o.dir + page}</loc>\n    <lastmod>${lastmod}</lastmod>\n${alternates}\n  </url>`).join('\n');
+}).join('\n');
 await fs.writeFile(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`);
 
@@ -175,7 +192,8 @@ await fs.writeFile(path.join(OUT, 'robots.txt'), PRODUCTION
 
 /* resumo */
 console.log(`Build em dist/ para ${DEPLOY_URL}${PRODUCTION ? ' (produção, indexável)' : ' (não é produção: noindex)'}`);
+console.log(`  ${PAGES.length} página(s) × ${Object.keys(LANGS).length} línguas: ${PAGES.map(p => '/' + p).join(', ')}`);
 for (const [lang, missing] of missingAll) {
-  console.log(`  ${lang}/index.html: ${missing.size} texto(s) sem tradução${missing.size && !REPORT ? ' (npm run build:report para os ver)' : ''}`);
+  console.log(`  ${lang}: ${missing.size} texto(s) sem tradução${missing.size && !REPORT ? ' (npm run build:report para os ver)' : ''}`);
   if (REPORT) for (const k of missing) console.log(`    - ${k}`);
 }

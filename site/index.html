@@ -417,6 +417,12 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 .svc .idx{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
 .svc h3{font-size:21px;font-weight:600;letter-spacing:-.02em;line-height:1.25}
 .svc p{color:var(--ink-2);font-size:16px}
+/* "Saiba mais": leva à página do serviço (servicos/<nome>/) */
+.btn-more{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(0,98,74,.3);color:var(--deep);font-weight:600;font-size:15px;text-decoration:none;transition:background-color .2s,border-color .2s,color .2s}
+.btn-more .icon{width:16px;height:16px;transition:transform .2s var(--ease)}
+.btn-more:hover{background:var(--deep);border-color:var(--deep);color:#fff}
+.btn-more:hover .icon{transform:translateX(3px)}
+.svc-body p:has(+.btn-more){margin-bottom:8px}
 @media (max-width:900px){
   .svc-head{grid-template-columns:1fr}
   .svc-list{grid-template-columns:1fr 1fr}
@@ -783,23 +789,23 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
     <ul class="svc-list">
       <li class="svc rv">
         <figure><img src="img/servicos/comercial-760.webp" srcset="img/servicos/comercial-760.webp 760w, img/servicos/comercial-1200.webp 1200w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 600px" alt="Consultor e farmacêutica junto a um linear da farmácia, a analisar a disposição dos produtos num tablet." width="1200" height="800" loading="lazy" decoding="async"></figure>
-        <div class="svc-body"><span class="idx" aria-hidden="true">01</span><h3>Consultoria Comercial e Apoio à Gestão</h3><p>Acompanhamento especializado das farmácias com foco em análise de portefólio, gestão de compras e dinamização do ponto de venda. Os consultores agendam reuniões mensais personalizadas, conforme os objetivos e necessidades de cada farmácia.</p></div>
+        <div class="svc-body"><span class="idx" aria-hidden="true">01</span><h3 id="svc-consultoria">Consultoria Comercial e Apoio à Gestão</h3><p>Acompanhamento especializado das farmácias com foco em análise de portefólio, gestão de compras e dinamização do ponto de venda. Os consultores agendam reuniões mensais personalizadas, conforme os objetivos e necessidades de cada farmácia.</p><a class="btn-more" href="servicos/consultoria/" data-local aria-describedby="svc-consultoria">Saiba mais <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </li>
       <li class="svc rv" style="--d:0.06s">
         <figure><img src="img/servicos/analytics-760.webp" srcset="img/servicos/analytics-760.webp 760w, img/servicos/analytics-1200.webp 1200w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 600px" alt="Farmacêutico ao balcão a consultar um painel de gráficos de gestão num tablet." width="1200" height="800" loading="lazy" decoding="async"></figure>
-        <div class="svc-body"><span class="idx" aria-hidden="true">02</span><h3>Analytics — Relatórios de Negócio</h3><p>O Nossa Farmácia Analytics transforma e modela os dados da farmácia em relatórios de gestão claros. Self-service, com tecnologias modernas e acessível em computador, tablet ou smartphone.</p></div>
+        <div class="svc-body"><span class="idx" aria-hidden="true">02</span><h3 id="svc-analytics">Analytics — Relatórios de Negócio</h3><p>O Nossa Farmácia Analytics transforma e modela os dados da farmácia em relatórios de gestão claros. Self-service, com tecnologias modernas e acessível em computador, tablet ou smartphone.</p><a class="btn-more" href="servicos/analytics/" data-local aria-describedby="svc-analytics">Saiba mais <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </li>
       <li class="svc rv" style="--d:0.12s">
         <figure><img src="img/servicos/marketing-760.webp" srcset="img/servicos/marketing-760.webp 760w, img/servicos/marketing-1200.webp 1200w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 600px" alt="Ilha de dermocosmética com produtos bem expostos e uma farmacêutica a ajustar a montra." width="1200" height="800" loading="lazy" decoding="async"></figure>
-        <div class="svc-body"><span class="idx" aria-hidden="true">03</span><h3>Marketing de Valor Acrescentado</h3><p>Equipa especializada com enfoque em dermocosmética e OTC. Parcerias estratégicas que trazem melhores condições e ferramentas para alavancar o negócio da farmácia.</p></div>
+        <div class="svc-body"><span class="idx" aria-hidden="true">03</span><h3 id="svc-marketing">Marketing de Valor Acrescentado</h3><p>Equipa especializada com enfoque em dermocosmética e OTC. Parcerias estratégicas que trazem melhores condições e ferramentas para alavancar o negócio da farmácia.</p><a class="btn-more" href="servicos/marketing/" data-local aria-describedby="svc-marketing">Saiba mais <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </li>
       <li class="svc rv" style="--d:0.18s">
         <figure><img src="img/servicos/academy-760.webp" srcset="img/servicos/academy-760.webp 760w, img/servicos/academy-1200.webp 1200w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 600px" alt="Formadora a apresentar uma sessão a um grupo de profissionais de farmácia de bata branca." width="1200" height="800" loading="lazy" decoding="async"></figure>
-        <div class="svc-body"><span class="idx" aria-hidden="true">04</span><h3>Academia</h3><p>Academia de Recursos Humanos dedicada ao desenvolvimento de talentos: mentoria, avaliação de potencial e planos integrados de desenvolvimento, com desafios de carreira para os colaboradores.</p></div>
+        <div class="svc-body"><span class="idx" aria-hidden="true">04</span><h3 id="svc-academia">Academia</h3><p>Academia de Recursos Humanos dedicada ao desenvolvimento de talentos: mentoria, avaliação de potencial e planos integrados de desenvolvimento, com desafios de carreira para os colaboradores.</p><a class="btn-more" href="servicos/academia/" data-local aria-describedby="svc-academia">Saiba mais <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </li>
       <li class="svc rv" style="--d:0.24s">
         <figure><img src="img/servicos/nutricao-760.webp" srcset="img/servicos/nutricao-760.webp 760w, img/servicos/nutricao-1200.webp 1200w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 600px" alt="Nutricionista em consulta com uma cliente, com fruta e legumes frescos e um plano alimentar no tablet." width="1200" height="800" loading="lazy" decoding="async"></figure>
-        <div class="svc-body"><span class="idx" aria-hidden="true">05</span><h3>Nutrição Clínica</h3><p>Consultas presenciais e online de nutrição para saúde e bem-estar, com parcerias entre indústria e farmácias e produção de conteúdos para redes sociais e marketing.</p></div>
+        <div class="svc-body"><span class="idx" aria-hidden="true">05</span><h3 id="svc-nutricao">Nutrição Clínica</h3><p>Consultas presenciais e online de nutrição para saúde e bem-estar, com parcerias entre indústria e farmácias e produção de conteúdos para redes sociais e marketing.</p><a class="btn-more" href="servicos/nutricao/" data-local aria-describedby="svc-nutricao">Saiba mais <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </li>
     </ul>
   </div>
@@ -1073,6 +1079,9 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const ROOT = document.documentElement.dataset.root || ''; // '../' on the /en/ and /es/ pages
+
+  /* ---------- Links to the other pages (servicos/…): from file:// folders don't open index.html on their own ---------- */
+  if (location.protocol === 'file:') $$('a[data-local]').forEach(a => { const [p, h] = a.getAttribute('href').split('#'); if (!p || p.endsWith('/')) a.setAttribute('href', p + 'index.html' + (h !== undefined ? '#' + h : '')); });
 
   /* ---------- Footer seals: Esc hides the tooltip until the pointer/focus leaves ---------- */
   document.addEventListener('keydown', e => {
