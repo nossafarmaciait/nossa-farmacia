@@ -93,7 +93,8 @@ const raiz = (html, R) => html
   .replace(/(href|src)="\.\.\/(?!\.)/g, `$1="${R}`)
   .replace(' aria-current="page"', '')
   .replace('href="https://portal.nossafarmacia.pt/MarcasProprias/" rel="noopener">Completus®', `href="${R}completus/" data-local>Completus®`);
-const HEADER = R => raiz(bloco('<header class="nav" id="nav">', '</header>'), R);
+// no menu, a Completus® fica marcada como a página atual
+const HEADER = R => raiz(bloco('<header class="nav" id="nav">', '</header>'), R).replaceAll(`href="${R}completus/" data-local>Completus®`, `href="${R}completus/" data-local aria-current="page">Completus®`);
 const FOOTER = R => raiz(bloco('<footer class="footer"', '</footer>'), R);
 
 /* ---------- partes comuns ---------- */
