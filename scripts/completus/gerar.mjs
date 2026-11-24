@@ -25,7 +25,6 @@ for (const p of P) {
   p.recorte = vp8x ? [1 + b.readUIntLE(24, 3), 1 + b.readUIntLE(27, 3)] : [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff];
 }
 const LOJA = 'https://www.nossafarmacia.pt/completus?_q=completus&map=ft';
-const FARMACIAS = 'https://portal.nossafarmacia.pt/NossasFarmacias/';
 
 /* ---------- textos das páginas (PT → EN, ES) ---------- */
 const T = {
@@ -221,7 +220,7 @@ ${P.map((p, i) => cartao(R, `${p.slug}/`, p, i)).join('\n')}
       </div>
       <div class="cta-actions">
         <a class="btn btn-light" href="${LOJA}" rel="noopener">${pt('irLoja')} <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
-        <a class="link-arrow on-dark" href="${FARMACIAS}" rel="noopener">${pt('encontrar')}</a>
+        <a class="link-arrow on-dark" href="${R}farmacias/" data-local>${pt('encontrar')}</a>
       </div>
     </div>
   </div>
