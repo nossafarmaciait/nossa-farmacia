@@ -1,0 +1,139 @@
+/* Páginas de emprego (emprego/ e emprego/<vaga>/). A base, o menu, a língua e o rodapé vêm de
+   servicos/servico.css, que estas páginas carregam antes deste ficheiro. */
+
+/* topo: a imagem pode ter um vídeo em loop por cima (emprego.js liga-o depois do load) */
+.s-hero-img{position:relative}
+.s-hero-img video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s var(--ease)}
+.s-hero-img video.on{opacity:1}
+.s-hero .s-ctas .btn-ghost-dark{white-space:nowrap}
+
+/* factos da vaga (local, área, prazo) */
+.v-facts{display:flex;flex-wrap:wrap;gap:10px;margin:clamp(24px,3vw,32px) 0 0;padding:0;list-style:none}
+.v-facts li{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);font-size:14.5px;color:rgba(242,247,244,.92)}
+.v-facts .icon{width:16px;height:16px;color:var(--mint)}
+.v-facts b{font-weight:600;color:#fff}
+
+/* ============ LISTA DE VAGAS ============ */
+.v-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.v-head .lead{margin-top:0;max-width:46ch}
+.v-empty{display:flex;gap:14px;align-items:flex-start;margin-top:clamp(32px,4vw,48px);padding:18px 22px;border-radius:var(--r-md);background:var(--paper-2);color:var(--ink-2);font-size:16px;max-width:780px}
+.v-empty .icon{width:22px;height:22px;margin-top:2px;color:var(--deep)}
+/* a nota "sem vagas" esconde-se sozinha quando houver um cartão de vaga além da candidatura espontânea */
+#vagas:has(.vaga:not(.espontanea)) .v-empty{display:none}
+.v-list{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;gap:var(--s4)}
+.vaga a{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(24px,3.4vw,40px);border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);color:inherit;text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.vaga a:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(0,98,74,.22)}
+.vaga a:focus-visible{outline:3px solid var(--emerald);outline-offset:3px;border-radius:var(--r-lg)}
+.vaga.espontanea a{background:linear-gradient(140deg,#fff 0%,#fff 55%,var(--paper-2) 100%)}
+.v-tags{display:flex;flex-wrap:wrap;gap:8px}
+.v-tag{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--paper-2);color:var(--deep)}
+.v-tag.open{background:var(--deep);color:#fff}
+.vaga h3{font-size:clamp(24px,2.4vw,32px);line-height:1.15;letter-spacing:-.025em;font-weight:600;margin-top:16px}
+.vaga p{color:var(--ink-2);margin-top:10px;max-width:62ch}
+.v-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin:18px 0 0;padding:0;list-style:none;font-size:15px;color:var(--ink-3)}
+.v-meta li{display:inline-flex;align-items:center;gap:8px}
+.v-meta .icon{width:17px;height:17px;color:var(--deep)}
+.v-go{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;background:var(--deep);color:#fff;font-weight:600;white-space:nowrap;transition:background-color .2s}
+.v-go .icon{width:18px;height:18px;transition:transform .2s var(--ease)}
+.vaga a:hover .v-go{background:#00503C}
+.vaga a:hover .v-go .icon{transform:translateX(3px)}
+@media (max-width:720px){.vaga a{grid-template-columns:1fr}.v-go{justify-self:start}}
+
+/* porquê o Grupo (lista) */
+.why{background:#fff;border-block:1px solid var(--line)}
+.why .s-items li{background:var(--paper)}
+
+/* ============ CANDIDATURA ============ */
+.c-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(40px,6vw,96px);align-items:start}
+.c-info > * + *{margin-top:clamp(48px,6vw,72px)}
+.c-info .s-text{margin-top:var(--s5)}
+.c-stats{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,48px);margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--line)}
+.c-stats small{display:block;font-size:13px;color:var(--ink-3);font-weight:500}
+.c-stats b{display:block;font-size:clamp(36px,3.6vw,48px);line-height:1;letter-spacing:-.04em;font-weight:600;color:var(--deep);font-variant-numeric:tabular-nums;margin-block:6px}
+.c-stats span{font-size:14.5px;color:var(--ink-2)}
+.c-photo{margin:var(--s6) 0 0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:var(--paper-2);box-shadow:var(--shadow)}
+.c-photo img{width:100%;height:100%;object-fit:cover}
+.c-h3{font-size:clamp(22px,2vw,26px);letter-spacing:-.02em;font-weight:600;line-height:1.2}
+.c-info .s-items{grid-template-columns:1fr;margin-top:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none}
+.chips li{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:500;color:var(--ink)}
+.chips li::before{content:"";width:6px;height:6px;background:var(--emerald);transform:rotate(45deg)}
+.c-steps{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:4px;counter-reset:st}
+.c-steps li{position:relative;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:14px 0;counter-increment:st}
+.c-steps li::before{content:counter(st,decimal-leading-zero);width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--deep);color:#fff;font-weight:600;font-size:15px;font-variant-numeric:tabular-nums}
+.c-steps li:not(:last-child)::after{content:"";position:absolute;left:21px;top:62px;bottom:-12px;width:2px;background:var(--line)}
+.c-steps h4{margin:0;font-size:17.5px;font-weight:600;letter-spacing:-.01em;line-height:1.3;padding-top:2px}
+.c-steps p{font-size:15.5px;color:var(--ink-2);margin-top:4px}
+
+/* formulário (mesmo desenho do pedido de adesão do index.html) */
+.c-form{position:sticky;top:96px}
+.fcard{padding:clamp(24px,3.4vw,44px);border-radius:var(--r-lg);background:linear-gradient(150deg,rgba(255,255,255,.96),rgba(255,255,255,.8));border:1px solid var(--glass-line);box-shadow:var(--shadow)}
+.fcard-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.fcard h2{font-size:clamp(26px,2.6vw,34px);letter-spacing:-.03em;font-weight:600;line-height:1.1;margin-top:14px}
+.fcard .f-intro{color:var(--ink-2);font-size:15.5px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;margin-top:12px}
+.field{display:flex;flex-direction:column;min-width:0}
+.field.full{grid-column:1/-1}
+.field > label,.field .flabel{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ink-2);padding-top:14px}
+.field label b,.field .flabel b{color:var(--emerald)}
+.field input:not([type="file"]):not([type="checkbox"]),.field textarea,.field select{width:100%;border:0;border-bottom:1px solid rgba(14,30,26,.18);background:transparent;padding:12px 0;font-size:17px;border-radius:0;transition:border-color .2s}
+.field select{appearance:none;-webkit-appearance:none;padding-right:28px;cursor:pointer;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300624A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 4px center}
+.field select:invalid{color:#66756F}
+.field select option{color:var(--ink)}
+.field textarea{min-height:104px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#66756F}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-bottom-color:var(--deep);box-shadow:0 1px 0 var(--deep)}
+.field .err{font-size:13.5px;color:#B3261E;min-height:20px;padding-top:4px}
+.field.invalid input,.field.invalid textarea,.field.invalid select{border-bottom-color:#B3261E}
+.field .hint{font-size:13px;color:var(--ink-3);padding-top:4px}
+
+/* CV: a zona inteira é o input (clicar ou largar o ficheiro em cima) */
+.drop{position:relative;margin-top:12px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:center;padding:18px 20px;border:1.5px dashed rgba(0,98,74,.35);border-radius:16px;background:rgba(234,243,238,.55);transition:border-color .2s,background-color .2s}
+.drop input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.drop:hover,.drop.over{border-color:var(--deep);background:var(--paper-2)}
+.drop:focus-within{border-style:solid;border-color:var(--deep);box-shadow:0 0 0 3px rgba(0,155,119,.25)}
+.drop > .icon{grid-row:1/3;width:40px;height:40px;padding:9px;border-radius:12px;background:#fff;color:var(--deep);stroke-width:1.8}
+.drop-txt{font-size:15.5px;color:var(--ink-2)}
+.drop-txt strong{color:var(--deep);font-weight:600}
+.drop-hint{font-size:13px;color:var(--ink-3)}
+.drop.has{border-style:solid;border-color:rgba(0,98,74,.35);background:#fff}
+.drop-file{display:flex;align-items:center;gap:10px;min-width:0;font-size:15.5px;font-weight:600;color:var(--ink)}
+.drop-file .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drop-file .size{flex:none;font-weight:500;font-size:13.5px;color:var(--ink-3)}
+.drop-x{position:relative;z-index:1;justify-self:end;grid-column:2;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;margin-top:4px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-2);font-size:14px;font-weight:500;cursor:pointer}
+.drop-x:hover{border-color:rgba(179,38,30,.4);color:#B3261E}
+.drop-x .icon{width:14px;height:14px}
+.drop:not(.has) .drop-file,.drop:not(.has) .drop-x,.drop.has .drop-txt{display:none}
+.field.invalid .drop{border-color:#B3261E}
+
+/* consentimento */
+.field > label.check{font-size:14.5px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--ink-2);padding-top:0}
+.check{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;margin-top:18px;font-size:14.5px;line-height:1.5;color:var(--ink-2);cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:0;border:1.5px solid rgba(14,30,26,.3);border-radius:6px;background:#fff;display:grid;place-items:center;cursor:pointer;transition:background-color .2s,border-color .2s}
+.check input::after{content:"";width:11px;height:6px;border:2px solid #fff;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg);opacity:0}
+.check input:checked{background:var(--deep);border-color:var(--deep)}
+.check input:checked::after{opacity:1}
+.check input:focus-visible{outline:3px solid var(--emerald);outline-offset:2px}
+.field.invalid .check input{border-color:#B3261E}
+.privacy{font-size:13px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+.privacy a{color:var(--deep)}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fsub{display:flex;flex-direction:column;align-items:stretch;gap:14px;margin-top:22px;padding-top:24px;border-top:1px solid var(--line)}
+.fsub .btn[disabled]{opacity:.7;cursor:progress}
+.fsub p{font-size:13.5px;color:var(--ink-3);line-height:1.5}
+.fstatus{margin-top:14px;font-size:15px;color:var(--deep);font-weight:500}
+.fstatus.bad{color:#B3261E}
+.fstatus:empty{display:none}
+
+/* candidatura enviada */
+.f-done{text-align:center;padding-block:clamp(16px,3vw,32px)}
+.f-done:focus{outline:none}
+.f-done .ok{width:64px;height:64px;margin:0 auto;border-radius:50%;display:grid;place-items:center;background:var(--deep);color:#fff}
+.f-done .ok .icon{width:30px;height:30px;stroke-width:2.2}
+.f-done h2{margin-top:20px}
+.f-done p{color:var(--ink-2);margin:12px auto 0;max-width:40ch}
+.f-done .btn{margin-top:28px}
+
+@media (max-width:980px){.c-grid{grid-template-columns:1fr}.c-form{position:static}}
+@media (max-width:560px){.fgrid{grid-template-columns:1fr}}

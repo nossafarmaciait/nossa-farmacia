@@ -136,10 +136,15 @@ function setMeta(doc, lang, t, page = '') {
 await fs.rm(OUT, { recursive: true, force: true });
 await fs.cp(SRC, OUT, { recursive: true, filter: s => !s.endsWith('.DS_Store') });
 
-/* páginas: a principal ('') e as dos serviços (site/servicos/<nome>/index.html → 'servicos/<nome>/') */
+/* páginas: a principal (''), as dos serviços (site/servicos/<nome>/index.html → 'servicos/<nome>/'),
+   a lista de vagas (emprego/) e cada vaga (site/emprego/<vaga>/index.html → 'emprego/<vaga>/') */
+const exists = p => fs.access(path.join(SRC, p)).then(() => true, () => false);
 const PAGES = [''];
-for (const d of await fs.readdir(path.join(SRC, 'servicos'), { withFileTypes: true }).catch(() => [])) {
-  if (d.isDirectory() && await fs.access(path.join(SRC, 'servicos', d.name, 'index.html')).then(() => true, () => false)) PAGES.push(`servicos/${d.name}/`);
+for (const dir of ['servicos', 'emprego']) {
+  if (dir === 'emprego' && await exists('emprego/index.html')) PAGES.push('emprego/');
+  for (const d of await fs.readdir(path.join(SRC, dir), { withFileTypes: true }).catch(() => [])) {
+    if (d.isDirectory() && await exists(`${dir}/${d.name}/index.html`)) PAGES.push(`${dir}/${d.name}/`);
+  }
 }
 
 const robotsMeta = PRODUCTION ? null : 'noindex, nofollow';

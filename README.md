@@ -21,7 +21,7 @@ O código-fonte está em `site/`. Um build curto (`npm run build`) gera em `dist
 
 - **Por página:** título e descrição próprios por língua, `canonical`, `hreflang` (pt-PT, en, es e x-default), Open Graph e Twitter com imagem 1200×630 (`media/og-1200x630.jpg`), e `robots` com `max-image-preview:large`.
 - **Dados estruturados (JSON-LD no `<head>`):** `Organization` (nome legal Addo Pharm, S.A., contactos, redes sociais e prémios IAPMEI), `WebSite`, `WebPage` e `VideoObject` do vídeo institucional. Ao mudar contactos, redes sociais ou prémios no rodapé, atualizem também este bloco.
-- **Idiomas:** `/`, `/en/` e `/es/` são páginas estáticas, cada uma no seu URL, e entram no `sitemap.xml`; o mesmo para cada página de serviço (`/servicos/<nome>/`, `/en/servicos/<nome>/`, `/es/servicos/<nome>/`). Os links antigos com `?lang=en` ou `?lang=es` redirecionam para `/en/` e `/es/`.
+- **Idiomas:** `/`, `/en/` e `/es/` são páginas estáticas, cada uma no seu URL, e entram no `sitemap.xml`; o mesmo para cada página de serviço (`/servicos/<nome>/`, `/en/servicos/<nome>/`, `/es/servicos/<nome>/`) e de emprego (`/emprego/`, `/emprego/<vaga>/`). Os links antigos com `?lang=en` ou `?lang=es` redirecionam para `/en/` e `/es/`.
 - **404 e URLs antigos:** em `grupo.nossafarmacia.pt`, os caminhos do site antigo (começam por maiúscula: `/Portal`, `/NossasFarmacias/`, …) seguem para o mesmo caminho em `portal.nossafarmacia.pt`. Os outros mostram a página 404 (ver Comportamento).
 - **Ícones:** `favicon.ico` (48 px), `favicon.svg`, `apple-touch-icon.png` (180 px) e `site.webmanifest` com ícones 192/512 em `img/icons/`.
 - **Depois de o domínio estar no ar (Google Search Console):**
@@ -46,6 +46,8 @@ Dentro de `site/`:
 index.html        página principal (CSS e JS inline), com o texto em português
 servicos/         uma página por serviço (consultoria, analytics, marketing, academia, nutricao), em <nome>/index.html,
                   com servico.css e servico.js partilhados
+emprego/          lista de vagas (index.html) e uma pasta por vaga (candidatura-espontanea/, …), com emprego.css e
+                  emprego.js; usa também o servico.css e o servico.js
 i18n.js           traduções EN e ES: o build gera as páginas com elas, e a página EN/ES carrega-o para os textos criados em JS
 404.html          página de erro animada (PT/EN/ES pelo caminho), com o redirecionamento dos URLs antigos para portal.nossafarmacia.pt
 favicon.svg, favicon.ico, apple-touch-icon.png, site.webmanifest
@@ -93,6 +95,11 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
   - O menu, o rodapé, os ícones e o CSS base foram copiados do `index.html`: se mudarem lá, é preciso atualizar também as páginas de serviço e o `servicos/servico.css`.
   - Os links entre páginas do site levam `data-local`: o build não os altera, e assim ficam na mesma língua. Os caminhos de imagens, CSS e JS partem sempre da raiz do site (`../../img/…`, `../../servicos/servico.css`).
   - O antigo vídeo da Academia (youtu.be/FTXSur6-Tx8) não foi incluído porque tem a marca JUMP.
+- **Páginas de emprego:** o botão "Ver ofertas de emprego" e o link Emprego do rodapé abrem `emprego/`, a lista de vagas. Enquanto não houver vagas, a lista tem só a candidatura espontânea e uma nota a dizer que não há vagas abertas.
+  - `emprego/candidatura-espontanea/` tem informação sobre o Grupo e o formulário: nome, email, telemóvel, distrito, área de interesse, LinkedIn e apresentação (opcionais), CV (PDF, DOC ou DOCX, até 5 MB) e consentimento para o tratamento de dados. A validação é feita no browser, com as mensagens na língua da página.
+  - **Envio:** o site não tem servidor, por isso o destino das candidaturas configura-se no atributo `data-endpoint` do `<form id="cv-form">`: o URL que recebe um POST `multipart/form-data`, com o CV no campo `cv` e a vaga no campo `vaga` (serve um serviço de formulários como Formspree ou Basin, um endpoint do Odoo ou uma API própria; deve responder 2xx e aceitar pedidos de `grupo.nossafarmacia.pt` (CORS)). Com o endpoint vazio, que é o estado atual, o botão abre o email do candidato com os dados preenchidos para o endereço em `data-email` (`grupo@nossafarmacia.pt`), e o candidato anexa o CV à mão: os browsers não deixam anexar ficheiros a um `mailto`.
+  - O texto do consentimento e da nota sobre os dados deve ser validado por quem trata da proteção de dados do Grupo.
+  - **Publicar uma vaga:** copiar `emprego/candidatura-espontanea/` para `emprego/<nome-da-vaga>/`, mudar o texto, o `value` do campo escondido `vaga`, o `<title>`, a descrição, o canonical, o hreflang e os dados estruturados (para o Google Jobs, acrescentar um `JobPosting`, que não se usa na candidatura espontânea), e acrescentar um cartão `<li class="vaga">` em `emprego/index.html`, antes da candidatura espontânea. A nota "não temos vagas" desaparece sozinha, o build encontra a pasta nova, e os textos novos vão para o `i18n.js`.
 - **Imagens geradas com IA:** as fotos dos Serviços, o fundo do Emprego, os clips da Proposta e o vídeo da adesão foram gerados no Higgsfield. Os originais e os prompts estão em `higgsfield/servicos/`, `higgsfield/proposta/` e `higgsfield/adesao/`. As pessoas são geradas e servem só de ambiente; não devem ser apresentadas como colaboradores ou clientes reais.
 - **Prémios (IAPMEI):** a faixa no fim de O Grupo mostra os selos em vigor (PME Líder 2025 e PME Excelência 2025) e os anos de distinção: PME Líder em 2020, 2022, 2023, 2024 e 2025 (em 2021 não houve), com PME Excelência em 2023 e 2025. O rodapé mostra os 7 selos. Os diplomas estão em `../premios/`, em nome da Addo Pharm, S.A., a denominação oficial do Grupo.
   - Os selos foram recortados dos diplomas. Não havia diploma da PME Excelência 2025, por isso esse selo foi feito a partir do de 2023, trocando o "3" por um "5" retirado do selo PME Líder '25 (a mesma fonte). Deve ser substituído pelo selo oficial quando o tiverem.
@@ -108,7 +115,7 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
   - O título, a descrição e o texto alternativo da imagem de partilha (`og:image:alt`) também se traduzem pelo `i18n.js`.
   - **Para acrescentar um texto:** escrevam-no em PT no `index.html` e acrescentem uma entrada no `i18n.js` com `en` e `es`.
   - Os títulos com uma parte em itálico (`<em class="s">`) são traduzidos por partes: cada lado do `<em>` tem a sua entrada.
-- **Links externos:** Farmácia Online, Portal, Nossas Farmácias, Completus® e Emprego apontam para as páginas atuais de `portal.nossafarmacia.pt` e `www.nossafarmacia.pt`.
+- **Links externos:** Farmácia Online, Portal, Nossas Farmácias e Completus® apontam para as páginas atuais de `portal.nossafarmacia.pt` e `www.nossafarmacia.pt`.
 
 ## Testes
 

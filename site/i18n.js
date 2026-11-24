@@ -380,6 +380,165 @@ window.GNF_I18N = {
   },
   "Ver ofertas de emprego": { en: "See job openings", es: "Ver ofertas de empleo" },
 
+  /* ---------- Páginas de emprego (emprego/ e emprego/candidatura-espontanea/) ---------- */
+  "Emprego · Grupo Nossa Farmácia": { en: "Careers · Grupo Nossa Farmácia", es: "Empleo · Grupo Nossa Farmácia" },
+  "Ofertas de emprego no Grupo Nossa Farmácia, o maior grupo de farmácias em Portugal. Veja as vagas abertas ou envie a sua candidatura espontânea.": {
+    en: "Job openings at Grupo Nossa Farmácia, the largest pharmacy group in Portugal. See the open positions or send us a speculative application.",
+    es: "Ofertas de empleo en el Grupo Nossa Farmácia, el mayor grupo de farmacias de Portugal. Vea las vacantes abiertas o envíe su candidatura espontánea."
+  },
+  "Candidatura espontânea · Emprego · Grupo Nossa Farmácia": { en: "Speculative application · Careers · Grupo Nossa Farmácia", es: "Candidatura espontánea · Empleo · Grupo Nossa Farmácia" },
+  "Envie a sua candidatura espontânea ao Grupo Nossa Farmácia, o maior grupo de farmácias em Portugal: preencha os seus dados e anexe o CV.": {
+    en: "Send a speculative application to Grupo Nossa Farmácia, the largest pharmacy group in Portugal: fill in your details and attach your CV.",
+    es: "Envíe su candidatura espontánea al Grupo Nossa Farmácia, el mayor grupo de farmacias de Portugal: rellene sus datos y adjunte el CV."
+  },
+  "Equipa de farmacêuticos de bata branca ao balcão de uma farmácia, a atender uma cliente.": {
+    en: "Team of pharmacists in white coats at a pharmacy counter, serving a customer.",
+    es: "Equipo de farmacéuticos con bata blanca en el mostrador de una farmacia, atendiendo a una clienta."
+  },
+  "Somos o maior grupo de farmácias em Portugal, com cerca de 400 farmácias. Procuramos pessoas que queiram levar mais saúde a cada vez mais pessoas.": {
+    en: "We are the largest pharmacy group in Portugal, with around 400 pharmacies. We are looking for people who want to bring better health to more and more people.",
+    es: "Somos el mayor grupo de farmacias de Portugal, con cerca de 400 farmacias. Buscamos personas que quieran llevar más salud a cada vez más personas."
+  },
+  "Ver vagas abertas": { en: "See open positions", es: "Ver vacantes abiertas" },
+  "Candidatura espontânea": { en: "Speculative application", es: "Candidatura espontánea" },
+  "Vagas abertas": { en: "Open positions", es: "Vacantes abiertas" },
+  "Oportunidades": { en: "Opportunities", es: "Oportunidades" },
+  "no Grupo.": { en: "in the Group.", es: "en el Grupo." },
+  "As vagas abertas no Grupo aparecem aqui. Escolha uma para ver os detalhes e candidatar-se.": {
+    en: "Open positions in the Group are listed here. Choose one to see the details and apply.",
+    es: "Las vacantes abiertas en el Grupo aparecen aquí. Elija una para ver los detalles y presentar su candidatura."
+  },
+  "De momento não temos vagas abertas. Envie-nos a sua candidatura espontânea: quando surgir uma oportunidade à medida do seu perfil, entramos em contacto.": {
+    en: "We have no open positions at the moment. Send us a speculative application: when an opportunity that suits your profile comes up, we will get in touch.",
+    es: "En este momento no tenemos vacantes abiertas. Envíenos su candidatura espontánea: cuando surja una oportunidad que encaje con su perfil, nos pondremos en contacto."
+  },
+  "Sempre aberta": { en: "Always open", es: "Siempre abierta" },
+  "Todas as áreas": { en: "All areas", es: "Todas las áreas" },
+  "Não encontrou a vaga certa? Deixe-nos os seus dados e o CV. Analisamos o seu perfil e falamos consigo quando houver uma oportunidade adequada.": {
+    en: "Haven't found the right position? Leave us your details and CV. We will review your profile and talk to you when a suitable opportunity comes up.",
+    es: "¿No ha encontrado la vacante adecuada? Déjenos sus datos y el CV. Analizamos su perfil y hablamos con usted cuando haya una oportunidad adecuada."
+  },
+  "Portugal": { en: "Portugal", es: "Portugal" },
+  "Farmácias e serviços centrais": { en: "Pharmacies and head office", es: "Farmacias y servicios centrales" },
+  "Sem prazo": { en: "No deadline", es: "Sin plazo" },
+  "Candidatar-me": { en: "Apply", es: "Presentar candidatura" },
+  "Porquê o Grupo": { en: "Why the Group", es: "Por qué el Grupo" },
+  "As pessoas": { en: "People", es: "Las personas," },
+  "primeiro.": { en: "first.", es: "primero." },
+  "Formação contínua": { en: "Ongoing training", es: "Formación continua" },
+  "A Academia, a academia de Recursos Humanos do Grupo, acompanha o desenvolvimento de cada colaborador com mentoria, formação e avaliação de potencial.": {
+    en: "The Academy, the Group's Human Resources academy, supports each employee's development with mentoring, training and potential assessment.",
+    es: "La Academia, la academia de Recursos Humanos del Grupo, acompaña el desarrollo de cada colaborador con mentoría, formación y evaluación del potencial."
+  },
+  "Desafios de carreira": { en: "Career challenges", es: "Retos profesionales" },
+  "Planos integrados de desenvolvimento, com desafios de carreira pensados para cada colaborador.": {
+    en: "Integrated development plans, with career challenges designed for each employee.",
+    es: "Planes integrados de desarrollo, con retos profesionales pensados para cada colaborador."
+  },
+  "Um grupo reconhecido": { en: "A recognised group", es: "Un grupo reconocido" },
+  "Distinguido pelo IAPMEI como PME Líder e, em 2023 e 2025, como PME Excelência.": {
+    en: "Recognised by IAPMEI as a PME Líder company and, in 2023 and 2025, as PME Excelência.",
+    es: "Distinguido por el IAPMEI como PME Líder y, en 2023 y 2025, como PME Excelência."
+  },
+  "Não encontrou": { en: "Haven't found", es: "¿No ha encontrado" },
+  "a sua vaga?": { en: "your position?", es: "su vacante?" },
+  "Envie a sua candidatura espontânea. Fica registada e tida em conta nas próximas oportunidades.": {
+    en: "Send a speculative application. We keep it on file and consider it for upcoming opportunities.",
+    es: "Envíe su candidatura espontánea. Queda registrada y se tiene en cuenta en las próximas oportunidades."
+  },
+  "Enviar candidatura": { en: "Send application", es: "Enviar candidatura" },
+  "Candidatura": { en: "Speculative", es: "Candidatura" },
+  "espontânea.": { en: "application.", es: "espontánea." },
+  "Ver todas as vagas": { en: "See all positions", es: "Ver todas las vacantes" },
+  "Sobre o Grupo": { en: "About the Group", es: "Sobre el Grupo" },
+  "O que encontra no Grupo": { en: "What you'll find in the Group", es: "Qué encontrará en el Grupo" },
+  "Uma rede com os mesmos valores": { en: "A network with shared values", es: "Una red con los mismos valores" },
+  "Proximidade, transparência e foco no bem-estar das farmácias, dos parceiros e dos colaboradores.": {
+    en: "Closeness, transparency and a focus on the well-being of pharmacies, partners and employees.",
+    es: "Proximidad, transparencia y foco en el bienestar de las farmacias, los socios y los colaboradores."
+  },
+  "Perfis que procuramos": { en: "Profiles we look for", es: "Perfiles que buscamos" },
+  "Farmacêuticos": { en: "Pharmacists", es: "Farmacéuticos" },
+  "Técnicos de farmácia": { en: "Pharmacy technicians", es: "Técnicos de farmacia" },
+  "Técnicos auxiliares de farmácia": { en: "Pharmacy assistants", es: "Técnicos auxiliares de farmacia" },
+  "Serviços centrais": { en: "Head office", es: "Servicios centrales" },
+  "Como funciona": { en: "How it works", es: "Cómo funciona" },
+  "Envie a candidatura": { en: "Send your application", es: "Envíe la candidatura" },
+  "Preencha os seus dados e anexe o CV.": { en: "Fill in your details and attach your CV.", es: "Rellene sus datos y adjunte el CV." },
+  "Analisamos o seu perfil": { en: "We review your profile", es: "Analizamos su perfil" },
+  "A equipa do Grupo lê todas as candidaturas.": { en: "The Group's team reads every application.", es: "El equipo del Grupo lee todas las candidaturas." },
+  "Falamos consigo": { en: "We get in touch", es: "Hablamos con usted" },
+  "Quando surgir uma oportunidade à medida do seu perfil, entramos em contacto.": {
+    en: "When an opportunity that suits your profile comes up, we will contact you.",
+    es: "Cuando surja una oportunidad que encaje con su perfil, nos pondremos en contacto."
+  },
+  "Formulário de candidatura": { en: "Application form", es: "Formulario de candidatura" },
+  "Candidate-se": { en: "Apply", es: "Preséntese" },
+  "Os campos com": { en: "Fields marked", es: "Los campos con" },
+  "são obrigatórios.": { en: "are required.", es: "son obligatorios." },
+  "Deixe este campo vazio": { en: "Leave this field empty", es: "Deje este campo vacío" },
+  "Nome completo": { en: "Full name", es: "Nombre completo" },
+  "Telemóvel": { en: "Mobile phone", es: "Teléfono móvil" },
+  "Distrito de residência": { en: "District of residence", es: "Distrito de residencia" },
+  "Escolha…": { en: "Choose…", es: "Elija…" },
+  "Região Autónoma dos Açores": { en: "Azores Autonomous Region", es: "Región Autónoma de las Azores" },
+  "Região Autónoma da Madeira": { en: "Madeira Autonomous Region", es: "Región Autónoma de Madeira" },
+  "Fora de Portugal": { en: "Outside Portugal", es: "Fuera de Portugal" },
+  "Área de interesse": { en: "Area of interest", es: "Área de interés" },
+  "Farmacêutico(a)": { en: "Pharmacist", es: "Farmacéutico/a" },
+  "Técnico(a) de farmácia": { en: "Pharmacy technician", es: "Técnico/a de farmacia" },
+  "Técnico(a) auxiliar de farmácia": { en: "Pharmacy assistant", es: "Técnico/a auxiliar de farmacia" },
+  "Outra": { en: "Other", es: "Otra" },
+  "LinkedIn (opcional)": { en: "LinkedIn (optional)", es: "LinkedIn (opcional)" },
+  "Apresentação (opcional)": { en: "About you (optional)", es: "Presentación (opcional)" },
+  "Conte-nos um pouco sobre si, a sua experiência e o que procura.": {
+    en: "Tell us a little about yourself, your experience and what you are looking for.",
+    es: "Cuéntenos un poco sobre usted, su experiencia y lo que busca."
+  },
+  "nome@exemplo.pt": { en: "name@example.com", es: "nombre@ejemplo.es" },
+  "Currículo (CV)": { en: "Résumé (CV)", es: "Currículum (CV)" },
+  "Escolha um ficheiro": { en: "Choose a file", es: "Elija un archivo" },
+  "ou arraste-o para aqui": { en: "or drag it here", es: "o arrástrelo aquí" },
+  "PDF, DOC ou DOCX, até 5 MB": { en: "PDF, DOC or DOCX, up to 5 MB", es: "PDF, DOC o DOCX, hasta 5 MB" },
+  "Remover ficheiro": { en: "Remove file", es: "Quitar archivo" },
+  "Autorizo o Grupo Nossa Farmácia (Addo Pharm, S.A.) a tratar os meus dados pessoais para fins de recrutamento, incluindo esta e futuras oportunidades.": {
+    en: "I authorise Grupo Nossa Farmácia (Addo Pharm, S.A.) to process my personal data for recruitment purposes, including this and future opportunities.",
+    es: "Autorizo al Grupo Nossa Farmácia (Addo Pharm, S.A.) a tratar mis datos personales con fines de selección de personal, incluidas esta y futuras oportunidades."
+  },
+  "Pode pedir a qualquer momento o acesso, a correção ou a eliminação dos seus dados através de": {
+    en: "You can ask at any time to access, correct or delete your data by writing to",
+    es: "Puede solicitar en cualquier momento el acceso, la rectificación o la supresión de sus datos a través de"
+  },
+  "Os seus dados e o CV seguem diretamente para a equipa do Grupo.": {
+    en: "Your details and CV go straight to the Group's team.",
+    es: "Sus datos y el CV llegan directamente al equipo del Grupo."
+  },
+  "Ao clicar em «Enviar candidatura», o seu programa de email abre com os dados preenchidos para grupo@nossafarmacia.pt. Só tem de anexar o CV e enviar.": {
+    en: "When you click “Send application”, your email app opens with your details filled in, addressed to grupo@nossafarmacia.pt. Just attach your CV and send it.",
+    es: "Al hacer clic en «Enviar candidatura», su programa de correo se abrirá con los datos rellenados para grupo@nossafarmacia.pt. Solo tiene que adjuntar el CV y enviarlo."
+  },
+  "Obrigado,": { en: "Thank you,", es: "Gracias," },
+  "Recebemos a sua candidatura. Vamos analisar o seu perfil e entramos em contacto quando surgir uma oportunidade adequada.": {
+    en: "We have received your application. We will review your profile and get in touch when a suitable opportunity comes up.",
+    es: "Hemos recibido su candidatura. Analizaremos su perfil y nos pondremos en contacto cuando surja una oportunidad adecuada."
+  },
+  "Voltar às vagas": { en: "Back to open positions", es: "Volver a las vacantes" },
+  "Indique um número de telefone válido.": { en: "Enter a valid phone number.", es: "Indique un número de teléfono válido." },
+  "Anexe o seu CV.": { en: "Attach your CV.", es: "Adjunte su CV." },
+  "O CV tem de ser um ficheiro PDF, DOC ou DOCX.": { en: "Your CV must be a PDF, DOC or DOCX file.", es: "El CV tiene que ser un archivo PDF, DOC o DOCX." },
+  "O CV tem mais de 5 MB. Envie um ficheiro mais pequeno.": { en: "Your CV is larger than 5 MB. Please send a smaller file.", es: "El CV ocupa más de 5 MB. Envíe un archivo más pequeño." },
+  "Para enviar a candidatura, autorize o tratamento dos seus dados.": { en: "To send your application, please authorise the processing of your data.", es: "Para enviar la candidatura, autorice el tratamiento de sus datos." },
+  "A enviar…": { en: "Sending…", es: "Enviando…" },
+  "Não foi possível enviar a candidatura. Tente de novo ou envie o CV para grupo@nossafarmacia.pt.": {
+    en: "We couldn't send your application. Please try again or email your CV to grupo@nossafarmacia.pt.",
+    es: "No se ha podido enviar la candidatura. Inténtelo de nuevo o envíe el CV a grupo@nossafarmacia.pt."
+  },
+  "anexar ao email": { en: "attach to the email", es: "adjuntar al correo" },
+  "O seu programa de email foi aberto com a candidatura preenchida. Anexe o CV e envie.": {
+    en: "Your email app has opened with the application filled in. Attach your CV and send it.",
+    es: "Su programa de correo se ha abierto con la candidatura rellenada. Adjunte el CV y envíela."
+  },
+
   /* ---------- Rodapé ---------- */
   "Grupo": { en: "Group", es: "Grupo" },
   "Nossas Farmácias": { en: "Our Pharmacies", es: "Nuestras Farmacias" },
