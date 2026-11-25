@@ -1,17 +1,9 @@
-/* Páginas de emprego: vídeo do topo e formulário de candidatura.
-   O menu, a língua, o reveal e o ano são do servicos/servico.js, que estas páginas também carregam.
+/* Páginas de emprego: formulário de candidatura.
+   O menu, a língua, o reveal, o ano e o vídeo do topo são do servicos/servico.js, que estas páginas também carregam.
    Os textos que o JS mostra estão no HTML (#msgs), para o build os traduzir com o resto da página. */
 (() => {
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- vídeo em loop no topo: só depois do load e sem prefers-reduced-motion ---------- */
-  const v = $('.s-hero-img video[data-src]');
-  if (v && !reduce) addEventListener('load', () => {
-    v.addEventListener('playing', () => v.classList.add('on'), { once: true });
-    v.src = v.dataset.src; v.play().catch(() => {});
-  }, { once: true });
 
   /* ---------- formulário de candidatura ---------- */
   const form = $('#cv-form');

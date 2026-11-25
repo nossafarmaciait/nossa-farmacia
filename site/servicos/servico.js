@@ -50,5 +50,13 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
   $$('.rv').forEach(el => reduce ? el.classList.add('in') : io.observe(el));
 
+  /* Vídeo em loop no topo: só depois do load, sem prefers-reduced-motion e em pausa fora do ecrã */
+  const v = $('.s-hero-img video[data-src]');
+  if (v && !reduce) addEventListener('load', () => {
+    v.addEventListener('playing', () => v.classList.add('on'), { once: true });
+    v.src = v.dataset.src;
+    new IntersectionObserver(([e]) => e.isIntersecting ? v.play().catch(() => {}) : v.pause()).observe(v);
+  }, { once: true });
+
   $('#year').textContent = new Date().getFullYear();
 })();

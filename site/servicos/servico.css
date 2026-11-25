@@ -195,7 +195,11 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 .s-hero .lead{color:var(--on-dark-2)}
 .s-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,3.4vw,40px)}
 .s-hero-img{margin:0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/2;background:#0F4B3B;box-shadow:0 30px 80px -30px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08)}
+.s-hero-img{position:relative}
 .s-hero-img img{width:100%;height:100%;object-fit:cover}
+/* vídeo em loop por cima da imagem (servico.js liga-o depois do load, nunca com reduzir movimento) */
+.s-hero-img video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s var(--ease)}
+.s-hero-img video.on{opacity:1}
 .s-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,5vw,72px);align-items:start}
 .s-text p{font-size:clamp(17px,1.35vw,19px);color:var(--ink-2);max-width:62ch}
 .s-text p+p{margin-top:18px}
