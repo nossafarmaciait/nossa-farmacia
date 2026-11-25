@@ -69,6 +69,7 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
                   proposta/: 9 clips em loop da Proposta de valor (MP4 H.264, 960×720, ~4 s) e posters (WebP)
                   emprego.mp4/.webp: fundo em loop do cartão Emprego (1280×720) e poster
                   adesao.mp4/.webp: vídeo dos 4 passos de adesão (720×960, ~12 s, keyframe a cada 6 frames) e poster
+                  servicos/: imagem animada do topo de cada página de serviço (MP4 H.264, 1200×800, 5 s em loop, sem som); o poster é a imagem em `img/servicos/`
 ```
 
 ## Requisitos do servidor
@@ -102,6 +103,9 @@ media/            vídeo da hero (MP4 H.264 + WebM VP9, desktop 16:9 e mobile 4:
   - O texto PT edita-se em `site/servicos/<nome>/index.html` e a tradução no `i18n.js`, como na página principal. O build encontra sozinho as pastas novas dentro de `servicos/`.
   - O menu, o rodapé, os ícones e o CSS base foram copiados do `index.html`: se mudarem lá, é preciso atualizar também as páginas de serviço e o `servicos/servico.css`.
   - Os links entre páginas do site levam `data-local`: o build não os altera, e assim ficam na mesma língua. Os caminhos de imagens, CSS e JS partem sempre da raiz do site (`../../img/…`, `../../servicos/servico.css`).
+  - **Imagem animada do topo:** a imagem do serviço aparece logo e o vídeo de `media/servicos/` entra por cima com um fade, depois do `load`. Pausa fora do ecrã e, com `prefers-reduced-motion`, fica só a imagem. O código está no `servico.js`/`servico.css` e serve também a página Emprego.
+    - Foram gerados no Higgsfield com o Kling 3.0 (Pro), com a imagem original como primeiro e último frame, para o loop não ter salto. O Kling mantém o enquadramento 3:2 da imagem; o Seedance corta para 16:9 e o vídeo deixava de coincidir com a imagem. Os originais estão em `higgsfield/servicos/video/`.
+    - Para trocar um vídeo: 1200×800, sem som, sem o último frame (é igual ao primeiro) e com `-movflags +faststart`, por exemplo `ffmpeg -i original.mp4 -vf "trim=end_frame=120,scale=1200:800:flags=lanczos,format=yuv420p" -an -c:v libx264 -preset slow -crf 27 -movflags +faststart site/media/servicos/<nome>.mp4`.
   - O antigo vídeo da Academia (youtu.be/FTXSur6-Tx8) não foi incluído porque tem a marca JUMP.
 - **Páginas de emprego:** o botão "Ver ofertas de emprego" e o link Emprego do rodapé abrem `emprego/`, a lista de vagas. Enquanto não houver vagas, a lista tem só a candidatura espontânea e uma nota a dizer que não há vagas abertas.
   - `emprego/candidatura-espontanea/` tem informação sobre o Grupo e o formulário: nome, email, telemóvel, distrito, área de interesse, LinkedIn e apresentação (opcionais), CV (PDF, DOC ou DOCX, até 5 MB) e consentimento para o tratamento de dados. A validação é feita no browser, com as mensagens na língua da página.
